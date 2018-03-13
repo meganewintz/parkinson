@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D2597C520573B1400D00716 /* ActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2597C420573B1400D00716 /* ActivitiesViewController.swift */; };
+		3D2597C720573B3B00D00716 /* ActivitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2597C620573B3B00D00716 /* ActivitiesTableViewController.swift */; };
 		3D63CDBE2055D33900ACC8C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CDBD2055D33900ACC8C2 /* AppDelegate.swift */; };
 		3D63CDC02055D33900ACC8C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CDBF2055D33900ACC8C2 /* ViewController.swift */; };
 		3D63CDC32055D33900ACC8C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D63CDC12055D33900ACC8C2 /* Main.storyboard */; };
@@ -15,6 +17,26 @@
 		3D63CDCB2055D33900ACC8C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D63CDC92055D33900ACC8C2 /* LaunchScreen.storyboard */; };
 		3D63CDD62055D33A00ACC8C2 /* parkinsonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CDD52055D33A00ACC8C2 /* parkinsonTests.swift */; };
 		3D63CDE12055D33A00ACC8C2 /* parkinsonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CDE02055D33A00ACC8C2 /* parkinsonUITests.swift */; };
+		3D63CDF72055D79000ACC8C2 /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CDF62055D79000ACC8C2 /* ActivityTableViewCell.swift */; };
+		3D63CE072055DB0200ACC8C2 /* PracticesSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CDFB2055DB0100ACC8C2 /* PracticesSet.swift */; };
+		3D63CE082055DB0200ACC8C2 /* Dose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CDFC2055DB0100ACC8C2 /* Dose.swift */; };
+		3D63CE092055DB0200ACC8C2 /* Treatment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CDFD2055DB0100ACC8C2 /* Treatment.swift */; };
+		3D63CE0A2055DB0200ACC8C2 /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CDFE2055DB0100ACC8C2 /* Appointment.swift */; };
+		3D63CE0B2055DB0200ACC8C2 /* DoseSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CDFF2055DB0100ACC8C2 /* DoseSet.swift */; };
+		3D63CE0C2055DB0200ACC8C2 /* Evaluation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CE002055DB0100ACC8C2 /* Evaluation.swift */; };
+		3D63CE0D2055DB0200ACC8C2 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CE012055DB0100ACC8C2 /* State.swift */; };
+		3D63CE0E2055DB0200ACC8C2 /* AppointmentSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CE022055DB0100ACC8C2 /* AppointmentSet.swift */; };
+		3D63CE0F2055DB0200ACC8C2 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CE032055DB0200ACC8C2 /* Activity.swift */; };
+		3D63CE102055DB0200ACC8C2 /* ActivitySet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CE042055DB0200ACC8C2 /* ActivitySet.swift */; };
+		3D63CE112055DB0200ACC8C2 /* TreatmentSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CE052055DB0200ACC8C2 /* TreatmentSet.swift */; };
+		3D63CE122055DB0200ACC8C2 /* Practice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CE062055DB0200ACC8C2 /* Practice.swift */; };
+		3D63CE1A2055DB8C00ACC8C2 /* DoseSetDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CE142055DB8B00ACC8C2 /* DoseSetDelegate.swift */; };
+		3D63CE1B2055DB8C00ACC8C2 /* TreatmentSetDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CE152055DB8B00ACC8C2 /* TreatmentSetDelegate.swift */; };
+		3D63CE1C2055DB8C00ACC8C2 /* AppointmentSetDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CE162055DB8B00ACC8C2 /* AppointmentSetDelegate.swift */; };
+		3D63CE1D2055DB8C00ACC8C2 /* ActivitySetDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CE172055DB8B00ACC8C2 /* ActivitySetDelegate.swift */; };
+		3D63CE1E2055DB8C00ACC8C2 /* PracticeSetDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CE182055DB8B00ACC8C2 /* PracticeSetDelegate.swift */; };
+		3D63CE1F2055DB8C00ACC8C2 /* EvaluationSetDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CE192055DB8C00ACC8C2 /* EvaluationSetDelegate.swift */; };
+		3D63CE212055DBC700ACC8C2 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CE202055DBC700ACC8C2 /* Factory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +57,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D2597C420573B1400D00716 /* ActivitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesViewController.swift; sourceTree = "<group>"; };
+		3D2597C620573B3B00D00716 /* ActivitiesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesTableViewController.swift; sourceTree = "<group>"; };
 		3D63CDBA2055D33900ACC8C2 /* parkinson.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = parkinson.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D63CDBD2055D33900ACC8C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D63CDBF2055D33900ACC8C2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +73,26 @@
 		3D63CDDC2055D33A00ACC8C2 /* parkinsonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = parkinsonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D63CDE02055D33A00ACC8C2 /* parkinsonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = parkinsonUITests.swift; sourceTree = "<group>"; };
 		3D63CDE22055D33A00ACC8C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D63CDF62055D79000ACC8C2 /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
+		3D63CDFB2055DB0100ACC8C2 /* PracticesSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PracticesSet.swift; sourceTree = "<group>"; };
+		3D63CDFC2055DB0100ACC8C2 /* Dose.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dose.swift; sourceTree = "<group>"; };
+		3D63CDFD2055DB0100ACC8C2 /* Treatment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Treatment.swift; sourceTree = "<group>"; };
+		3D63CDFE2055DB0100ACC8C2 /* Appointment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
+		3D63CDFF2055DB0100ACC8C2 /* DoseSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoseSet.swift; sourceTree = "<group>"; };
+		3D63CE002055DB0100ACC8C2 /* Evaluation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Evaluation.swift; sourceTree = "<group>"; };
+		3D63CE012055DB0100ACC8C2 /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		3D63CE022055DB0100ACC8C2 /* AppointmentSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppointmentSet.swift; sourceTree = "<group>"; };
+		3D63CE032055DB0200ACC8C2 /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		3D63CE042055DB0200ACC8C2 /* ActivitySet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivitySet.swift; sourceTree = "<group>"; };
+		3D63CE052055DB0200ACC8C2 /* TreatmentSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreatmentSet.swift; sourceTree = "<group>"; };
+		3D63CE062055DB0200ACC8C2 /* Practice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Practice.swift; sourceTree = "<group>"; };
+		3D63CE142055DB8B00ACC8C2 /* DoseSetDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoseSetDelegate.swift; sourceTree = "<group>"; };
+		3D63CE152055DB8B00ACC8C2 /* TreatmentSetDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreatmentSetDelegate.swift; sourceTree = "<group>"; };
+		3D63CE162055DB8B00ACC8C2 /* AppointmentSetDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppointmentSetDelegate.swift; sourceTree = "<group>"; };
+		3D63CE172055DB8B00ACC8C2 /* ActivitySetDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivitySetDelegate.swift; sourceTree = "<group>"; };
+		3D63CE182055DB8B00ACC8C2 /* PracticeSetDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PracticeSetDelegate.swift; sourceTree = "<group>"; };
+		3D63CE192055DB8C00ACC8C2 /* EvaluationSetDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvaluationSetDelegate.swift; sourceTree = "<group>"; };
+		3D63CE202055DBC700ACC8C2 /* Factory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,8 +143,12 @@
 		3D63CDBC2055D33900ACC8C2 /* parkinson */ = {
 			isa = PBXGroup;
 			children = (
+				3D63CE202055DBC700ACC8C2 /* Factory.swift */,
+				3D63CE132055DB5000ACC8C2 /* Delegates */,
+				3D63CDFA2055DA8600ACC8C2 /* Models */,
+				3D63CDF22055D6E400ACC8C2 /* Views */,
+				3D63CDEE2055D35100ACC8C2 /* Controllers */,
 				3D63CDBD2055D33900ACC8C2 /* AppDelegate.swift */,
-				3D63CDBF2055D33900ACC8C2 /* ViewController.swift */,
 				3D63CDC12055D33900ACC8C2 /* Main.storyboard */,
 				3D63CDC72055D33900ACC8C2 /* Assets.xcassets */,
 				3D63CDC92055D33900ACC8C2 /* LaunchScreen.storyboard */,
@@ -126,6 +174,72 @@
 				3D63CDE22055D33A00ACC8C2 /* Info.plist */,
 			);
 			path = parkinsonUITests;
+			sourceTree = "<group>";
+		};
+		3D63CDEE2055D35100ACC8C2 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3D63CDBF2055D33900ACC8C2 /* ViewController.swift */,
+				3D63CDEF2055D36800ACC8C2 /* Activity */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		3D63CDEF2055D36800ACC8C2 /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				3D2597C420573B1400D00716 /* ActivitiesViewController.swift */,
+				3D2597C620573B3B00D00716 /* ActivitiesTableViewController.swift */,
+			);
+			path = Activity;
+			sourceTree = "<group>";
+		};
+		3D63CDF22055D6E400ACC8C2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3D63CDF32055D73A00ACC8C2 /* Activity */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3D63CDF32055D73A00ACC8C2 /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				3D63CDF62055D79000ACC8C2 /* ActivityTableViewCell.swift */,
+			);
+			path = Activity;
+			sourceTree = "<group>";
+		};
+		3D63CDFA2055DA8600ACC8C2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3D63CE032055DB0200ACC8C2 /* Activity.swift */,
+				3D63CE042055DB0200ACC8C2 /* ActivitySet.swift */,
+				3D63CDFE2055DB0100ACC8C2 /* Appointment.swift */,
+				3D63CE022055DB0100ACC8C2 /* AppointmentSet.swift */,
+				3D63CDFC2055DB0100ACC8C2 /* Dose.swift */,
+				3D63CDFF2055DB0100ACC8C2 /* DoseSet.swift */,
+				3D63CE002055DB0100ACC8C2 /* Evaluation.swift */,
+				3D63CE062055DB0200ACC8C2 /* Practice.swift */,
+				3D63CDFB2055DB0100ACC8C2 /* PracticesSet.swift */,
+				3D63CE012055DB0100ACC8C2 /* State.swift */,
+				3D63CDFD2055DB0100ACC8C2 /* Treatment.swift */,
+				3D63CE052055DB0200ACC8C2 /* TreatmentSet.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3D63CE132055DB5000ACC8C2 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				3D63CE172055DB8B00ACC8C2 /* ActivitySetDelegate.swift */,
+				3D63CE162055DB8B00ACC8C2 /* AppointmentSetDelegate.swift */,
+				3D63CE142055DB8B00ACC8C2 /* DoseSetDelegate.swift */,
+				3D63CE192055DB8C00ACC8C2 /* EvaluationSetDelegate.swift */,
+				3D63CE182055DB8B00ACC8C2 /* PracticeSetDelegate.swift */,
+				3D63CE152055DB8B00ACC8C2 /* TreatmentSetDelegate.swift */,
+			);
+			path = Delegates;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,9 +376,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D63CE1A2055DB8C00ACC8C2 /* DoseSetDelegate.swift in Sources */,
+				3D63CE122055DB0200ACC8C2 /* Practice.swift in Sources */,
+				3D63CE0F2055DB0200ACC8C2 /* Activity.swift in Sources */,
+				3D63CE0E2055DB0200ACC8C2 /* AppointmentSet.swift in Sources */,
+				3D63CE082055DB0200ACC8C2 /* Dose.swift in Sources */,
+				3D63CE112055DB0200ACC8C2 /* TreatmentSet.swift in Sources */,
 				3D63CDC02055D33900ACC8C2 /* ViewController.swift in Sources */,
+				3D63CE072055DB0200ACC8C2 /* PracticesSet.swift in Sources */,
+				3D63CE1B2055DB8C00ACC8C2 /* TreatmentSetDelegate.swift in Sources */,
+				3D63CE1C2055DB8C00ACC8C2 /* AppointmentSetDelegate.swift in Sources */,
+				3D63CE1E2055DB8C00ACC8C2 /* PracticeSetDelegate.swift in Sources */,
+				3D63CE102055DB0200ACC8C2 /* ActivitySet.swift in Sources */,
+				3D63CE0C2055DB0200ACC8C2 /* Evaluation.swift in Sources */,
+				3D2597C520573B1400D00716 /* ActivitiesViewController.swift in Sources */,
+				3D63CE1F2055DB8C00ACC8C2 /* EvaluationSetDelegate.swift in Sources */,
+				3D63CE092055DB0200ACC8C2 /* Treatment.swift in Sources */,
+				3D2597C720573B3B00D00716 /* ActivitiesTableViewController.swift in Sources */,
+				3D63CDF72055D79000ACC8C2 /* ActivityTableViewCell.swift in Sources */,
+				3D63CE0B2055DB0200ACC8C2 /* DoseSet.swift in Sources */,
+				3D63CE212055DBC700ACC8C2 /* Factory.swift in Sources */,
+				3D63CE0D2055DB0200ACC8C2 /* State.swift in Sources */,
 				3D63CDBE2055D33900ACC8C2 /* AppDelegate.swift in Sources */,
 				3D63CDC62055D33900ACC8C2 /* parkinson.xcdatamodeld in Sources */,
+				3D63CE1D2055DB8C00ACC8C2 /* ActivitySetDelegate.swift in Sources */,
+				3D63CE0A2055DB0200ACC8C2 /* Appointment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
