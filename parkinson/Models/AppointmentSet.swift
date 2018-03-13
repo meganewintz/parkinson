@@ -65,7 +65,7 @@ class AppointmentSet {
     /// number of `Appointment` in the set
     ///
     /// - Returns : 'Int'
-    func count() -> Int {
+    public var count : Int {
         return appointmentSet.count
     }
     

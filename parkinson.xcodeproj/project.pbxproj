@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		28C1E71B2058236100368EF0 /* DailyDose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C1E71A2058236100368EF0 /* DailyDose.swift */; };
+		28C1E71C2058236100368EF0 /* DailyDose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C1E71A2058236100368EF0 /* DailyDose.swift */; };
 		3D2597C520573B1400D00716 /* ActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2597C420573B1400D00716 /* ActivitiesViewController.swift */; };
 		3D2597C720573B3B00D00716 /* ActivitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2597C620573B3B00D00716 /* ActivitiesTableViewController.swift */; };
 		3D63CDBE2055D33900ACC8C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CDBD2055D33900ACC8C2 /* AppDelegate.swift */; };
@@ -57,6 +59,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		28C1E71A2058236100368EF0 /* DailyDose.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyDose.swift; sourceTree = "<group>"; };
 		3D2597C420573B1400D00716 /* ActivitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesViewController.swift; sourceTree = "<group>"; };
 		3D2597C620573B3B00D00716 /* ActivitiesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesTableViewController.swift; sourceTree = "<group>"; };
 		3D63CDBA2055D33900ACC8C2 /* parkinson.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = parkinson.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -225,6 +228,7 @@
 				3D63CE012055DB0100ACC8C2 /* State.swift */,
 				3D63CDFD2055DB0100ACC8C2 /* Treatment.swift */,
 				3D63CE052055DB0200ACC8C2 /* TreatmentSet.swift */,
+				28C1E71A2058236100368EF0 /* DailyDose.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -378,6 +382,7 @@
 			files = (
 				3D63CE1A2055DB8C00ACC8C2 /* DoseSetDelegate.swift in Sources */,
 				3D63CE122055DB0200ACC8C2 /* Practice.swift in Sources */,
+				28C1E71B2058236100368EF0 /* DailyDose.swift in Sources */,
 				3D63CE0F2055DB0200ACC8C2 /* Activity.swift in Sources */,
 				3D63CE0E2055DB0200ACC8C2 /* AppointmentSet.swift in Sources */,
 				3D63CE082055DB0200ACC8C2 /* Dose.swift in Sources */,
@@ -416,6 +421,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28C1E71C2058236100368EF0 /* DailyDose.swift in Sources */,
 				3D63CDE12055D33A00ACC8C2 /* parkinsonUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
