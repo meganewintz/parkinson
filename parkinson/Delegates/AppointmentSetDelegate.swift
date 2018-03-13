@@ -8,12 +8,9 @@
 
 import Foundation
 
-protocol AppointmentSetDelegate {
+protocol AppointmentSetDelegate : class {
     
     func appointmentAdded(appointment : Appointment)
-    func appointmentUpdated(newValue : Appointment)
+    func appointmentUpdated(old : Appointment, new : Appointment)
     func appointmentDeleted(deletedAppointment : Appointment)
 }
-
-func ==(lhs : AppointmentSetDelegate, rhs : AppointmentSetDelegate) -> Bool { return lhs == rhs }
-func !=(lhs : AppointmentSetDelegate, rhs : AppointmentSetDelegate) -> Bool { return lhs != rhs }

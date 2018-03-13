@@ -37,6 +37,3 @@ class Dose {
         }
     }
 }
-
-func ==(lhs : Dose, rhs : Dose) -> Bool { return lhs == rhs }
-func !=(lhs : Dose, rhs : Dose) -> Bool { return lhs != rhs }

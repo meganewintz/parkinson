@@ -11,7 +11,7 @@ import Foundation
 class Treatment	 {
     
     public var name : String
-    public var descrition : String
+    public var description : String
     public var type : String
     public var frequency : Int
     public var doses : DoseSet
@@ -27,11 +27,12 @@ class Treatment	 {
     ///   - description:  `String`
     ///   - type : String
     ///   - frequency : String
-    init(name : String, description : String, type : String, frequency : String){
+    init(name : String, description : String, type : String, frequency : Int){
         self.name = name
         self.description = description
         self.type = type
         self.frequency = frequency
+        self.doses = DoseSet()
         self.dailyDoses = [DailyDose]()
     }
     
@@ -42,7 +43,7 @@ class Treatment	 {
     ///
     /// - Returns : 'Date?' the date of the next dose programed
     public func dateNextTreatment() -> Date? {
-        
+        return nil
     }
     
     
@@ -50,7 +51,10 @@ class Treatment	 {
     ///
     /// give the quantity of drug of the next dose programmed
     ///
-    /// - Returns : Int the quantity of the next dose programmed
+    /// - Returns : 'Int?' the quantity of the next dose programmed
+    public func nextDoseQuantity() -> Int? {
+        return nil
+    }
     
     
     /// addDailyDose
@@ -85,8 +89,8 @@ class Treatment	 {
     /// - Parameters:
     ///   - i: int
     ///
-    /// Returns : DailyDose the i-th dose of the day
-    public func getDailyDose(index i : Int) -> DailyDose {
+    /// Returns : 'DailyDose?' the i-th dose of the day
+    public func getDailyDose(index i : Int) -> DailyDose? {
         guard i>=0 && i<self.dailyDoseCount else { return nil }
         return dailyDoses[i]
     }
@@ -104,5 +108,4 @@ class Treatment	 {
         dailyDoses.remove(at : i)
         return self
     }
-
 }

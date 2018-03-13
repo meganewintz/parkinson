@@ -57,7 +57,7 @@ class DoseSet {
     ///   - dose: `Dose`
     /// - Returns : True if the dose is in the set
     func contains(dose : Dose) -> Bool {
-        return doses.contains(where : { $0 == dose })
+        return doses.contains(where : { $0 === dose })
     }
     
     
@@ -107,7 +107,7 @@ class DoseSet {
     ///   - new: Dose
     /// - Returns : 'DoseSet' with the dose updated
     func updateDose(old : Dose, new : Dose) -> DoseSet {
-        if let index=doses.index(where : { $0 == old }) {
+        if let index=doses.index(where : { $0 === old }) {
             doses[index] = new
             for d in delegates {
                 d.doseUpdated(newValue : new)
@@ -126,7 +126,7 @@ class DoseSet {
     ///
     /// Returns : 'DoseSet' the current instance with the delegate in parameter
     func addDelegate(delegate : DoseSetDelegate) -> DoseSet {
-        if !delegates.contains(where : { $0 == delegate }) {
+        if !delegates.contains(where : { $0 === delegate }) {
             delegates.append(delegate)
         }
         return self
@@ -142,7 +142,7 @@ class DoseSet {
     ///
     /// Returns : 'DoseSet' the current instance without the delegate in parameter
     func removeDelegate(delegate : DoseSetDelegate) -> DoseSet {
-        if let index = delegates.index(where : { $0 == delegate }) {
+        if let index = delegates.index(where : { $0 === delegate }) {
             delegates.remove(at : index)
         }
         return self

@@ -49,7 +49,7 @@ class AppointmentSet {
     /// - Returns : 'AppointmentSet' without the appointment enter in parameter
     func removeAppointment(appointment : Appointment) -> AppointmentSet {
         
-        if let index=appointmentSet.index(where: { $0 == appointment })
+        if let index=appointmentSet.index(where: { $0 === appointment })
         {
             appointmentSet.remove(at: index)
             for d : AppointmentSetDelegate in delegates {
@@ -77,7 +77,7 @@ class AppointmentSet {
     ///   - appointment: `Appointment`
     /// - Returns : True if the appointment is in the set
     func contains(appointment : Appointment) -> Bool {
-        return appointmentSet.contains(where: { $0 == appointment})
+        return appointmentSet.contains(where: { $0 === appointment})
     }
     
     
@@ -125,11 +125,11 @@ class AppointmentSet {
     ///   - new: Appointment
     /// - Returns : 'AppointmentSet' with the appointment updated
     func updateAppointment(old : Appointment, new : Appointment) -> AppointmentSet {
-        if let index=appointmentSet.index(where: { $0 == old })
+        if let index=appointmentSet.index(where: { $0 === old })
         {
             appointmentSet[index] = new
             for d : AppointmentSetDelegate in delegates {
-                d.appointmentUpdated(newValue: new)
+                d.appointmentUpdated(old : old, new : new)
             }
         }
         return self
@@ -159,7 +159,7 @@ class AppointmentSet {
     /// Returns : 'AppointmentSet' the current instance with the delegate in parameter
     func addDelegate(delegate : AppointmentSetDelegate) -> AppointmentSet
     {
-        if !delegates.contains(where: { $0 == delegate }){
+        if !delegates.contains(where: { $0 === delegate }){
             delegates.append(delegate)
         }
         return self
@@ -175,7 +175,7 @@ class AppointmentSet {
     ///
     /// Returns : 'AppointmentSet' the current instance without the delegate in parameter
     func removeDelegate(delegate : AppointmentSetDelegate) -> AppointmentSet {
-        if let index = delegates.index(where: { $0 == delegate })
+        if let index = delegates.index(where: { $0 === delegate })
         {
             delegates.remove(at: index)
         }
