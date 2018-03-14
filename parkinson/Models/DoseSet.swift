@@ -31,6 +31,7 @@ class DoseSet {
     /// - Parameters:
     ///   - dose: `Dose`
     /// - Returns : 'DoseSet' with the dose enter in parameter
+    @discardableResult
     func addDose(dose : Dose) -> DoseSet {
         doses.append(dose)
         for d in delegates {
@@ -45,7 +46,7 @@ class DoseSet {
     /// number of `Dose` in the set
     ///
     /// - Returns : 'Int'
-    func count() -> Int {
+    public var count : Int {
         return doses.count
     }
     
@@ -106,6 +107,7 @@ class DoseSet {
     ///   - old: `Dose`
     ///   - new: Dose
     /// - Returns : 'DoseSet' with the dose updated
+    @discardableResult
     func updateDose(old : Dose, new : Dose) -> DoseSet {
         if let index=doses.index(where : { $0 === old }) {
             doses[index] = new
@@ -125,6 +127,7 @@ class DoseSet {
     ///   - delegate: `DoseSetDelegate`
     ///
     /// Returns : 'DoseSet' the current instance with the delegate in parameter
+    @discardableResult
     func addDelegate(delegate : DoseSetDelegate) -> DoseSet {
         if !delegates.contains(where : { $0 === delegate }) {
             delegates.append(delegate)
@@ -141,6 +144,7 @@ class DoseSet {
     ///   - delegate: `DoseSetDelegate`
     ///
     /// Returns : 'DoseSet' the current instance without the delegate in parameter
+    @discardableResult
     func removeDelegate(delegate : DoseSetDelegate) -> DoseSet {
         if let index = delegates.index(where : { $0 === delegate }) {
             delegates.remove(at : index)
@@ -161,7 +165,7 @@ class DoseSet {
                 success += 1
             }
         }
-        return Float(success) / Float(count()) * 100
+        return Float(success) / Float(self.count) * 100
     }
 }
 
