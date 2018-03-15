@@ -8,19 +8,29 @@
 
 import Foundation
 
+
+
+protocol DAOtreatmentProtocol {
+    
+}
+
+
 class TreatmentSet {
 
     private var treatments : [Treatment]
     private var delegates : [TreatmentSetDelegate]
+    private var dao : DAOtreatmentProtocol
     
     
     /// init
     ///
     /// initialize an 'TreatmentSet', empty.
     ///
-    init(){
-        treatments = [Treatment]()
-        delegates = [TreatmentSetDelegate]()
+    init(dao: DAOtreatmentProtocol){
+        self.dao = dao
+        self.treatments = [Treatment]()
+        self.delegates = [TreatmentSetDelegate]()
+        
     }
 
     

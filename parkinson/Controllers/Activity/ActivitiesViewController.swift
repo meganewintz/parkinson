@@ -9,8 +9,7 @@
 import UIKit
 
 class ActivitiesViewController: UIViewController {
-    
-    let factory: Factory = Factory()
+
     var tableViewController: ActivitiesTableViewController!
     @IBOutlet weak var tableView: UITableView!
     
@@ -19,7 +18,7 @@ class ActivitiesViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         self.displayActivities()
-        self.tableViewController = ActivitiesTableViewController(tableView: self.tableView, activities: self.factory.activitySet)
+        self.tableViewController = ActivitiesTableViewController(tableView: self.tableView, activities: Factory.sharedData.patient.activitySet)
     }
 
     override func didReceiveMemoryWarning() {

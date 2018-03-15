@@ -11,7 +11,7 @@ import CoreData
 import UIKit
 
 
-class DAOActivity : DAOactivityProtocol{
+class DAOcoreDataActivity : DAOactivityProtocol{
     
     func getActivities() -> ActivitySet? {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {

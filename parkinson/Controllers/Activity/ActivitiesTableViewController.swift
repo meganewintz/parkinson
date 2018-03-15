@@ -70,23 +70,33 @@ class ActivitiesTableViewController : NSObject, UITableViewDataSource, ActivityS
     
     //-------------------------------------------------------------------------------------------------
     // MARK: - ActivitySetDelegate
-    func activityAdded(at: IndexPath) {
+    func activityAdded(at: Int) {
+        let indexPath = IndexPath(index: at)
         self.tableView.beginUpdates()
-        self.tableView.insertRows(at: [at], with: UITableViewRowAnimation.middle)
+        self.tableView.insertRows(at: [indexPath], with: UITableViewRowAnimation.middle)
         self.tableView.endUpdates()
         //      self.tableView.reloadData()
     }
     
-    func activityUpdated(at: IndexPath) {
+    func activityUpdated(at: Int) {
+        let indexPath = IndexPath(index: at)
         self.tableView.beginUpdates()
-        self.tableView.reloadRows(at: [at], with: UITableViewRowAnimation.fade)
+        self.tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.fade)
         self.tableView.endUpdates()
     }
     
-    func activityRemoved(at: IndexPath) {
+    func activityRemoved(at: Int) {
+        let indexPath = IndexPath(index: at)
         self.tableView.beginUpdates()
-        self.tableView.deleteRows(at: [at], with: UITableViewRowAnimation.fade)
+        self.tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade)
         self.tableView.endUpdates()
+    }
+    
+    func errorDataBaseRead() {
+        
+    }
+    func errorDataBaseWrite() {
+        
     }
     
     //-------------------------------------------------------------------------------------------------
