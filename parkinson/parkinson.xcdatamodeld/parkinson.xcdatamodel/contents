@@ -1,10 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17D102" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16F73" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="ActivityData" representedClassName="ActivityData" syncable="YES" codeGenerationType="class">
         <attribute name="descr" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="dates" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DateData" inverseName="activity" inverseEntity="DateData" syncable="YES"/>
+        <relationship name="days" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DayData" inverseName="newRelationship" inverseEntity="DayData" syncable="YES"/>
+        <relationship name="patient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="newRelationship" inverseEntity="Patient" syncable="YES"/>
+        <relationship name="type" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ActivityTypeData" inverseName="activity" inverseEntity="ActivityTypeData" syncable="YES"/>
+    </entity>
+    <entity name="ActivityTypeData" representedClassName="ActivityTypeData" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="activity" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ActivityData" inverseName="type" inverseEntity="ActivityData" syncable="YES"/>
+    </entity>
+    <entity name="DateData" representedClassName="DateData" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="activity" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ActivityData" inverseName="dates" inverseEntity="ActivityData" syncable="YES"/>
+    </entity>
+    <entity name="DayData" representedClassName="DayData" syncable="YES" codeGenerationType="class">
+        <attribute name="day" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ActivityData" inverseName="days" inverseEntity="ActivityData" syncable="YES"/>
+    </entity>
+    <entity name="Patient" representedClassName="Patient" syncable="YES" codeGenerationType="class">
+        <attribute name="dateOfBirth" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="firstname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="surname" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ActivityData" inverseName="patient" inverseEntity="ActivityData" syncable="YES"/>
     </entity>
     <elements>
-        <element name="ActivityData" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="ActivityData" positionX="-461" positionY="47" width="128" height="133"/>
+        <element name="ActivityTypeData" positionX="-245" positionY="54" width="128" height="73"/>
+        <element name="DayData" positionX="-461" positionY="212" width="128" height="73"/>
+        <element name="DateData" positionX="-675" positionY="93" width="128" height="73"/>
+        <element name="Patient" positionX="-459" positionY="-216" width="128" height="103"/>
     </elements>
 </model>
