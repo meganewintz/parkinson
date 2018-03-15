@@ -10,7 +10,9 @@ import Foundation
 
 protocol AppointmentSetDelegate : class {
     
-    func appointmentAdded(appointment : Appointment)
-    func appointmentUpdated(old : Appointment, new : Appointment)
-    func appointmentDeleted(deletedAppointment : Appointment)
+    func appointmentAdded(at : Int)
+    func appointmentUpdated(at : Int)
+    func appointmentDeleted(at : Int)
+    func errorDataBaseRead()
+    func errorDataBaseWrite()
 }
