@@ -9,16 +9,15 @@
 import UIKit
 
 class ActivitiesViewController: UIViewController {
-
-    var tableViewController: ActivitiesTableViewController!
+    
     let factory: Factory = Factory()
+    var tableViewController: ActivitiesTableViewController!
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.factory.initializeData()
         self.displayActivities()
         self.tableViewController = ActivitiesTableViewController(tableView: self.tableView, activities: self.factory.activitySet)
     }
@@ -71,9 +70,15 @@ class ActivitiesViewController: UIViewController {
     /// - Precondition: index must be into bound of collection
     /// - Parameter index: <#index description#>
     /// - Returns: <#return value description#>
-//    func deleteActivity(activityWithIndex index: Int) -> Bool {
-//        gaurd let context = self.getContex
-//    }
+    func deleteActivity(activityWithIndex index: Int) {
+        guard let error = factory.deleteActivity(activityWithIndex: index) else{
+            let indexPath = IndexPath(row: index, section: 0) // assuming cell is for first or only section of table view
+            tableViewController.activityRemoved(at: indexPath)
+            return
+        }
+        // if there is an error during the load of the data, display the error
+        self.alertError(errorMsg: error[0], userInfo: error[1])
+    }
     
     /// Display the activities present in the CoreData or an error if there is.
     func displayActivities() {
@@ -105,7 +110,7 @@ class ActivitiesViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-    }
+     }
     */
 
 }

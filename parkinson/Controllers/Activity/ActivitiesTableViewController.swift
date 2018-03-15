@@ -10,12 +10,15 @@ import Foundation
 import UIKit
 
 class ActivitiesTableViewController : NSObject, UITableViewDataSource, ActivitySetDelegate {
-    
+    let factory: Factory = Factory()
+
     var tableView: UITableView!
     var activities: ActivitySet!
     
     init(tableView: UITableView, activities: ActivitySet) {
         super.init()
+        self.factory.initializeData()
+
         self.tableView = tableView
         self.tableView.dataSource = self
         self.activities = activities
@@ -53,13 +56,13 @@ class ActivitiesTableViewController : NSObject, UITableViewDataSource, ActivityS
     //  Asks the data source to commit the insertion or deletion of a specified row in the receiver.
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt: IndexPath) {
         //just managed deleting
-//        if (editingStyle == UITableViewCellEditingStyle.delete) {
-//            self.tableView.beginUpdates()
+        if (editingStyle == UITableViewCellEditingStyle.delete) {
+            self.tableView.beginUpdates()
 //            if self.delete(activityWithIndex: IndexPath.row) {
 //                self.tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
 //            }
-//            self.tableView.endUpdates()
-//        }
+            self.tableView.endUpdates()
+        }
     }
     
     

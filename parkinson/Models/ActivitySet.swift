@@ -79,19 +79,38 @@ import UIKit
 /// - Parameters:
 ///   - delegate: `Delegate`
 
+protocol DAOactivityProtocol : class {
+    
+    /// Get all the activities from CoreData.
+    ///
+    /// - Returns: ActivitySet containing all the activities.
+    func getActivities() -> ActivitySet?
+    func getActivity(name: String) -> ActivityData?
+    func addActivity(activity: Activity) -> Bool
+    func removeActivity(activity: Activity) -> Bool
+}
+
 class ActivitySet: Sequence {
     fileprivate var pset : [Activity] = []
     var delegate : ActivitySetDelegate? = nil
-
+    var dao: DAOactivityProtocol
+    
+    init(dao: DAOactivityProtocol){
+        self.dao = dao
+    }
  
     /// `ActivitySet` x `Activity` -> `ActivitySet` -- add Activity to ActivitySet, if `Activity` already belongs to `ActivitySet` then do nothing
-    ///
+    /// - Precondition: An activity with the same name must not exist.
     /// - Parameter activity: `Activity` to be added to the set
     /// - Returns: `ActivitySet` with new `Activity` added to the set, or `ActivitySet` unmodified if `Activity` belonged already to the set.
     @discardableResult
     func addActivity(activity: Activity) -> ActivitySet{
         if !self.contains(activity: activity){
-            self.pset.append(activity)
+            if(self.dao.addActivity(activity: activity)){
+                self.pset.append(activity)
+            }else{
+                
+            }
         }
         return self
     }
@@ -103,9 +122,21 @@ class ActivitySet: Sequence {
     /// - Returns: `ActivitySet` with `Activity` removed if `Activity` belonged to `ActivitySet`
     @discardableResult
     func removeActivity(activity: Activity) -> ActivitySet{
-        //if let i = self.pset.index(of: activity){
-        //    self.pset.remove(at: i)
-        //}
+//        if let i = self.pset.index(of: activity){
+//            self.pset.remove(at: i)
+//        }
+        return self
+    }
+    
+    /// `ActivitySet` x `Activity` -> `ActivitySet` -- if `Activity` belongs to `ActivitySet`, remove it from the set, else do nothing
+    ///
+    /// - Parameter activity: `Activity` to be removed
+    /// - Returns: `ActivitySet` with `Activity` removed if `Activity` belonged to `ActivitySet`
+    @discardableResult
+    func removeActivity(index: Int) -> ActivitySet{
+        if (index < self.count) {
+            self.pset.remove(at: index)
+        }
         return self
     }
     

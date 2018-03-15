@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3D2597C520573B1400D00716 /* ActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2597C420573B1400D00716 /* ActivitiesViewController.swift */; };
 		3D2597C720573B3B00D00716 /* ActivitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2597C620573B3B00D00716 /* ActivitiesTableViewController.swift */; };
+		3D2597CA205840F400D00716 /* DAOActivityData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2597C9205840F400D00716 /* DAOActivityData.swift */; };
 		3D63CDBE2055D33900ACC8C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CDBD2055D33900ACC8C2 /* AppDelegate.swift */; };
 		3D63CDC02055D33900ACC8C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CDBF2055D33900ACC8C2 /* ViewController.swift */; };
 		3D63CDC32055D33900ACC8C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D63CDC12055D33900ACC8C2 /* Main.storyboard */; };
@@ -59,6 +60,7 @@
 /* Begin PBXFileReference section */
 		3D2597C420573B1400D00716 /* ActivitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesViewController.swift; sourceTree = "<group>"; };
 		3D2597C620573B3B00D00716 /* ActivitiesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesTableViewController.swift; sourceTree = "<group>"; };
+		3D2597C9205840F400D00716 /* DAOActivityData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAOActivityData.swift; sourceTree = "<group>"; };
 		3D63CDBA2055D33900ACC8C2 /* parkinson.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = parkinson.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D63CDBD2055D33900ACC8C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D63CDBF2055D33900ACC8C2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +122,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D2597C820583E4A00D00716 /* DAO */ = {
+			isa = PBXGroup;
+			children = (
+				3D2597C9205840F400D00716 /* DAOActivityData.swift */,
+			);
+			path = DAO;
+			sourceTree = "<group>";
+		};
 		3D63CDB12055D33900ACC8C2 = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				3D63CE202055DBC700ACC8C2 /* Factory.swift */,
+				3D2597C820583E4A00D00716 /* DAO */,
 				3D63CE132055DB5000ACC8C2 /* Delegates */,
 				3D63CDFA2055DA8600ACC8C2 /* Models */,
 				3D63CDF22055D6E400ACC8C2 /* Views */,
@@ -387,6 +398,7 @@
 				3D63CE1B2055DB8C00ACC8C2 /* TreatmentSetDelegate.swift in Sources */,
 				3D63CE1C2055DB8C00ACC8C2 /* AppointmentSetDelegate.swift in Sources */,
 				3D63CE1E2055DB8C00ACC8C2 /* PracticeSetDelegate.swift in Sources */,
+				3D2597CA205840F400D00716 /* DAOActivityData.swift in Sources */,
 				3D63CE102055DB0200ACC8C2 /* ActivitySet.swift in Sources */,
 				3D63CE0C2055DB0200ACC8C2 /* Evaluation.swift in Sources */,
 				3D2597C520573B1400D00716 /* ActivitiesViewController.swift in Sources */,
