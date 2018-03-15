@@ -36,9 +36,15 @@ class TreatmentSet {
     /// - Returns : 'TreatmentSet' with the treatment enter in parameter
     @discardableResult
     public func addTreatment(treatment : Treatment) -> TreatmentSet {
-        treatments.append(treatment)
-        for d in delegates {
-            d.treatmentAdded(treatment : treatment)
+        if dao.addTreatment(treatment){
+            treatments.append(treatment)
+            for d in delegates {
+                d.treatmentAdded(at : self.count-1)
+            }
+        } else {
+            for d in delegates {
+                d.errorDataBaseWrite()
+            }
         }
         return self
     }
@@ -54,9 +60,15 @@ class TreatmentSet {
     @discardableResult
     public func removeTreatment(treatment : Treatment) -> TreatmentSet {
         if let index = treatments.index(where: { treatment === $0 }) {
-            treatments.remove(at : index)
-            for d in delegates {
-                d.treatmentRemoved(deletedValue: treatment)
+            if dao.removeTreatment(treatment) {
+                treatments.remove(at : index)
+                for d in delegates {
+                    d.treatmentRemoved(at : index)
+                }
+            } else {
+                for d in delegates {
+                    d.errorDataBaseWrite()
+                }
             }
         }
         return self
@@ -130,9 +142,15 @@ class TreatmentSet {
     @discardableResult
     func updateTreatment(old : Treatment, new : Treatment) -> TreatmentSet {
         if let index = treatments.index(where: { $0 === old }) {
-            treatments[index] = new
-            for d in delegates {
-                d.treatmentUpdated(old : old, new : new)
+            if dao.updateTreatment(old : old, new : new) {
+                treatments[index] = new
+                for d in delegates {
+                    d.treatmentUpdated(at : index)
+                }
+            } else {
+                for d in delegates {
+                    d.errorDataBaseWrite()
+                }
             }
         }
         return self

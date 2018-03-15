@@ -13,7 +13,6 @@ class Treatment	 {
     public var name : String
     public var description : String
     public var type : String
-    public var frequency : Int
     public var doses : DoseSet
 
     private var dailyDoses : [DailyDose]
@@ -27,11 +26,10 @@ class Treatment	 {
     ///   - description:  `String`
     ///   - type : String
     ///   - frequency : String
-    init(name : String, description : String, type : String, frequency : Int){
+    init(name : String, description : String, type : String){
         self.name = name
         self.description = description
         self.type = type
-        self.frequency = frequency
         self.doses = DoseSet()
         self.dailyDoses = [DailyDose]()
     }
