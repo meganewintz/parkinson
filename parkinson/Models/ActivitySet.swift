@@ -87,16 +87,20 @@ protocol DAOactivityProtocol : class {
     func getActivities() -> ActivitySet?
     func getActivity(name: String) -> ActivityData?
     func addActivity(activity: Activity) -> Bool
+    func addActivity(activity: Activity, patient: Patient) -> Bool
     func removeActivity(activity: Activity) -> Bool
+    func updateActivity(oldActivity: Activity, newActivity: Activity) -> Bool
 }
 
 class ActivitySet: Sequence {
-    fileprivate var pset : [Activity] = []
-    var delegate : ActivitySetDelegate? = nil
+    private var pset : [Activity] = []
+    private var delegates : [ActivitySetDelegate]
+
     var dao: DAOactivityProtocol
     
     init(dao: DAOactivityProtocol){
         self.dao = dao
+        delegates = [ActivitySetDelegate]()
     }
  
     /// `ActivitySet` x `Activity` -> `ActivitySet` -- add Activity to ActivitySet, if `Activity` already belongs to `ActivitySet` then do nothing
@@ -108,8 +112,11 @@ class ActivitySet: Sequence {
         if !self.contains(activity: activity){
             if(self.dao.addActivity(activity: activity)){
                 self.pset.append(activity)
+                for delegate in delegates {
+                    delegate.activityAdded(at: self.count-1)
+                }
             }else{
-                
+                print("Erreur lors de l'ajout de l'activité")
             }
         }
         return self

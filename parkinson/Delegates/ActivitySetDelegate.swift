@@ -13,7 +13,9 @@ protocol ActivitySetDelegate {
 //    func activityAdded(activity : Activity)
 //    func activityUpdated(newValue : Activity)
 //    func activityRemoved(deletedValue : Activity)
-    func activityAdded(at: IndexPath)
-    func activityUpdated(at: IndexPath)
-    func activityRemoved(at: IndexPath)
+    func activityAdded(at: Int)
+    func activityUpdated(at: Int)
+    func activityRemoved(at: Int)
+    func errorDataBaseRead()
+    func errorDataBaseWrite()
 }

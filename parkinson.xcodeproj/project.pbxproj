@@ -11,7 +11,7 @@
 		28C1E71C2058236100368EF0 /* DailyDose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C1E71A2058236100368EF0 /* DailyDose.swift */; };
 		3D2597C520573B1400D00716 /* ActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2597C420573B1400D00716 /* ActivitiesViewController.swift */; };
 		3D2597C720573B3B00D00716 /* ActivitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2597C620573B3B00D00716 /* ActivitiesTableViewController.swift */; };
-		3D2597CA205840F400D00716 /* DAOActivityData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2597C9205840F400D00716 /* DAOActivityData.swift */; };
+		3D2597CA205840F400D00716 /* DAOcoreDataActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2597C9205840F400D00716 /* DAOcoreDataActivity.swift */; };
 		3D63CDBE2055D33900ACC8C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CDBD2055D33900ACC8C2 /* AppDelegate.swift */; };
 		3D63CDC02055D33900ACC8C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CDBF2055D33900ACC8C2 /* ViewController.swift */; };
 		3D63CDC32055D33900ACC8C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D63CDC12055D33900ACC8C2 /* Main.storyboard */; };
@@ -39,7 +39,10 @@
 		3D63CE1D2055DB8C00ACC8C2 /* ActivitySetDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CE172055DB8B00ACC8C2 /* ActivitySetDelegate.swift */; };
 		3D63CE1E2055DB8C00ACC8C2 /* PracticeSetDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CE182055DB8B00ACC8C2 /* PracticeSetDelegate.swift */; };
 		3D63CE1F2055DB8C00ACC8C2 /* EvaluationSetDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CE192055DB8C00ACC8C2 /* EvaluationSetDelegate.swift */; };
-		3D63CE212055DBC700ACC8C2 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CE202055DBC700ACC8C2 /* Factory.swift */; };
+		3D63CE212055DBC700ACC8C2 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CE202055DBC700ACC8C2 /* Test.swift */; };
+		52DB6993205AB6A100D4D5F0 /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DB6992205AB6A100D4D5F0 /* Patient.swift */; };
+		52DB6995205AB86000D4D5F0 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DB6994205AB86000D4D5F0 /* Factory.swift */; };
+		52DB6997205ABABC00D4D5F0 /* DAOcoreDataTreatment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DB6996205ABABC00D4D5F0 /* DAOcoreDataTreatment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +66,7 @@
 		28C1E71A2058236100368EF0 /* DailyDose.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyDose.swift; sourceTree = "<group>"; };
 		3D2597C420573B1400D00716 /* ActivitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesViewController.swift; sourceTree = "<group>"; };
 		3D2597C620573B3B00D00716 /* ActivitiesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesTableViewController.swift; sourceTree = "<group>"; };
-		3D2597C9205840F400D00716 /* DAOActivityData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAOActivityData.swift; sourceTree = "<group>"; };
+		3D2597C9205840F400D00716 /* DAOcoreDataActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAOcoreDataActivity.swift; sourceTree = "<group>"; };
 		3D63CDBA2055D33900ACC8C2 /* parkinson.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = parkinson.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D63CDBD2055D33900ACC8C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D63CDBF2055D33900ACC8C2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -97,7 +100,10 @@
 		3D63CE172055DB8B00ACC8C2 /* ActivitySetDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivitySetDelegate.swift; sourceTree = "<group>"; };
 		3D63CE182055DB8B00ACC8C2 /* PracticeSetDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PracticeSetDelegate.swift; sourceTree = "<group>"; };
 		3D63CE192055DB8C00ACC8C2 /* EvaluationSetDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvaluationSetDelegate.swift; sourceTree = "<group>"; };
-		3D63CE202055DBC700ACC8C2 /* Factory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
+		3D63CE202055DBC700ACC8C2 /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		52DB6992205AB6A100D4D5F0 /* Patient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
+		52DB6994205AB86000D4D5F0 /* Factory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
+		52DB6996205ABABC00D4D5F0 /* DAOcoreDataTreatment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DAOcoreDataTreatment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,7 +134,8 @@
 		3D2597C820583E4A00D00716 /* DAO */ = {
 			isa = PBXGroup;
 			children = (
-				3D2597C9205840F400D00716 /* DAOActivityData.swift */,
+				3D2597C9205840F400D00716 /* DAOcoreDataActivity.swift */,
+				52DB6996205ABABC00D4D5F0 /* DAOcoreDataTreatment.swift */,
 			);
 			path = DAO;
 			sourceTree = "<group>";
@@ -156,7 +163,7 @@
 		3D63CDBC2055D33900ACC8C2 /* parkinson */ = {
 			isa = PBXGroup;
 			children = (
-				3D63CE202055DBC700ACC8C2 /* Factory.swift */,
+				3D63CE202055DBC700ACC8C2 /* Test.swift */,
 				3D2597C820583E4A00D00716 /* DAO */,
 				3D63CE132055DB5000ACC8C2 /* Delegates */,
 				3D63CDFA2055DA8600ACC8C2 /* Models */,
@@ -168,6 +175,8 @@
 				3D63CDC92055D33900ACC8C2 /* LaunchScreen.storyboard */,
 				3D63CDCC2055D33900ACC8C2 /* Info.plist */,
 				3D63CDC42055D33900ACC8C2 /* parkinson.xcdatamodeld */,
+				52DB6992205AB6A100D4D5F0 /* Patient.swift */,
+				52DB6994205AB86000D4D5F0 /* Factory.swift */,
 			);
 			path = parkinson;
 			sourceTree = "<group>";
@@ -396,14 +405,16 @@
 				28C1E71B2058236100368EF0 /* DailyDose.swift in Sources */,
 				3D63CE0F2055DB0200ACC8C2 /* Activity.swift in Sources */,
 				3D63CE0E2055DB0200ACC8C2 /* AppointmentSet.swift in Sources */,
+				52DB6995205AB86000D4D5F0 /* Factory.swift in Sources */,
 				3D63CE082055DB0200ACC8C2 /* Dose.swift in Sources */,
 				3D63CE112055DB0200ACC8C2 /* TreatmentSet.swift in Sources */,
+				52DB6997205ABABC00D4D5F0 /* DAOcoreDataTreatment.swift in Sources */,
 				3D63CDC02055D33900ACC8C2 /* ViewController.swift in Sources */,
 				3D63CE072055DB0200ACC8C2 /* PracticesSet.swift in Sources */,
 				3D63CE1B2055DB8C00ACC8C2 /* TreatmentSetDelegate.swift in Sources */,
 				3D63CE1C2055DB8C00ACC8C2 /* AppointmentSetDelegate.swift in Sources */,
 				3D63CE1E2055DB8C00ACC8C2 /* PracticeSetDelegate.swift in Sources */,
-				3D2597CA205840F400D00716 /* DAOActivityData.swift in Sources */,
+				3D2597CA205840F400D00716 /* DAOcoreDataActivity.swift in Sources */,
 				3D63CE102055DB0200ACC8C2 /* ActivitySet.swift in Sources */,
 				3D63CE0C2055DB0200ACC8C2 /* Evaluation.swift in Sources */,
 				3D2597C520573B1400D00716 /* ActivitiesViewController.swift in Sources */,
@@ -412,10 +423,11 @@
 				3D2597C720573B3B00D00716 /* ActivitiesTableViewController.swift in Sources */,
 				3D63CDF72055D79000ACC8C2 /* ActivityTableViewCell.swift in Sources */,
 				3D63CE0B2055DB0200ACC8C2 /* DoseSet.swift in Sources */,
-				3D63CE212055DBC700ACC8C2 /* Factory.swift in Sources */,
+				3D63CE212055DBC700ACC8C2 /* Test.swift in Sources */,
 				3D63CE0D2055DB0200ACC8C2 /* State.swift in Sources */,
 				3D63CDBE2055D33900ACC8C2 /* AppDelegate.swift in Sources */,
 				3D63CDC62055D33900ACC8C2 /* parkinson.xcdatamodeld in Sources */,
+				52DB6993205AB6A100D4D5F0 /* Patient.swift in Sources */,
 				3D63CE1D2055DB8C00ACC8C2 /* ActivitySetDelegate.swift in Sources */,
 				3D63CE0A2055DB0200ACC8C2 /* Appointment.swift in Sources */,
 			);
@@ -651,6 +663,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CNEDGC33HN;
 				INFOPLIST_FILE = parkinsonUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = megane.parkinsonUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -667,6 +680,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CNEDGC33HN;
 				INFOPLIST_FILE = parkinsonUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = megane.parkinsonUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
