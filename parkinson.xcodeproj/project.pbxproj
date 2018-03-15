@@ -7,12 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		284CE4A4205AF8F6000551AD /* AppointmentSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CE022055DB0100ACC8C2 /* AppointmentSet.swift */; };
+		284CE4A5205AF902000551AD /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CDFE2055DB0100ACC8C2 /* Appointment.swift */; };
+		284CE4A6205AF920000551AD /* AppointmentSetDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CE162055DB8B00ACC8C2 /* AppointmentSetDelegate.swift */; };
+		284CE4A7205AF939000551AD /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CE032055DB0200ACC8C2 /* Activity.swift */; };
+		284CE4A8205AF93C000551AD /* ActivitySet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CE042055DB0200ACC8C2 /* ActivitySet.swift */; };
+		284CE4A9205AF943000551AD /* Dose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CDFC2055DB0100ACC8C2 /* Dose.swift */; };
+		284CE4AA205AF946000551AD /* DoseSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CDFF2055DB0100ACC8C2 /* DoseSet.swift */; };
+		284CE4AB205AF949000551AD /* Evaluation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CE002055DB0100ACC8C2 /* Evaluation.swift */; };
+		284CE4AC205AF94B000551AD /* Practice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CE062055DB0200ACC8C2 /* Practice.swift */; };
+		284CE4AD205AF94E000551AD /* PracticesSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CDFB2055DB0100ACC8C2 /* PracticesSet.swift */; };
+		284CE4AE205AF955000551AD /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CE012055DB0100ACC8C2 /* State.swift */; };
+		284CE4AF205AF960000551AD /* Treatment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CDFD2055DB0100ACC8C2 /* Treatment.swift */; };
+		284CE4B0205AF963000551AD /* TreatmentSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CE052055DB0200ACC8C2 /* TreatmentSet.swift */; };
+		284CE4B1205AF96B000551AD /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DB6992205AB6A100D4D5F0 /* Patient.swift */; };
+		284CE4B2205AF96F000551AD /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DB6994205AB86000D4D5F0 /* Factory.swift */; };
+		284CE4B3205AF97E000551AD /* DAOcoreDataActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2597C9205840F400D00716 /* DAOcoreDataActivity.swift */; };
+		284CE4B4205AF982000551AD /* DAOcoreDataTreatment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DB6996205ABABC00D4D5F0 /* DAOcoreDataTreatment.swift */; };
+		284CE4B5205AF99A000551AD /* ActivitySetDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CE172055DB8B00ACC8C2 /* ActivitySetDelegate.swift */; };
+		284CE4B6205AF99F000551AD /* DoseSetDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CE142055DB8B00ACC8C2 /* DoseSetDelegate.swift */; };
+		284CE4B7205AF9A3000551AD /* EvaluationSetDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CE192055DB8C00ACC8C2 /* EvaluationSetDelegate.swift */; };
+		284CE4B8205AF9A6000551AD /* PracticeSetDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CE182055DB8B00ACC8C2 /* PracticeSetDelegate.swift */; };
+		284CE4B9205AF9AF000551AD /* TreatmentSetDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CE152055DB8B00ACC8C2 /* TreatmentSetDelegate.swift */; };
+		284CE4BA205AF9B5000551AD /* DAOactivityProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D79D71205ACEE3001C2BD7 /* DAOactivityProtocol.swift */; };
+		284CE4BB205AF9B9000551AD /* DAOtreatmentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D79D73205ACEF9001C2BD7 /* DAOtreatmentProtocol.swift */; };
+		284CE4BC205AF9BC000551AD /* DAOappointmentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D79D75205AD081001C2BD7 /* DAOappointmentProtocol.swift */; };
+		284CE4BE205AFAE6000551AD /* TypeOfState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284CE4BD205AFAE6000551AD /* TypeOfState.swift */; };
+		284CE4BF205AFAE6000551AD /* TypeOfState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284CE4BD205AFAE6000551AD /* TypeOfState.swift */; };
 		28C1E71B2058236100368EF0 /* DailyDose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C1E71A2058236100368EF0 /* DailyDose.swift */; };
 		28C1E71C2058236100368EF0 /* DailyDose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C1E71A2058236100368EF0 /* DailyDose.swift */; };
 		28D79D72205ACEE3001C2BD7 /* DAOactivityProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D79D71205ACEE3001C2BD7 /* DAOactivityProtocol.swift */; };
 		28D79D74205ACEF9001C2BD7 /* DAOtreatmentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D79D73205ACEF9001C2BD7 /* DAOtreatmentProtocol.swift */; };
 		28D79D76205AD081001C2BD7 /* DAOappointmentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D79D75205AD081001C2BD7 /* DAOappointmentProtocol.swift */; };
-		28D79D77205AD330001C2BD7 /* AppointmentSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CE022055DB0100ACC8C2 /* AppointmentSet.swift */; };
 		28D79D79205AD59E001C2BD7 /* DAOcoreDataAppointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D79D78205AD59E001C2BD7 /* DAOcoreDataAppointment.swift */; };
 		28D79D7A205AD59E001C2BD7 /* DAOcoreDataAppointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D79D78205AD59E001C2BD7 /* DAOcoreDataAppointment.swift */; };
 		3D2597C520573B1400D00716 /* ActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2597C420573B1400D00716 /* ActivitiesViewController.swift */; };
@@ -69,6 +95,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		284CE4BD205AFAE6000551AD /* TypeOfState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOfState.swift; sourceTree = "<group>"; };
 		28C1E71A2058236100368EF0 /* DailyDose.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyDose.swift; sourceTree = "<group>"; };
 		28D79D71205ACEE3001C2BD7 /* DAOactivityProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DAOactivityProtocol.swift; sourceTree = "<group>"; };
 		28D79D73205ACEF9001C2BD7 /* DAOtreatmentProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DAOtreatmentProtocol.swift; sourceTree = "<group>"; };
@@ -260,6 +287,7 @@
 				3D63CDFD2055DB0100ACC8C2 /* Treatment.swift */,
 				3D63CE052055DB0200ACC8C2 /* TreatmentSet.swift */,
 				28C1E71A2058236100368EF0 /* DailyDose.swift */,
+				284CE4BD205AFAE6000551AD /* TypeOfState.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -443,6 +471,7 @@
 				3D63CE0D2055DB0200ACC8C2 /* State.swift in Sources */,
 				3D63CDBE2055D33900ACC8C2 /* AppDelegate.swift in Sources */,
 				3D63CDC62055D33900ACC8C2 /* parkinson.xcdatamodeld in Sources */,
+				284CE4BE205AFAE6000551AD /* TypeOfState.swift in Sources */,
 				28D79D76205AD081001C2BD7 /* DAOappointmentProtocol.swift in Sources */,
 				52DB6993205AB6A100D4D5F0 /* Patient.swift in Sources */,
 				28D79D72205ACEE3001C2BD7 /* DAOactivityProtocol.swift in Sources */,
@@ -463,10 +492,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				284CE4B1205AF96B000551AD /* Patient.swift in Sources */,
+				284CE4AD205AF94E000551AD /* PracticesSet.swift in Sources */,
+				284CE4B6205AF99F000551AD /* DoseSetDelegate.swift in Sources */,
+				284CE4AC205AF94B000551AD /* Practice.swift in Sources */,
 				28C1E71C2058236100368EF0 /* DailyDose.swift in Sources */,
+				284CE4BA205AF9B5000551AD /* DAOactivityProtocol.swift in Sources */,
 				28D79D7A205AD59E001C2BD7 /* DAOcoreDataAppointment.swift in Sources */,
+				284CE4B3205AF97E000551AD /* DAOcoreDataActivity.swift in Sources */,
+				284CE4A7205AF939000551AD /* Activity.swift in Sources */,
+				284CE4AE205AF955000551AD /* State.swift in Sources */,
+				284CE4B4205AF982000551AD /* DAOcoreDataTreatment.swift in Sources */,
+				284CE4BB205AF9B9000551AD /* DAOtreatmentProtocol.swift in Sources */,
+				284CE4BC205AF9BC000551AD /* DAOappointmentProtocol.swift in Sources */,
+				284CE4A4205AF8F6000551AD /* AppointmentSet.swift in Sources */,
+				284CE4A6205AF920000551AD /* AppointmentSetDelegate.swift in Sources */,
+				284CE4BF205AFAE6000551AD /* TypeOfState.swift in Sources */,
+				284CE4AF205AF960000551AD /* Treatment.swift in Sources */,
+				284CE4B7205AF9A3000551AD /* EvaluationSetDelegate.swift in Sources */,
+				284CE4AA205AF946000551AD /* DoseSet.swift in Sources */,
+				284CE4A8205AF93C000551AD /* ActivitySet.swift in Sources */,
+				284CE4B5205AF99A000551AD /* ActivitySetDelegate.swift in Sources */,
+				284CE4A9205AF943000551AD /* Dose.swift in Sources */,
+				284CE4B9205AF9AF000551AD /* TreatmentSetDelegate.swift in Sources */,
 				3D63CDE12055D33A00ACC8C2 /* parkinsonUITests.swift in Sources */,
-				28D79D77205AD330001C2BD7 /* AppointmentSet.swift in Sources */,
+				284CE4B2205AF96F000551AD /* Factory.swift in Sources */,
+				284CE4B0205AF963000551AD /* TreatmentSet.swift in Sources */,
+				284CE4AB205AF949000551AD /* Evaluation.swift in Sources */,
+				284CE4B8205AF9A6000551AD /* PracticeSetDelegate.swift in Sources */,
+				284CE4A5205AF902000551AD /* Appointment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

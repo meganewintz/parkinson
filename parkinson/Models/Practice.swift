@@ -8,34 +8,34 @@
 
 import Foundation
 
-/// Practice type
-///
-
-/// ---- Proprieties
-///
-/// isDone : Bool
-///
-/// reminderNb : Int
-///
-/// date : Date of the first reminder
-
-/// ---- Methods
-///
-
-/// init
-///
-/// initialize an 'Practice' with the date of the first reminder and isDone to false
-///
-/// - Parameters:
-///   - date: `Date` date of the first reminder
-
-
-/// nextReminder
-///
-/// date of the next reminder
-///
-/// - Returns : 'Date' of the next reminder
-
 class Practice {
+
+    public var isDone : Bool
+    public var reminderNb : Int
+    public var dateFirstReminder : Date?
+
     
+    /// init
+    ///
+    /// initialize a 'Practise', no taken and no reminded.
+    ///
+    init() {
+        isDone = false
+        reminderNb = 0
+    }
+    
+    
+    /// nextReminder
+    ///
+    /// date of the next reminder
+    ///
+    /// - Returns : 'Date' of the next reminder
+    func dateNextReminder() -> Date? {
+        guard dateFirstReminder != nil else { return nil }
+        if isDone {
+            return nil
+        } else {
+            return dateFirstReminder?.addingTimeInterval(Double(5*60*reminderNb))
+        }
+    }
 }

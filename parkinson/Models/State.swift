@@ -8,25 +8,20 @@
 
 import Foundation
 
-/// State type
-///
-
-/// ---- Proprieties
-///
-/// state : String (ON/OFF/DYSKINESIES)
-///
-/// date : Date evaluation date of the state
-
-/// ---- Methods
-///
-
-/// init
-///
-/// initialize an 'State'. initialize the date.
-///
-/// - Parameters:
-///   - date : Date
-
 class State {
     
+    public var state : TypeOfState
+    public var date : Date
+    
+    
+    /// init
+    ///
+    /// initialize a 'State'. initialize the date.
+    ///
+    /// - Parameters:
+    ///   - date : Date
+    init(state : TypeOfState, date : Date) {
+        self.state = state
+        self.date = date
+    }
 }

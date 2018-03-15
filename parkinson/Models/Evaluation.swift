@@ -8,20 +8,17 @@
 
 import Foundation
 
+class Evaluation: Sequence {
+
 /// Evaluation type
 /// Contains all the state for an evaluation before neurologue's appointment (the evaluation last for 5 days).
 ///
 
-/// ---- Proprieties
-///
-/// appointment : Appointment
-///
-/// morningHour
-///
-/// eveningHour
+    public var appointment : Appointment
+    public var morningHour : Date
+    public var eveningHour : Date
+    private var states : [State]
 
-/// ---- Methods
-///
 
 /// init
 ///
@@ -31,6 +28,12 @@ import Foundation
 ///   - appointment: `Appointment` first name of `Person`
 ///   - morningHour:  `Date` reveille of the 'Patient'
 ///   - eveningHour: `Date` bedtime of the 'Patient'
+    init(appointment : Appointment, morningHour : Date, eveningHour : Date) {
+        self.appointment = appointment
+        self.morningHour = morningHour
+        self.eveningHour = eveningHour
+        states = [State]()
+    }
 
 
 /// createStates
@@ -47,6 +50,9 @@ import Foundation
 /// number of `State` in the collection
 ///
 /// - Returns : 'Int' number of 'State' in the 'Evaluation'
+    public var count : Int {
+        return states.count
+    }
 
 
 /// getBeginDate
@@ -79,8 +85,5 @@ import Foundation
 ///   - index: `Int`
 /// - Returns : 'State' the state correspondind to the index
 
-//
-//class Evaluation: Sequence {
-//
-//}
+}
 

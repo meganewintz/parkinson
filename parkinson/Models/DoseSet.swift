@@ -35,7 +35,7 @@ class DoseSet {
     func addDose(dose : Dose) -> DoseSet {
         doses.append(dose)
         for d in delegates {
-            d.doseAdded(dose : dose)
+            d.doseAdded(at : self.count-1)
         }
         return self
     }
@@ -112,7 +112,7 @@ class DoseSet {
         if let index=doses.index(where : { $0 === old }) {
             doses[index] = new
             for d in delegates {
-                d.doseUpdated(newValue : new)
+                d.doseUpdated(at : index)
             }
         }
         return self

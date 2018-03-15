@@ -40,6 +40,9 @@ class Activity {
     
     var name : String
     var description: String
+    private var practices : PracticesSet
+    
+    
     /// init
     ///
     /// initialize an 'Activity' with his name and his description
@@ -50,6 +53,7 @@ class Activity {
     init(name : String, description: String) {
         self.name = name
         self.description = description
+        self.practices = PracticesSet()
     }
     
     

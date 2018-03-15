@@ -8,8 +8,8 @@
 
 import Foundation
 
-protocol PracticeSetDelegate {
+protocol PracticeSetDelegate : class {
     
-    func practiceAdded(practice : Practice)
-    func practiceUpdated(newValue : Practice)
+    func practiceAdded(at : Int)
+    func practiceUpdated(at : Int)
 }

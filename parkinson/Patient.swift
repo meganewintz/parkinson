@@ -17,6 +17,6 @@ class Patient {
     init(daoActivity: DAOactivityProtocol, daoTreatment: DAOtreatmentProtocol, daoAppointment : DAOappointmentProtocol) {
         activitySet = ActivitySet(dao: daoActivity)
         treatmentSet = TreatmentSet(dao: daoTreatment)
-        appointmentSet = appointmentSet(dao : daoAppointment)
+        appointmentSet = AppointmentSet(dao : daoAppointment)
     }
 }
