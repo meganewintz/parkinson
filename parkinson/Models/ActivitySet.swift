@@ -79,18 +79,6 @@ import UIKit
 /// - Parameters:
 ///   - delegate: `Delegate`
 
-protocol DAOactivityProtocol : class {
-    
-    /// Get all the activities from CoreData.
-    ///
-    /// - Returns: ActivitySet containing all the activities.
-    func getActivities() -> ActivitySet?
-    func getActivity(name: String) -> ActivityData?
-    func addActivity(activity: Activity) -> Bool
-    func addActivity(activity: Activity, patient: Patient) -> Bool
-    func removeActivity(activity: Activity) -> Bool
-    func updateActivity(oldActivity: Activity, newActivity: Activity) -> Bool
-}
 
 class ActivitySet: Sequence {
     private var pset : [Activity] = []

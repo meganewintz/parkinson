@@ -10,6 +10,8 @@ import Foundation
 
 protocol DoseSetDelegate : class {
     
-    func doseAdded(dose : Dose)
-    func doseUpdated(newValue : Dose)
+    func doseAdded(at : Int)
+    func doseUpdated(at : Int)
+    func errorDataBaseRead()
+    func errorDataBaseWrite()
 }

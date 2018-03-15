@@ -10,17 +10,19 @@ import Foundation
 
 class AppointmentSet {
     
-    var appointmentSet : [Appointment]
-    var delegates : [AppointmentSetDelegate]
+    private var appointmentSet : [Appointment]
+    private var delegates : [AppointmentSetDelegate]
+    var dao : DAOappointmentProtocol
     
     
     /// init
     ///
     /// initialize an 'AppointmentSet', empty.
     ///
-    init(){
+    init(dao : DAOappointmentProtocol){
         appointmentSet = [Appointment]()
         delegates = [AppointmentSetDelegate]()
+        self.dao = dao
     }
     
     
@@ -33,9 +35,15 @@ class AppointmentSet {
     /// - Returns : 'AppointmentSet' with the appointment enter in parameter
     @discardableResult
     func addAppointment(appointment : Appointment) -> AppointmentSet {
-        appointmentSet.append(appointment)
-        for d : AppointmentSetDelegate in delegates {
-            d.appointmentAdded(appointment : appointment)
+        if dao.addAppointment(appointment) {
+            appointmentSet.append(appointment)
+            for d in delegates {
+                d.appointmentAdded(at : self.count-1)
+            }
+        } else {
+            for d in delegates {
+                d.errorDataBaseWrite()
+            }
         }
         return self
     }
@@ -50,12 +58,17 @@ class AppointmentSet {
     /// - Returns : 'AppointmentSet' without the appointment enter in parameter
     @discardableResult
     func removeAppointment(appointment : Appointment) -> AppointmentSet {
-        
         if let index=appointmentSet.index(where: { $0 === appointment })
         {
-            appointmentSet.remove(at: index)
-            for d : AppointmentSetDelegate in delegates {
-                d.appointmentDeleted(deletedAppointment : appointment)
+            if dao.removeAppointment(appointment) {
+                appointmentSet.remove(at: index)
+                for d in delegates {
+                    d.appointmentDeleted(at : index)
+                }
+            } else {
+                for d in delegates {
+                    d.errorDataBaseWrite()
+                }
             }
         }
         return self
@@ -130,9 +143,15 @@ class AppointmentSet {
     func updateAppointment(old : Appointment, new : Appointment) -> AppointmentSet {
         if let index=appointmentSet.index(where: { $0 === old })
         {
-            appointmentSet[index] = new
-            for d : AppointmentSetDelegate in delegates {
-                d.appointmentUpdated(old : old, new : new)
+            if dao.updateAppointment(old : old, new : new) {
+                appointmentSet[index] = new
+                for d : AppointmentSetDelegate in delegates {
+                    d.appointmentUpdated(at : index)
+                }
+            } else {
+                for d in delegates {
+                    d.errorDataBaseWrite()
+                }
             }
         }
         return self

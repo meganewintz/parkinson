@@ -10,7 +10,9 @@ import Foundation
 
 protocol TreatmentSetDelegate : class {
     
-    func treatmentAdded(treatment : Treatment)
-    func treatmentUpdated(old : Treatment, new : Treatment)
-    func treatmentRemoved(deletedValue : Treatment)
+    func treatmentAdded(at : Int)
+    func treatmentUpdated(at : Int)
+    func treatmentRemoved(at : Int)
+    func errorDataBaseRead()
+    func errorDataBaseWrite()
 }

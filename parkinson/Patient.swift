@@ -12,9 +12,11 @@ class Patient {
     
     var activitySet: ActivitySet
     var treatmentSet: TreatmentSet
+    var appointmentSet : AppointmentSet
     
-    init(daoActivity: DAOactivityProtocol, daoTreatment: DAOtreatmentProtocol) {
+    init(daoActivity: DAOactivityProtocol, daoTreatment: DAOtreatmentProtocol, daoAppointment : DAOappointmentProtocol) {
         activitySet = ActivitySet(dao: daoActivity)
         treatmentSet = TreatmentSet(dao: daoTreatment)
+        appointmentSet = appointmentSet(dao : daoAppointment)
     }
 }
