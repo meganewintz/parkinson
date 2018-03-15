@@ -22,7 +22,7 @@
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="appointment" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AppointmentData" inverseName="date" inverseEntity="AppointmentData" syncable="YES"/>
         <relationship name="isDoneActivity" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="IsDoneActivityData" inverseName="dates" inverseEntity="IsDoneActivityData" syncable="YES"/>
-        <relationship name="state" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="State" inverseName="dates" inverseEntity="State" syncable="YES"/>
+        <relationship name="state" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="StateData" inverseName="dates" inverseEntity="StateData" syncable="YES"/>
     </entity>
     <entity name="DayData" representedClassName="DayData" syncable="YES" codeGenerationType="class">
         <attribute name="day" optional="YES" attributeType="String" syncable="YES"/>
@@ -47,7 +47,7 @@
         <attribute name="hourMorning" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="appointment" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AppointmentData" inverseName="evaluation" inverseEntity="AppointmentData" syncable="YES"/>
-        <relationship name="states" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="State" inverseName="evaluations" inverseEntity="State" syncable="YES"/>
+        <relationship name="states" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="StateData" inverseName="evaluations" inverseEntity="StateData" syncable="YES"/>
     </entity>
     <entity name="HourData" representedClassName="HourData" syncable="YES" codeGenerationType="class">
         <attribute name="hour" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -78,7 +78,7 @@
         <attribute name="speciality" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="doctors" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="DoctorData" inverseName="speciality" inverseEntity="DoctorData" syncable="YES"/>
     </entity>
-    <entity name="State" representedClassName="State" syncable="YES" codeGenerationType="class">
+    <entity name="StateData" representedClassName="StateData" syncable="YES" codeGenerationType="class">
         <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="dates" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DateData" inverseName="state" inverseEntity="DateData" syncable="YES"/>
         <relationship name="evaluations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EvaluationData" inverseName="states" inverseEntity="EvaluationData" syncable="YES"/>
@@ -102,7 +102,7 @@
         <element name="TreatmentData" positionX="-828" positionY="-199" width="128" height="103"/>
         <element name="QuantityTreatmentHourData" positionX="-650" positionY="-189" width="128" height="88"/>
         <element name="SpecialityData" positionX="-1224" positionY="-90" width="128" height="73"/>
-        <element name="State" positionX="-1008" positionY="345" width="128" height="88"/>
+        <element name="StateData" positionX="-1008" positionY="345" width="128" height="88"/>
         <element name="DoctorData" positionX="-1226" positionY="54" width="128" height="73"/>
         <element name="AppointmentData" positionX="-1010" positionY="75" width="128" height="118"/>
         <element name="EvaluationData" positionX="-1224" positionY="261" width="128" height="133"/>
