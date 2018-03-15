@@ -36,7 +36,7 @@ class TreatmentSet {
     /// - Returns : 'TreatmentSet' with the treatment enter in parameter
     @discardableResult
     public func addTreatment(treatment : Treatment) -> TreatmentSet {
-        if dao.addTreatment(treatment){
+        if dao.addTreatment(treatment : treatment){
             treatments.append(treatment)
             for d in delegates {
                 d.treatmentAdded(at : self.count-1)
@@ -60,7 +60,7 @@ class TreatmentSet {
     @discardableResult
     public func removeTreatment(treatment : Treatment) -> TreatmentSet {
         if let index = treatments.index(where: { treatment === $0 }) {
-            if dao.removeTreatment(treatment) {
+            if dao.removeTreatment(treatment : treatment) {
                 treatments.remove(at : index)
                 for d in delegates {
                     d.treatmentRemoved(at : index)

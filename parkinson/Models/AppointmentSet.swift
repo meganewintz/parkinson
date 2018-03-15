@@ -35,7 +35,7 @@ class AppointmentSet {
     /// - Returns : 'AppointmentSet' with the appointment enter in parameter
     @discardableResult
     func addAppointment(appointment : Appointment) -> AppointmentSet {
-        if dao.addAppointment(appointment) {
+        if dao.addAppointment(appointment : appointment) {
             appointmentSet.append(appointment)
             for d in delegates {
                 d.appointmentAdded(at : self.count-1)
@@ -60,7 +60,7 @@ class AppointmentSet {
     func removeAppointment(appointment : Appointment) -> AppointmentSet {
         if let index=appointmentSet.index(where: { $0 === appointment })
         {
-            if dao.removeAppointment(appointment) {
+            if dao.removeAppointment(appointment : appointment) {
                 appointmentSet.remove(at: index)
                 for d in delegates {
                     d.appointmentDeleted(at : index)
