@@ -31,6 +31,7 @@ class AppointmentSet {
     /// - Parameters:
     ///   - appointment: `Appointment`
     /// - Returns : 'AppointmentSet' with the appointment enter in parameter
+    @discardableResult
     func addAppointment(appointment : Appointment) -> AppointmentSet {
         appointmentSet.append(appointment)
         for d : AppointmentSetDelegate in delegates {
@@ -47,9 +48,10 @@ class AppointmentSet {
     /// - Parameters:
     ///   - appointment: `Appointment`
     /// - Returns : 'AppointmentSet' without the appointment enter in parameter
+    @discardableResult
     func removeAppointment(appointment : Appointment) -> AppointmentSet {
         
-        if let index=appointmentSet.index(where: { $0 == appointment })
+        if let index=appointmentSet.index(where: { $0 === appointment })
         {
             appointmentSet.remove(at: index)
             for d : AppointmentSetDelegate in delegates {
@@ -65,7 +67,7 @@ class AppointmentSet {
     /// number of `Appointment` in the set
     ///
     /// - Returns : 'Int'
-    func count() -> Int {
+    public var count : Int {
         return appointmentSet.count
     }
     
@@ -77,7 +79,7 @@ class AppointmentSet {
     ///   - appointment: `Appointment`
     /// - Returns : True if the appointment is in the set
     func contains(appointment : Appointment) -> Bool {
-        return appointmentSet.contains(where: { $0 == appointment})
+        return appointmentSet.contains(where: { $0 === appointment})
     }
     
     
@@ -124,12 +126,13 @@ class AppointmentSet {
     ///   - old: `Appointment`
     ///   - new: Appointment
     /// - Returns : 'AppointmentSet' with the appointment updated
+    @discardableResult
     func updateAppointment(old : Appointment, new : Appointment) -> AppointmentSet {
-        if let index=appointmentSet.index(where: { $0 == old })
+        if let index=appointmentSet.index(where: { $0 === old })
         {
             appointmentSet[index] = new
             for d : AppointmentSetDelegate in delegates {
-                d.appointmentUpdated(newValue: new)
+                d.appointmentUpdated(old : old, new : new)
             }
         }
         return self
@@ -157,9 +160,10 @@ class AppointmentSet {
     ///   - delegate: `AppointmentSetDelegate`
     ///
     /// Returns : 'AppointmentSet' the current instance with the delegate in parameter
+    @discardableResult
     func addDelegate(delegate : AppointmentSetDelegate) -> AppointmentSet
     {
-        if !delegates.contains(where: { $0 == delegate }){
+        if !delegates.contains(where: { $0 === delegate }){
             delegates.append(delegate)
         }
         return self
@@ -174,8 +178,9 @@ class AppointmentSet {
     ///   - delegate: `AppointmentSetDelegate`
     ///
     /// Returns : 'AppointmentSet' the current instance without the delegate in parameter
+    @discardableResult
     func removeDelegate(delegate : AppointmentSetDelegate) -> AppointmentSet {
-        if let index = delegates.index(where: { $0 == delegate })
+        if let index = delegates.index(where: { $0 === delegate })
         {
             delegates.remove(at: index)
         }

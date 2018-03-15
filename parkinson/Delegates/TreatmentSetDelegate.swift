@@ -8,9 +8,9 @@
 
 import Foundation
 
-protocol TreatmentSetDelegate {
+protocol TreatmentSetDelegate : class {
     
-    func treatmentAddded(treatment : Treatment)
-    func treatmentUpdated(newValue : Treatment)
+    func treatmentAdded(treatment : Treatment)
+    func treatmentUpdated(old : Treatment, new : Treatment)
     func treatmentRemoved(deletedValue : Treatment)
 }
