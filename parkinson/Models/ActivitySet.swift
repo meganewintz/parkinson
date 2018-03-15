@@ -81,7 +81,7 @@ import UIKit
 
 
 class ActivitySet: Sequence {
-    private var pset : [Activity] = []
+    fileprivate var pset : [Activity] = []
     private var delegates : [ActivitySetDelegate]
 
     var dao: DAOactivityProtocol
