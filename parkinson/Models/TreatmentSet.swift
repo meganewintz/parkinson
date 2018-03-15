@@ -8,13 +8,6 @@
 
 import Foundation
 
-
-
-protocol DAOtreatmentProtocol {
-    
-}
-
-
 class TreatmentSet {
 
     private var treatments : [Treatment]
