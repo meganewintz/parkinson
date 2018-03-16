@@ -10,19 +10,19 @@ import Foundation
 import UIKit
 
 class ActivitiesTableViewController : NSObject, UITableViewDataSource, ActivitySetDelegate {
-    let factory: Factory = Factory()
+    let factory = Factory.sharedData
 
     var tableView: UITableView!
     var activities: ActivitySet!
     
     init(tableView: UITableView, activities: ActivitySet) {
         super.init()
-        self.factory.initializeData()
+        //self.factory.initializeData()
 
         self.tableView = tableView
         self.tableView.dataSource = self
         self.activities = activities
-        self.activities.delegate = self
+        //self.activities.delegate = self
     }
     
     // MARK: - Table view data source
@@ -105,8 +105,9 @@ class ActivitiesTableViewController : NSObject, UITableViewDataSource, ActivityS
     @discardableResult
     private func displayCell(cell: ActivityTableViewCell, atIndexPath indexPath: IndexPath) -> UITableViewCell{
         cell.nameLabel.text = activities?[indexPath.row].name
-        cell.descriptionLabel.text = activities?[indexPath.row].description
+//        cell.descriptionLabel.text = activities?[indexPath.row].description
         
         return cell
     }
 }
+

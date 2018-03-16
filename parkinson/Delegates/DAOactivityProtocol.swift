@@ -14,7 +14,7 @@ protocol DAOactivityProtocol : class {
     ///
     /// - Returns: ActivitySet containing all the activities.
     func getActivities() -> ActivitySet?
-    func getActivity(name: String) -> ActivityData?
+    func getActivity(name: String) -> Activity?
     func addActivity(activity: Activity) -> Bool
     func removeActivity(activity: Activity) -> Bool
     func updateActivity(oldActivity: Activity, newActivity: Activity) -> Bool

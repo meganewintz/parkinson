@@ -17,7 +17,7 @@ class ActivitiesViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.displayActivities()
+        //self.displayActivities()
         self.tableViewController = ActivitiesTableViewController(tableView: self.tableView, activities: Factory.sharedData.patient.activitySet)
     }
 
@@ -38,7 +38,7 @@ class ActivitiesViewController: UIViewController {
                 let nameToSave = nameTextField.text else{
                     return
             }
-            self.saveActivity(withName: nameToSave, withDescr: "Ok")
+            //self.saveActivity(withName: nameToSave, withDescr: "Ok")
             //self.factory.save(name: nameToSave)
             self.tableView.reloadData()
         }
@@ -56,37 +56,37 @@ class ActivitiesViewController: UIViewController {
     
     // MARK: - Activity Data Management -
     
-    func saveActivity(withName name: String, withDescr descr: String) {
-        guard let error = factory.saveActivity(withName: name, withDescr: descr) else{
-            return
-        }
-        // if there is an error during the load of the data, display the error
-        self.alertError(errorMsg: error[0], userInfo: error[1])
-    }
-    
-    /// Delete an activity
-    ///
-    /// - Precondition: index must be into bound of collection
-    /// - Parameter index: <#index description#>
-    /// - Returns: <#return value description#>
-    func deleteActivity(activityWithIndex index: Int) {
-        guard let error = factory.deleteActivity(activityWithIndex: index) else{
-            let indexPath = IndexPath(row: index, section: 0) // assuming cell is for first or only section of table view
-            tableViewController.activityRemoved(at: indexPath)
-            return
-        }
-        // if there is an error during the load of the data, display the error
-        self.alertError(errorMsg: error[0], userInfo: error[1])
-    }
-    
-    /// Display the activities present in the CoreData or an error if there is.
-    func displayActivities() {
-        guard let error = factory.loadActivities()  else{
-            return
-        }
-        // if there is an error during the load of the data, display the error
-        self.alertError(errorMsg: error[0], userInfo: error[1])
-    }
+//    func saveActivity(withName name: String, withDescr descr: String) {
+//        guard let error = factory.saveActivity(withName: name, withDescr: descr) else{
+//            return
+//        }
+//        // if there is an error during the load of the data, display the error
+//        self.alertError(errorMsg: error[0], userInfo: error[1])
+//    }
+//    
+//    /// Delete an activity
+//    ///
+//    /// - Precondition: index must be into bound of collection
+//    /// - Parameter index: <#index description#>
+//    /// - Returns: <#return value description#>
+//    func deleteActivity(activityWithIndex index: Int) {
+//        guard let error = factory.deleteActivity(activityWithIndex: index) else{
+//            let indexPath = IndexPath(row: index, section: 0) // assuming cell is for first or only section of table view
+//            tableViewController.activityRemoved(at: indexPath)
+//            return
+//        }
+//        // if there is an error during the load of the data, display the error
+//        self.alertError(errorMsg: error[0], userInfo: error[1])
+//    }
+//    
+//    /// Display the activities present in the CoreData or an error if there is.
+//    func displayActivities() {
+//        guard let error = factory.loadActivities()  else{
+//            return
+//        }
+//        // if there is an error during the load of the data, display the error
+//        self.alertError(errorMsg: error[0], userInfo: error[1])
+//    }
     
     // MARK: - Utilities -
     

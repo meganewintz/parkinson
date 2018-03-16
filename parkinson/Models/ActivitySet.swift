@@ -84,10 +84,13 @@ class ActivitySet: Sequence {
     fileprivate var pset : [Activity] = []
     private var delegates : [ActivitySetDelegate]
 
-    var dao: DAOactivityProtocol
+    //var dao: DAOactivityProtocol
     
-    init(dao: DAOactivityProtocol){
-        self.dao = dao
+//    init(dao: DAOactivityProtocol){
+//        self.dao = dao
+//        delegates = [ActivitySetDelegate]()
+//    }
+    init() {
         delegates = [ActivitySetDelegate]()
     }
  
@@ -95,16 +98,25 @@ class ActivitySet: Sequence {
     /// - Precondition: An activity with the same name must not exist.
     /// - Parameter activity: `Activity` to be added to the set
     /// - Returns: `ActivitySet` with new `Activity` added to the set, or `ActivitySet` unmodified if `Activity` belonged already to the set.
-    @discardableResult
+//    @discardableResult
+//    func addActivity(activity: Activity) -> ActivitySet{
+//        if !self.contains(activity: activity){
+//            if(self.dao.addActivity(activity: activity)){
+//                self.pset.append(activity)
+//                for delegate in delegates {
+//                    delegate.activityAdded(at: self.count-1)
+//                }
+//            }else{
+//                print("Erreur lors de l'ajout de l'activité")
+//            }
+//        }
+//        return self
+//    }
     func addActivity(activity: Activity) -> ActivitySet{
         if !self.contains(activity: activity){
-            if(self.dao.addActivity(activity: activity)){
                 self.pset.append(activity)
                 for delegate in delegates {
                     delegate.activityAdded(at: self.count-1)
-                }
-            }else{
-                print("Erreur lors de l'ajout de l'activité")
             }
         }
         return self
