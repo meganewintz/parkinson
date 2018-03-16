@@ -9,10 +9,7 @@
 import Foundation
 
 protocol ActivitySetDelegate {
-    
-//    func activityAdded(activity : Activity)
-//    func activityUpdated(newValue : Activity)
-//    func activityRemoved(deletedValue : Activity)
+
     func activityAdded(at: Int)
     func activityUpdated(at: Int)
     func activityRemoved(at: Int)

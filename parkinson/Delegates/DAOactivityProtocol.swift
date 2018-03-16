@@ -16,7 +16,6 @@ protocol DAOactivityProtocol : class {
     func getActivities() -> ActivitySet?
     func getActivity(name: String) -> ActivityData?
     func addActivity(activity: Activity) -> Bool
-    func addActivity(activity: Activity, patient: Patient) -> Bool
     func removeActivity(activity: Activity) -> Bool
     func updateActivity(oldActivity: Activity, newActivity: Activity) -> Bool
 }

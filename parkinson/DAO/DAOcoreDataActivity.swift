@@ -109,6 +109,10 @@ class DAOcoreDataActivity : DAOactivityProtocol{
         return true
     }
     
+    func updateActivity(oldActivity: Activity, newActivity: Activity) -> Bool {
+        return true
+    }
+    
     // MARK: - Utilities -
     
     func context()  {

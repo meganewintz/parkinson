@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Evaluation: Sequence {
+class Evaluation {
 
 /// Evaluation type
 /// Contains all the state for an evaluation before neurologue's appointment (the evaluation last for 5 days).
