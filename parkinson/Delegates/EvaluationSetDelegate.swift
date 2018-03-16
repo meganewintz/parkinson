@@ -6,11 +6,14 @@
 //  Copyright © 2018 Mégane WINTZ. All rights reserved.
 //
 
-//import Foundation
-//
-//protocol EvaluationSetDelegate {
-//    
-//    func evaluationAdded(evaluation : Evaluation)
-//    func evaluationUpdated(newValue : Evaluation)
-//}
+import Foundation
+
+protocol EvaluationSetDelegate : class {
+    
+    func evaluationAdded(at : Int)
+    func evaluationUpdated(at : Int)
+    func evaluationRemoved(at : Int)
+    func errorDataBaseRead()
+    func errorDataBaseWrite()
+}
 
