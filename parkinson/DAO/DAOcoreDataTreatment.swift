@@ -11,4 +11,19 @@ import Foundation
 
 class DAOcoreDataTreatment: DAOtreatmentProtocol {
     
+    func getTreatements() -> TreatmentSet? {
+        return nil
+    }
+    
+    func addTreatment(treatment: Treatment) -> Bool {
+        return false
+    }
+    
+    func updateTreatment(old: Treatment, new: Treatment) -> Bool {
+        return false
+    }
+    
+    func removeTreatment(treatment: Treatment) -> Bool {
+        return false
+    }
 }

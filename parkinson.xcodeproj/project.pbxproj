@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		283FF7B0205C0C5F0038029C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CDBD2055D33900ACC8C2 /* AppDelegate.swift */; };
+		283FF7B1205C0E880038029C /* parkinson.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CDC42055D33900ACC8C2 /* parkinson.xcdatamodeld */; };
+		283FF7B2205C0EF20038029C /* ActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2597C420573B1400D00716 /* ActivitiesViewController.swift */; };
 		284CE4A4205AF8F6000551AD /* AppointmentSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CE022055DB0100ACC8C2 /* AppointmentSet.swift */; };
 		284CE4A5205AF902000551AD /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CDFE2055DB0100ACC8C2 /* Appointment.swift */; };
 		284CE4A6205AF920000551AD /* AppointmentSetDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CE162055DB8B00ACC8C2 /* AppointmentSetDelegate.swift */; };
@@ -505,11 +508,14 @@
 				284CE4B4205AF982000551AD /* DAOcoreDataTreatment.swift in Sources */,
 				284CE4BB205AF9B9000551AD /* DAOtreatmentProtocol.swift in Sources */,
 				284CE4BC205AF9BC000551AD /* DAOappointmentProtocol.swift in Sources */,
+				283FF7B2205C0EF20038029C /* ActivitiesViewController.swift in Sources */,
 				284CE4A4205AF8F6000551AD /* AppointmentSet.swift in Sources */,
 				284CE4A6205AF920000551AD /* AppointmentSetDelegate.swift in Sources */,
 				284CE4BF205AFAE6000551AD /* TypeOfState.swift in Sources */,
 				284CE4AF205AF960000551AD /* Treatment.swift in Sources */,
 				284CE4B7205AF9A3000551AD /* EvaluationSetDelegate.swift in Sources */,
+				283FF7B0205C0C5F0038029C /* AppDelegate.swift in Sources */,
+				283FF7B1205C0E880038029C /* parkinson.xcdatamodeld in Sources */,
 				284CE4AA205AF946000551AD /* DoseSet.swift in Sources */,
 				284CE4A8205AF93C000551AD /* ActivitySet.swift in Sources */,
 				284CE4B5205AF99A000551AD /* ActivitySetDelegate.swift in Sources */,
