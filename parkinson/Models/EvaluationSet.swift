@@ -70,6 +70,7 @@ class EvaluationSet {
     
     
     /// addDelegate
+    @discardableResult
     func addDelegate(delegate : EvaluationSetDelegate) -> EvaluationSet {
         if !delegates.contains(where : {$0 === delegate }){
             delegates.append(delegate)
@@ -79,6 +80,7 @@ class EvaluationSet {
     
     
     /// removeDelegate
+    @discardableResult
     func removeDelegate(delegate : EvaluationSetDelegate) -> EvaluationSet {
         if let index = delegates.index(where : { $0 === delegate }){
             delegates.remove(at : index)
