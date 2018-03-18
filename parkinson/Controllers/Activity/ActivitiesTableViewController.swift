@@ -2,26 +2,26 @@
 //  ActivitiesTableViewController.swift
 //  parkinson
 //
-//  Created by Thierry WINTZ on 12/03/2018.
+//  Created by Thierry WINTZ on 17/03/2018.
 //  Copyright © 2018 Mégane WINTZ. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class ActivitiesTableViewController : NSObject, UITableViewDataSource, ActivitySetDelegate {
     let factory = Factory.sharedData
-
+    
     var tableView: UITableView!
-    var activities: ActivitySet!
+    //var activities: ActivitySet!
+    var activities = ["Natation","Jardinage","Marche"]
     
     init(tableView: UITableView, activities: ActivitySet) {
         super.init()
         //self.factory.initializeData()
-
+        
         self.tableView = tableView
         self.tableView.dataSource = self
-        self.activities = activities
+        //self.activities = activities
         //self.activities.delegate = self
     }
     
@@ -52,15 +52,15 @@ class ActivitiesTableViewController : NSObject, UITableViewDataSource, ActivityS
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool{
         return true
     }
-
+    
     //  Asks the data source to commit the insertion or deletion of a specified row in the receiver.
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt: IndexPath) {
         //just managed deleting
         if (editingStyle == UITableViewCellEditingStyle.delete) {
             self.tableView.beginUpdates()
-//            if self.delete(activityWithIndex: IndexPath.row) {
-//                self.tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
-//            }
+            //            if self.delete(activityWithIndex: IndexPath.row) {
+            //                self.tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+            //            }
             self.tableView.endUpdates()
         }
     }
@@ -104,10 +104,13 @@ class ActivitiesTableViewController : NSObject, UITableViewDataSource, ActivityS
     
     @discardableResult
     private func displayCell(cell: ActivityTableViewCell, atIndexPath indexPath: IndexPath) -> UITableViewCell{
-        cell.nameLabel.text = activities?[indexPath.row].name
-//        cell.descriptionLabel.text = activities?[indexPath.row].description
+        //cell.nameLabel.text = activities?[indexPath.row].name
+        //        cell.descriptionLabel.text = activities?[indexPath.row].description
+        cell.nameLabel.text = activities[indexPath.row]
+
         
         return cell
     }
 }
+
 

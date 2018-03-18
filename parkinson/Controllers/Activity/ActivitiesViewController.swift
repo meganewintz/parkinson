@@ -10,7 +10,10 @@ import UIKit
 
 class ActivitiesViewController: UIViewController {
 
+    @IBOutlet weak var addButton: UIButton!
     var tableViewController: ActivitiesTableViewController!
+    
+
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -26,32 +29,32 @@ class ActivitiesViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func addButton(_ sender: Any) {
-        let alert = UIAlertController(title: "Nouvelle activité",
-                                      message: "Ajouter un nom",
-                                      preferredStyle: .alert)
-        let saveAction = UIAlertAction(title: "Ajouter",
-                                       style: .default)
-        {
-            [unowned self] action in
-            guard let nameTextField = alert.textFields?.first,
-                let nameToSave = nameTextField.text else{
-                    return
-            }
-            //self.saveActivity(withName: nameToSave, withDescr: "Ok")
-            //self.factory.save(name: nameToSave)
-            self.tableView.reloadData()
-        }
-        
-        let cancelAction = UIAlertAction(title: "Annuler",
-                                         style: .default)
-        
-        alert.addTextField()
-        alert.addAction(saveAction)
-        alert.addAction(cancelAction)
-        
-        present(alert, animated: true)
-    }
+//    @IBAction func addButton(_ sender: Any) {
+//        let alert = UIAlertController(title: "Nouvelle activité",
+//                                      message: "Ajouter un nom",
+//                                      preferredStyle: .alert)
+//        let saveAction = UIAlertAction(title: "Ajouter",
+//                                       style: .default)
+//        {
+//            [unowned self] action in
+//            guard let nameTextField = alert.textFields?.first,
+//                let nameToSave = nameTextField.text else{
+//                    return
+//            }
+//            //self.saveActivity(withName: nameToSave, withDescr: "Ok")
+//            //self.factory.save(name: nameToSave)
+//            self.tableView.reloadData()
+//        }
+//        
+//        let cancelAction = UIAlertAction(title: "Annuler",
+//                                         style: .default)
+//        
+//        alert.addTextField()
+//        alert.addAction(saveAction)
+//        alert.addAction(cancelAction)
+//        
+//        present(alert, animated: true)
+//    }
     
     
     // MARK: - Activity Data Management -
