@@ -7,13 +7,13 @@
 //
 
 import UIKit
+import CoreData
 
 class ActivitiesViewController: UIViewController {
 
     @IBOutlet weak var addButton: UIButton!
     var tableViewController: ActivitiesTableViewController!
     
-
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
