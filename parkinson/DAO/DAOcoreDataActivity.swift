@@ -13,6 +13,7 @@ import UIKit
 
 class DAOcoreDataActivity : DAOactivityProtocol{
     func getActivities() -> ActivitySet? {
+        var toto: ActivityData
         return nil
     }
     
