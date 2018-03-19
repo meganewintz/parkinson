@@ -81,60 +81,41 @@ import UIKit
 
 
 class ActivitySet: Sequence {
+    
     fileprivate var pset : [Activity] = []
     private var delegates : [ActivitySetDelegate]
-
-    //var dao: DAOactivityProtocol
+    private var dao: DAOactivityProtocol
     
-//    init(dao: DAOactivityProtocol){
-//        self.dao = dao
-//        delegates = [ActivitySetDelegate]()
-//    }
-    init() {
+    init(dao: DAOactivityProtocol){
+        self.dao = dao
         delegates = [ActivitySetDelegate]()
     }
+
  
+    /// addActivity
+    ///
     /// `ActivitySet` x `Activity` -> `ActivitySet` -- add Activity to ActivitySet, if `Activity` already belongs to `ActivitySet` then do nothing
     /// - Precondition: An activity with the same name must not exist.
     /// - Parameter activity: `Activity` to be added to the set
     /// - Returns: `ActivitySet` with new `Activity` added to the set, or `ActivitySet` unmodified if `Activity` belonged already to the set.
-//    @discardableResult
-//    func addActivity(activity: Activity) -> ActivitySet{
-//        if !self.contains(activity: activity){
-//            if(self.dao.addActivity(activity: activity)){
-//                self.pset.append(activity)
-//                for delegate in delegates {
-//                    delegate.activityAdded(at: self.count-1)
-//                }
-//            }else{
-//                print("Erreur lors de l'ajout de l'activité")
-//            }
-//        }
-//        return self
-//    }
+    @discardableResult
     func addActivity(activity: Activity) -> ActivitySet{
         if !self.contains(activity: activity){
+            if(self.dao.addActivity(activity: activity)){
                 self.pset.append(activity)
                 for delegate in delegates {
                     delegate.activityAdded(at: self.count-1)
+                }
+            }else{
+                print("Erreur lors de l'ajout de l'activité")
             }
         }
         return self
     }
     
-    
-    /// `ActivitySet` x `Activity` -> `ActivitySet` -- if `Activity` belongs to `ActivitySet`, remove it from the set, else do nothing
+
+    /// removeActivity
     ///
-    /// - Parameter activity: `Activity` to be removed
-    /// - Returns: `ActivitySet` with `Activity` removed if `Activity` belonged to `ActivitySet`
-    @discardableResult
-    func removeActivity(activity: Activity) -> ActivitySet{
-//        if let i = self.pset.index(of: activity){
-//            self.pset.remove(at: i)
-//        }
-        return self
-    }
-    
     /// `ActivitySet` x `Activity` -> `ActivitySet` -- if `Activity` belongs to `ActivitySet`, remove it from the set, else do nothing
     ///
     /// - Parameter activity: `Activity` to be removed
@@ -147,11 +128,15 @@ class ActivitySet: Sequence {
         return self
     }
     
+    /// count
+    ///
     /// number of elements in the set
     var count: Int{
         return self.pset.count
     }
     
+    /// contains
+    ///
     /// `ActivitySet` x `Activity` -> `Bool` -- look for `Activity` in the set...
     ///
     /// - Parameter activity: `Activity` to be looked for
@@ -161,13 +146,47 @@ class ActivitySet: Sequence {
     }
     
    
-    
+    /// contains
+    ///
     /// ActivitySet` x `String` -> `Bool` -- look for `Activity` with firstname
     ///
     /// - Parameter firstname: `String` name to be search
     /// - Returns: True if one `Activity` has this firstname
     func contains(activityName name: String) -> Bool{
         return self.pset.contains(where: {$0.name==name})
+    }
+    
+    /// addDelegate
+    ///
+    /// add a delegate to this model
+    ///
+    /// - Parameters:
+    ///   - delegate: `TreatmentSetDelegate`
+    ///
+    /// Returns : 'TreatmentSet' the current instance with the delegate in parameter
+    @discardableResult
+    func addDelegate(delegate : ActivitySetDelegate) -> ActivitySet {
+        //if !delegates.contains(where: { $0 === delegate }) {
+            delegates.append(delegate)
+       // }
+        return self
+    }
+    
+    
+    /// removeDelegate
+    ///
+    /// remove a delegate to this model
+    ///
+    /// - Parameters:
+    ///   - delegate: `TreatmentSetDelegate`
+    ///
+    /// Returns : 'TreatmentSet' the current instance without the delegate in parameter
+    @discardableResult
+    func removeDelegate(delegate : ActivitySetDelegate) -> ActivitySet {
+        //if let index = delegates.index(where: { $0 === delegate }) {
+         //   delegates.remove(at: index)
+        //}
+        return self
     }
 
     

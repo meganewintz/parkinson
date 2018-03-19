@@ -9,21 +9,21 @@
 import UIKit
 
 class ActivitiesTableViewController : NSObject, UITableViewDataSource, ActivitySetDelegate {
-    let factory = Factory.sharedData
+    
+    var activities: ActivitySet
     
     var tableView: UITableView!
-    //var activities: ActivitySet!
-    var activities = ["Natation","Jardinage","Marche"]
+    //var activities = ["Natation","Jardinage","Marche"]
 
     
     init(tableView: UITableView, activities: ActivitySet) {
+        self.activities = activities
         super.init()
         //self.factory.initializeData()
         
         self.tableView = tableView
         self.tableView.dataSource = self
-        //self.activities = activities
-        //self.activities.delegate = self
+        self.activities.addDelegate(delegate: self)
     }
     
     // MARK: - Table view data source
@@ -72,7 +72,7 @@ class ActivitiesTableViewController : NSObject, UITableViewDataSource, ActivityS
     //-------------------------------------------------------------------------------------------------
     // MARK: - ActivitySetDelegate
     func activityAdded(at: Int) {
-        let indexPath = IndexPath(index: at)
+        let indexPath = IndexPath(row: at, section: 0)
         self.tableView.beginUpdates()
         self.tableView.insertRows(at: [indexPath], with: UITableViewRowAnimation.middle)
         self.tableView.endUpdates()
@@ -107,7 +107,8 @@ class ActivitiesTableViewController : NSObject, UITableViewDataSource, ActivityS
     private func displayCell(cell: ActivityTableViewCell, atIndexPath indexPath: IndexPath) -> UITableViewCell{
         //cell.nameLabel.text = activities?[indexPath.row].name
         //        cell.descriptionLabel.text = activities?[indexPath.row].description
-        cell.nameLabel.text = activities[indexPath.row]
+        cell.nameLabel.text = activities[indexPath.row].name
+        cell.descriptionLabel.text = activities[indexPath.row].description
 
         
         return cell

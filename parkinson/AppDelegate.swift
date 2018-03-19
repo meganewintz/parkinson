@@ -13,11 +13,38 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    func display() {
+        let dao = DAOcoreDataActivity()
+        guard let activities = dao.getActivities() else {
+            return
+        }
+        for a in activities {
+            print (a.name, a.description)
+        }
+    }
+    func removeActivity() {
+        let context = CoreDataManager.context
+        // Creates a request for entity `Dog`
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
+        // Creates new batch delete request with a specific request
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: request)
+        
+        // Asks to return the objectIDs deleted
+        deleteRequest.resultType = .resultTypeObjectIDs
+        
+        do {
+            // Executes batch
+            let result = try context.execute(deleteRequest) as? NSBatchDeleteResult
+            
+        } catch {
+            fatalError("Failed to execute request: \(error)")
+        }
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        print("toto")
+        display()
         return true
     }
 

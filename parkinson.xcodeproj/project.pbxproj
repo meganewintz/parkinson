@@ -47,6 +47,8 @@
 		28D79D7A205AD59E001C2BD7 /* DAOcoreDataAppointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D79D78205AD59E001C2BD7 /* DAOcoreDataAppointment.swift */; };
 		3D194CCA2060043000E7A0AC /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D194CC92060043000E7A0AC /* CoreDataManager.swift */; };
 		3D194CCC206007FD00E7A0AC /* DialogBoxHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D194CCB206007FD00E7A0AC /* DialogBoxHelper.swift */; };
+		3D194CCF20603C5500E7A0AC /* AddActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D194CCE20603C5500E7A0AC /* AddActivityViewController.swift */; };
+		3D194CD020603C5500E7A0AC /* AddActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D194CCE20603C5500E7A0AC /* AddActivityViewController.swift */; };
 		3D22A1CE205D4BE200DE0F75 /* ActivitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22A1CD205D4BE200DE0F75 /* ActivitiesTableViewController.swift */; };
 		3D22A1CF205D4BE200DE0F75 /* ActivitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22A1CD205D4BE200DE0F75 /* ActivitiesTableViewController.swift */; };
 		3D22A1D1205D4C4700DE0F75 /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22A1D0205D4C4700DE0F75 /* ActivityTableViewCell.swift */; };
@@ -118,6 +120,7 @@
 		28D79D78205AD59E001C2BD7 /* DAOcoreDataAppointment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DAOcoreDataAppointment.swift; sourceTree = "<group>"; };
 		3D194CC92060043000E7A0AC /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		3D194CCB206007FD00E7A0AC /* DialogBoxHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogBoxHelper.swift; sourceTree = "<group>"; };
+		3D194CCE20603C5500E7A0AC /* AddActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivityViewController.swift; sourceTree = "<group>"; };
 		3D22A1CD205D4BE200DE0F75 /* ActivitiesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesTableViewController.swift; sourceTree = "<group>"; };
 		3D22A1D0205D4C4700DE0F75 /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
 		3D2597C420573B1400D00716 /* ActivitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesViewController.swift; sourceTree = "<group>"; };
@@ -282,6 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				3D2597C420573B1400D00716 /* ActivitiesViewController.swift */,
+				3D194CCE20603C5500E7A0AC /* AddActivityViewController.swift */,
 				3D2597CB205C429100D00716 /* ActivityPeriodiciyViewController.swift */,
 				3D22A1CD205D4BE200DE0F75 /* ActivitiesTableViewController.swift */,
 			);
@@ -486,6 +490,7 @@
 				3D194CCC206007FD00E7A0AC /* DialogBoxHelper.swift in Sources */,
 				3DF1C417205D8A7C00A606C4 /* TimePickerTableViewCell.swift in Sources */,
 				52DB6995205AB86000D4D5F0 /* Factory.swift in Sources */,
+				3D194CCF20603C5500E7A0AC /* AddActivityViewController.swift in Sources */,
 				283FF7B4205C2C980038029C /* EvaluationSet.swift in Sources */,
 				3D63CE082055DB0200ACC8C2 /* Dose.swift in Sources */,
 				3D63CE112055DB0200ACC8C2 /* TreatmentSet.swift in Sources */,
@@ -544,6 +549,7 @@
 				284CE4BA205AF9B5000551AD /* DAOactivityProtocol.swift in Sources */,
 				283FF7B5205C2C980038029C /* EvaluationSet.swift in Sources */,
 				28D79D7A205AD59E001C2BD7 /* DAOcoreDataAppointment.swift in Sources */,
+				3D194CD020603C5500E7A0AC /* AddActivityViewController.swift in Sources */,
 				284CE4B3205AF97E000551AD /* DAOcoreDataActivity.swift in Sources */,
 				284CE4A7205AF939000551AD /* Activity.swift in Sources */,
 				284CE4AE205AF955000551AD /* State.swift in Sources */,
