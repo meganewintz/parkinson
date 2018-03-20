@@ -116,6 +116,22 @@ class ActivitySet: Sequence {
 
     /// removeActivity
     ///
+    /// - Parameter activity: `Activity` to be removed
+    /// - Returns: `ActivitySet` with `Activity` removed if `Activity` belonged to `ActivitySet`
+    @discardableResult
+    func removeActivity(activity: Activity) -> ActivitySet{
+        if let index = pset.index(where: { $0 === activity }) {
+            self.pset.remove(at: index)
+            for d in delegates {
+                d.activityRemoved(at: index)
+            }
+        }
+        return self
+    }
+    
+
+    /// removeActivity
+    ///
     /// `ActivitySet` x `Activity` -> `ActivitySet` -- if `Activity` belongs to `ActivitySet`, remove it from the set, else do nothing
     ///
     /// - Parameter activity: `Activity` to be removed
@@ -124,6 +140,9 @@ class ActivitySet: Sequence {
     func removeActivity(index: Int) -> ActivitySet{
         if (index < self.count) {
             self.pset.remove(at: index)
+            for d in delegates {
+                d.activityRemoved(at: index)
+            }
         }
         return self
     }
