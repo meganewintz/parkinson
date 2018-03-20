@@ -26,15 +26,15 @@ class parkinsonTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         
         // Test of patient initialization
-        var patient = Factory.sharedData.patient
+        let patient = Factory.sharedData.patient
         XCTAssert(patient.activitySet.count == 0, "Patient's activity set is not empty after initialization")
         XCTAssert(patient.appointmentSet.count == 0, "Patient's appointment set is not empty after initialization")
         XCTAssert(patient.treatmentSet.count == 0, "Patient's treatment set is not empty after initialization")
         
         // Management of an activity
-        var activity = Activity(name : "Natation", description : "Effectuer 20 longueurs")
-        var activity2 = Activity(name : "Natation", description : "")
-        var activity3 = Activity(name : "Marche", description : "")
+        let activity = Activity(name : "Natation", description : "Effectuer 20 longueurs")
+        let activity2 = Activity(name : "Natation", description : "")
+        let activity3 = Activity(name : "Marche", description : "")
         patient.activitySet.addActivity(activity: activity)
         XCTAssert(patient.activitySet.count == 1, "Patient's activity set does not contain 1 element after adding")
         patient.activitySet.addActivity(activity: activity2)

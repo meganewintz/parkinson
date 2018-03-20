@@ -10,8 +10,8 @@ import Foundation
 
 protocol DAOappointmentProtocol : class {
     
-    func addAppointment(appointment : Appointment) -> Bool
-    func updateAppointment(old : Appointment, new : Appointment) -> Bool
-    func removeAppointment(appointment : Appointment) -> Bool
-    func getAppointments() -> AppointmentSet?
+    func addAppointment(patient : Patient, appointment : Appointment) -> Bool
+    func updateAppointment(patient : Patient, old : Appointment, new : Appointment) -> Bool
+    func removeAppointment(patient : Patient, appointment : Appointment) -> Bool
+    func getAppointments(patient : Patient) -> [Appointment]?
 }

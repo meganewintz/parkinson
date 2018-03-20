@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     func displayActivities() {
         let dao = DAOcoreDataActivity()
-        guard let activities = dao.getActivities() else {
+        guard let activities = dao.getActivities(patient : Factory.sharedData.patient) else {
             return
         }
         for a in activities {
