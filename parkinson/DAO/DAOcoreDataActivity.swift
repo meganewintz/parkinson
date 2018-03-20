@@ -34,7 +34,6 @@ class DAOcoreDataActivity : DAOactivityProtocol{
         do {
             try activities = context.fetch(request)
             for a in activities{
-                //activitySet.addActivity(activity: Activity(name: "Hello", description: a.descr!))
                 activitySet.addActivity(activity: Activity(name: (a.type?.name!)!, description: a.descr!))
             }
         }

@@ -10,7 +10,7 @@ import Foundation
 
 protocol DAOtreatmentProtocol {
     
-    func getTreatements() -> TreatmentSet?
+    func getTreatments() -> TreatmentSet?
     func addTreatment(treatment : Treatment) -> Bool
     func updateTreatment(old : Treatment, new : Treatment) -> Bool
     func removeTreatment(treatment : Treatment) -> Bool
