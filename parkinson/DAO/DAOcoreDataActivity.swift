@@ -43,10 +43,7 @@ class DAOcoreDataActivity : DAOactivityProtocol{
         }
         return activitySet
     }
-    
-    
-    
-    
+   
     /// Give an activity from the CoreData with a specific name and return an Activity
     ///
     /// - Parameter name: name of the activity

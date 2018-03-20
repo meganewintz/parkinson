@@ -14,7 +14,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    func display() {
+    
+    func displayActivityTypes() {
+        let dao = DAOcoreDataActivityType()
+        
+        for a in dao.getActivityTypes() {
+            print (a)
+        }
+    }
+    func displayActivities() {
         let dao = DAOcoreDataActivity()
         guard let activities = dao.getActivities() else {
             return
@@ -44,7 +52,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        display()
+        //removeActivity()
+        //displayActivityTypes()
+        //displayActivities()
         return true
     }
 

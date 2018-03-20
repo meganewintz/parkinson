@@ -25,6 +25,7 @@
 		3D2597CC205C429100D00716 /* ActivityPeriodiciyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2597CB205C429100D00716 /* ActivityPeriodiciyViewController.swift */; };
 		3D464FAD205C589400BF8A53 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D464FAC205C589400BF8A53 /* TabBarController.swift */; };
 		3D60553920614DCB0007BAE5 /* ActivityPeriodiciyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2597CB205C429100D00716 /* ActivityPeriodiciyViewController.swift */; };
+		3D60553B20616DD60007BAE5 /* DAOCoreDataActivityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D60553A20616DD60007BAE5 /* DAOCoreDataActivityType.swift */; };
 		3D63CDBE2055D33900ACC8C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CDBD2055D33900ACC8C2 /* AppDelegate.swift */; };
 		3D63CDC02055D33900ACC8C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CDBF2055D33900ACC8C2 /* ViewController.swift */; };
 		3D63CDC32055D33900ACC8C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D63CDC12055D33900ACC8C2 /* Main.storyboard */; };
@@ -93,6 +94,7 @@
 		3D2597C9205840F400D00716 /* DAOcoreDataActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAOcoreDataActivity.swift; sourceTree = "<group>"; };
 		3D2597CB205C429100D00716 /* ActivityPeriodiciyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityPeriodiciyViewController.swift; sourceTree = "<group>"; };
 		3D464FAC205C589400BF8A53 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		3D60553A20616DD60007BAE5 /* DAOCoreDataActivityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAOCoreDataActivityType.swift; sourceTree = "<group>"; };
 		3D63CDBA2055D33900ACC8C2 /* parkinson.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = parkinson.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D63CDBD2055D33900ACC8C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D63CDBF2055D33900ACC8C2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -163,7 +165,6 @@
 			children = (
 				3D194CC92060043000E7A0AC /* CoreDataManager.swift */,
 				3D194CCB206007FD00E7A0AC /* DialogBoxHelper.swift */,
-				52DB6994205AB86000D4D5F0 /* Factory.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -172,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				3D2597C9205840F400D00716 /* DAOcoreDataActivity.swift */,
+				3D60553A20616DD60007BAE5 /* DAOCoreDataActivityType.swift */,
 				52DB6996205ABABC00D4D5F0 /* DAOcoreDataTreatment.swift */,
 				28D79D78205AD59E001C2BD7 /* DAOcoreDataAppointment.swift */,
 			);
@@ -201,6 +203,7 @@
 		3D63CDBC2055D33900ACC8C2 /* parkinson */ = {
 			isa = PBXGroup;
 			children = (
+				52DB6994205AB86000D4D5F0 /* Factory.swift */,
 				3D194CCD2060082A00E7A0AC /* Helpers */,
 				3D63CE202055DBC700ACC8C2 /* Test.swift */,
 				3D2597C820583E4A00D00716 /* DAO */,
@@ -466,6 +469,7 @@
 				3D63CE1B2055DB8C00ACC8C2 /* TreatmentSetDelegate.swift in Sources */,
 				3D63CE1C2055DB8C00ACC8C2 /* AppointmentSetDelegate.swift in Sources */,
 				3D63CE1E2055DB8C00ACC8C2 /* PracticeSetDelegate.swift in Sources */,
+				3D60553B20616DD60007BAE5 /* DAOCoreDataActivityType.swift in Sources */,
 				3D2597CA205840F400D00716 /* DAOcoreDataActivity.swift in Sources */,
 				3D22A1D1205D4C4700DE0F75 /* ActivityTableViewCell.swift in Sources */,
 				28D79D74205ACEF9001C2BD7 /* DAOtreatmentProtocol.swift in Sources */,
@@ -498,23 +502,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2895A81320614D6F00EE28BA /* Practice.swift in Sources */,
-				2895A81020614D6F00EE28BA /* Dose.swift in Sources */,
-				2895A81A20614D6F00EE28BA /* EvaluationSet.swift in Sources */,
-				2895A81620614D6F00EE28BA /* Treatment.swift in Sources */,
-				2895A80C20614D6F00EE28BA /* Activity.swift in Sources */,
-				2895A81520614D6F00EE28BA /* State.swift in Sources */,
-				2895A81720614D6F00EE28BA /* TreatmentSet.swift in Sources */,
-				2895A80F20614D6F00EE28BA /* AppointmentSet.swift in Sources */,
-				2895A81B20614D6F00EE28BA /* Event.swift in Sources */,
-				2895A81220614D6F00EE28BA /* Evaluation.swift in Sources */,
-				2895A81120614D6F00EE28BA /* DoseSet.swift in Sources */,
-				2895A81920614D6F00EE28BA /* TypeOfState.swift in Sources */,
-				2895A80D20614D6F00EE28BA /* ActivitySet.swift in Sources */,
 				3D63CDD62055D33A00ACC8C2 /* parkinsonTests.swift in Sources */,
-				2895A80E20614D6F00EE28BA /* Appointment.swift in Sources */,
-				2895A81820614D6F00EE28BA /* DailyDose.swift in Sources */,
-				2895A81420614D6F00EE28BA /* PracticesSet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,12 +510,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D194CD020603C5500E7A0AC /* AddActivityViewController.swift in Sources */,
-				283FF7B2205C0EF20038029C /* ActivitiesViewController.swift in Sources */,
 				283FF7B1205C0E880038029C /* parkinson.xcdatamodeld in Sources */,
 				3D63CDE12055D33A00ACC8C2 /* parkinsonUITests.swift in Sources */,
 				3D60553920614DCB0007BAE5 /* ActivityPeriodiciyViewController.swift in Sources */,
-				3D22A1CF205D4BE200DE0F75 /* ActivitiesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
