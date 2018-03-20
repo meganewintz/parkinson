@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import parkinson
+//@testable import parkinson
 
 class parkinsonTests: XCTestCase {
     
