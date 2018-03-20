@@ -185,9 +185,9 @@ class ActivitySet: Sequence {
     /// Returns : 'TreatmentSet' the current instance with the delegate in parameter
     @discardableResult
     func addDelegate(delegate : ActivitySetDelegate) -> ActivitySet {
-        //if !delegates.contains(where: { $0 === delegate }) {
+        if !delegates.contains(where: { $0 === delegate }) {
             delegates.append(delegate)
-       // }
+        }
         return self
     }
     
@@ -202,9 +202,9 @@ class ActivitySet: Sequence {
     /// Returns : 'TreatmentSet' the current instance without the delegate in parameter
     @discardableResult
     func removeDelegate(delegate : ActivitySetDelegate) -> ActivitySet {
-        //if let index = delegates.index(where: { $0 === delegate }) {
-         //   delegates.remove(at: index)
-        //}
+        if let index = delegates.index(where: { $0 === delegate }) {
+            delegates.remove(at: index)
+        }
         return self
     }
 
