@@ -10,7 +10,7 @@ import UIKit
 
 class ActivityPeriodicityViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var datePickerIndexPath: IndexPath? = nil
+    var timePickerIndexPath: IndexPath? = nil
     var dateFormatter = DateFormatter()
     func setDateFormatter() { // called in viewDidLoad()
         self.dateFormatter.dateFormat = "HH:mm"
@@ -71,7 +71,7 @@ class ActivityPeriodicityViewController : UIViewController, UITableViewDataSourc
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var rows = events.count
-        if datePickerIndexPath != nil {
+        if timePickerIndexPath != nil {
             rows = rows + 1
         }
         return rows
@@ -79,44 +79,49 @@ class ActivityPeriodicityViewController : UIViewController, UITableViewDataSourc
     
     // displaying of the cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell: UITableViewCell
+        
         var timeCell: TimePickerTableViewCell
-        if datePickerIndexPath != nil && datePickerIndexPath!.row == indexPath.row {
+        var dayCell: DayTableViewCell
+        
+        if timePickerIndexPath != nil && timePickerIndexPath!.row == indexPath.row {
             //cell = tableView.dequeueReusableCell(withIdentifier: "timePickerCell")! as! TimePickerTableViewCell
             timeCell = tableView.dequeueReusableCell(withIdentifier: "timePickerCell")! as! TimePickerTableViewCell
-            //let datePicker = cell.viewWithTag(1) as! UIDatePicker // set the tag of Date Picker to be 1 in the Attributes Inspector
+            //let timePicker = cell.viewWithTag(1) as! UItimePicker // set the tag of Date Picker to be 1 in the Attributes Inspector
             let event = events[indexPath.row - 1]
             timeCell.timePicker.setDate(event.time, animated: true)
-            //datePicker.setDate(event.time, animated: true)
-            cell = timeCell
+            //timePicker.setDate(event.time, animated: true)
+            return timeCell
   
         } else {
-            cell = tableView.dequeueReusableCell(withIdentifier: "dayCell")!
+            dayCell = tableView.dequeueReusableCell(withIdentifier: "dayCell")! as! DayTableViewCell
             let event = events[indexPath.row]
-            cell.textLabel!.text = event.title
-            cell.detailTextLabel!.text = dateFormatter.string(from: event.time)
+            dayCell.dayLabel.text = event.title
+            dayCell.hourLabel.text = dateFormatter.string(from: event.time)
+            return dayCell
         }
-        return cell
+
 //
 //        let cell = tableView.dequeueReusableCell(withIdentifier: "dayCell", for: indexPath) as! PeriodicityTableViewCell
 //
 //        return displayCell(cell: cell, atIndexPath: indexPath)
         
     }
-    
+    // Action when we change the hour in a timePicker (relative to a day)
     @IBAction func timePicker(_ sender: UIDatePicker) {
-        let parentIndexPath = IndexPath(row: datePickerIndexPath!.row - 1, section: 0)
+        let parentIndexPath = IndexPath(row: timePickerIndexPath!.row - 1, section: 0)
         // change model
         let event = events[parentIndexPath.row]
         event.time = sender.date
         // change view
-        let eventCell = tableView.cellForRow(at: parentIndexPath)!
-        eventCell.detailTextLabel!.text = dateFormatter.string(from: sender.date)
+        let dayCell = tableView.cellForRow(at: parentIndexPath)! as! DayTableViewCell
+        dayCell.hourLabel.text = dateFormatter.string(from: sender.date)
     }
     
+
+    // define row height for the timeCell
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         var rowHeight = tableView.rowHeight
-        if datePickerIndexPath != nil && datePickerIndexPath!.row == indexPath.row {
+        if timePickerIndexPath != nil && timePickerIndexPath!.row == indexPath.row {
             let cell = tableView.dequeueReusableCell(withIdentifier: "timePickerCell")!
             rowHeight = cell.frame.height
         }
@@ -126,23 +131,24 @@ class ActivityPeriodicityViewController : UIViewController, UITableViewDataSourc
     // Action when we select a row from the tableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.beginUpdates() // because there are more than one action below
-        if datePickerIndexPath != nil && datePickerIndexPath!.row - 1 == indexPath.row { // case 2
-            tableView.deleteRows(at: [datePickerIndexPath!], with: .fade)
-            datePickerIndexPath = nil
+        if timePickerIndexPath != nil && timePickerIndexPath!.row - 1 == indexPath.row { // case 2
+            tableView.deleteRows(at: [timePickerIndexPath!], with: .fade)
+            timePickerIndexPath = nil
         } else { // case 1、3
-            if datePickerIndexPath != nil { // case 3
-                tableView.deleteRows(at: [datePickerIndexPath!], with: .fade)
+            if timePickerIndexPath != nil { // case 3
+                tableView.deleteRows(at: [timePickerIndexPath!], with: .fade)
             }
-            datePickerIndexPath = calculateDatePickerIndexPath(indexPathSelected: indexPath)
-            tableView.insertRows(at: [datePickerIndexPath!], with: .fade)
+            timePickerIndexPath = calculateTimePickerIndexPath(indexPathSelected: indexPath)
+            tableView.insertRows(at: [timePickerIndexPath!], with: .fade)
         }
         
         tableView.deselectRow(at: indexPath, animated: true)
         tableView.endUpdates()
     }
     
-    func calculateDatePickerIndexPath(indexPathSelected: IndexPath) -> IndexPath {
-        if datePickerIndexPath != nil && datePickerIndexPath!.row  < indexPathSelected.row { // case 3.2
+    // get the index path for add the timePickerCell
+    func calculateTimePickerIndexPath(indexPathSelected: IndexPath) -> IndexPath {
+        if timePickerIndexPath != nil && timePickerIndexPath!.row  < indexPathSelected.row { // case 3.2
             return IndexPath(row: indexPathSelected.row, section: 0)
         } else { // case 1、3.1
             return IndexPath(row: indexPathSelected.row + 1, section: 0)
@@ -155,10 +161,10 @@ class ActivityPeriodicityViewController : UIViewController, UITableViewDataSourc
     // MARK: - convenience methods
     
     @discardableResult
-    private func displayCell(cell: TimePickerTableViewCell, atIndexPath indexPath: IndexPath) -> UITableViewCell{
+    private func displayCell(cell: DayTableViewCell, atIndexPath indexPath: IndexPath) -> UITableViewCell{
         let event = events[indexPath.row]
-        cell.textLabel!.text = event.title
-        cell.detailTextLabel!.text = dateFormatter.string(from: event.time as Date)
+        cell.dayLabel.text = event.title
+        cell.hourLabel.text = dateFormatter.string(from: event.time as Date)
         return cell
 
     }
