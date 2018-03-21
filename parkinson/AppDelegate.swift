@@ -18,9 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func displayActivityTypes() {
         let dao = DAOcoreDataActivityType()
         
-        for a in dao.getActivityTypes() {
-            print (a)
-        }
+//        for a in dao.getActivityTypes() {
+//            print (a)
+//        }
     }
     func displayActivities() {
         let dao = DAOcoreDataActivity()
