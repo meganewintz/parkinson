@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2804646F2062583400EDB0A7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D63CDD72055D33A00ACC8C2 /* Info.plist */; };
 		283FF7B4205C2C980038029C /* EvaluationSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283FF7B3205C2C980038029C /* EvaluationSet.swift */; };
 		284B932C20623E0A00C02E13 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DB6994205AB86000D4D5F0 /* Factory.swift */; };
 		284B932F20623E1500C02E13 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D194CC92060043000E7A0AC /* CoreDataManager.swift */; };
@@ -114,6 +115,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		280464732062587B00EDB0A7 /* parkinson.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = parkinson.entitlements; sourceTree = "<group>"; };
 		283FF7B3205C2C980038029C /* EvaluationSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationSet.swift; sourceTree = "<group>"; };
 		284CE4BD205AFAE6000551AD /* TypeOfState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOfState.swift; sourceTree = "<group>"; };
 		2895A856206177D700EE28BA /* DAOactivityTypeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAOactivityTypeProtocol.swift; sourceTree = "<group>"; };
@@ -198,6 +200,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		280464702062587500EDB0A7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3D194CCD2060082A00E7A0AC /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -226,8 +235,10 @@
 				3D63CDD42055D33A00ACC8C2 /* parkinsonTests */,
 				3D63CDDF2055D33A00ACC8C2 /* parkinsonUITests */,
 				3D63CDBB2055D33900ACC8C2 /* Products */,
+				280464702062587500EDB0A7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		3D63CDBB2055D33900ACC8C2 /* Products */ = {
 			isa = PBXGroup;
@@ -242,6 +253,7 @@
 		3D63CDBC2055D33900ACC8C2 /* parkinson */ = {
 			isa = PBXGroup;
 			children = (
+				280464732062587B00EDB0A7 /* parkinson.entitlements */,
 				52DB6994205AB86000D4D5F0 /* Factory.swift */,
 				3D194CCD2060082A00E7A0AC /* Helpers */,
 				3D63CE202055DBC700ACC8C2 /* Test.swift */,
@@ -426,6 +438,17 @@
 					3D63CDB92055D33900ACC8C2 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 0;
+							};
+							com.apple.HomeKit = {
+								enabled = 0;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 					3D63CDD02055D33A00ACC8C2 = {
 						CreatedOnToolsVersion = 9.2;
@@ -474,6 +497,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2804646F2062583400EDB0A7 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -772,7 +796,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CNEDGC33HN;
+				DEVELOPMENT_TEAM = 89LACAV22V;
 				INFOPLIST_FILE = parkinsonTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = megane.parkinsonTests;
@@ -789,7 +813,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CNEDGC33HN;
+				DEVELOPMENT_TEAM = 89LACAV22V;
 				INFOPLIST_FILE = parkinsonTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = megane.parkinsonTests;
@@ -805,7 +829,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CNEDGC33HN;
+				DEVELOPMENT_TEAM = 89LACAV22V;
 				INFOPLIST_FILE = parkinsonUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -822,7 +846,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CNEDGC33HN;
+				DEVELOPMENT_TEAM = 89LACAV22V;
 				INFOPLIST_FILE = parkinsonUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -844,7 +868,7 @@
 				3D63CDE42055D33A00ACC8C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		3D63CDE52055D33A00ACC8C2 /* Build configuration list for PBXNativeTarget "parkinson" */ = {
 			isa = XCConfigurationList;
@@ -853,7 +877,7 @@
 				3D63CDE72055D33A00ACC8C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		3D63CDE82055D33A00ACC8C2 /* Build configuration list for PBXNativeTarget "parkinsonTests" */ = {
 			isa = XCConfigurationList;
@@ -862,7 +886,7 @@
 				3D63CDEA2055D33A00ACC8C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		3D63CDEB2055D33A00ACC8C2 /* Build configuration list for PBXNativeTarget "parkinsonUITests" */ = {
 			isa = XCConfigurationList;
@@ -871,7 +895,7 @@
 				3D63CDED2055D33A00ACC8C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 
