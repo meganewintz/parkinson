@@ -35,8 +35,4 @@ class DAOcoreDataActivityType : DAOactivityTypeProtocol {
         }
         return activityTypes
     }
-    
-    func addActivityType(activity: ActivityType) -> Bool {
-        return false
-    }
 }

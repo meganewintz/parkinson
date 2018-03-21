@@ -11,5 +11,4 @@ import Foundation
 protocol DAOactivityTypeProtocol : class {
     
     func getActivityTypes() -> [ActivityType]?
-    func addActivityType(activity : ActivityType) -> Bool
 }
