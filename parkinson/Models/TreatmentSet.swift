@@ -36,7 +36,7 @@ class TreatmentSet {
     /// - Returns : 'TreatmentSet' with the treatment enter in parameter
     @discardableResult
     public func addTreatment(treatment : Treatment) -> TreatmentSet {
-        if dao.addTreatment(treatment : treatment){
+        if dao.addTreatment(patient : Factory.sharedData.patient, treatment : treatment){
             treatments.append(treatment)
             for d in delegates {
                 d.treatmentAdded(at : self.count-1)
@@ -60,7 +60,7 @@ class TreatmentSet {
     @discardableResult
     public func removeTreatment(treatment : Treatment) -> TreatmentSet {
         if let index = treatments.index(where: { treatment === $0 }) {
-            if dao.removeTreatment(treatment : treatment) {
+            if dao.removeTreatment(patient : Factory.sharedData.patient, treatment : treatment) {
                 treatments.remove(at : index)
                 for d in delegates {
                     d.treatmentRemoved(at : index)
@@ -142,7 +142,7 @@ class TreatmentSet {
     @discardableResult
     func updateTreatment(old : Treatment, new : Treatment) -> TreatmentSet {
         if let index = treatments.index(where: { $0 === old }) {
-            if dao.updateTreatment(old : old, new : new) {
+            if dao.updateTreatment(patient : Factory.sharedData.patient, old : old, new : new) {
                 treatments[index] = new
                 for d in delegates {
                     d.treatmentUpdated(at : index)

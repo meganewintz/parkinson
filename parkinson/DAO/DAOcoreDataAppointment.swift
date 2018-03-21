@@ -10,19 +10,19 @@ import Foundation
 
 class DAOcoreDataAppointment : DAOappointmentProtocol {
     
-    func getAppointments() -> AppointmentSet? {
+    func getAppointments(patient : Patient) -> [Appointment]? {
         return nil
     }
     
-    func addAppointment(appointment: Appointment) -> Bool {
+    func addAppointment(patient : Patient, appointment: Appointment) -> Bool {
         return false
     }
     
-    func updateAppointment(old: Appointment, new: Appointment) -> Bool {
+    func updateAppointment(patient : Patient, old: Appointment, new: Appointment) -> Bool {
         return false
     }
     
-    func removeAppointment(appointment: Appointment) -> Bool {
+    func removeAppointment(patient : Patient, appointment: Appointment) -> Bool {
         return false
     }
 }

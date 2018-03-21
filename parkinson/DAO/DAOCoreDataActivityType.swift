@@ -10,14 +10,14 @@ import Foundation
 import CoreData
 import UIKit
 
-class DAOcoreDataActivityType {
-    func getActivityTypes() -> [String] {
+class DAOcoreDataActivityType : DAOactivityTypeProtocol {
+    func getActivityTypes() -> [ActivityType]? {
         
         // Get context
         let context = CoreDataManager.context
         
         let activityTypesData: [ActivityTypeData]
-        var activityTypes: [String] = []
+        var activityTypes: [ActivityType] = []
         
         // Create Fetch Request
         let request: NSFetchRequest<ActivityTypeData> = ActivityTypeData.fetchRequest()
@@ -31,7 +31,7 @@ class DAOcoreDataActivityType {
         }
         catch let error as NSError {
             print (error, error.userInfo)
-
+            return nil
         }
         return activityTypes
     }

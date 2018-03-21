@@ -19,13 +19,13 @@ class DAOcoreDataActivity : DAOactivityProtocol{
     /// get the activities from the CoreData
     ///
     /// - Returns: AcivitySet containing all the activities
-    func getActivities() -> ActivitySet? {
+    func getActivities(patient : Patient) -> [Activity]? {
         
         // Get context
         let context = CoreDataManager.context
         
         let activities: [ActivityData]
-        let activitySet: ActivitySet = ActivitySet(dao: self)
+        var activitySet = [Activity]()
 
         // Create Fetch Request
         let request: NSFetchRequest<ActivityData> = ActivityData.fetchRequest()
@@ -34,7 +34,7 @@ class DAOcoreDataActivity : DAOactivityProtocol{
         do {
             try activities = context.fetch(request)
             for a in activities{
-                activitySet.addActivity(activity: Activity(name: (a.type?.name!)!, description: a.descr!))
+                activitySet.append(Activity(name: (a.type?.name!)!, description: a.descr!))
             }
         }
         catch let error as NSError {
@@ -48,7 +48,7 @@ class DAOcoreDataActivity : DAOactivityProtocol{
     ///
     /// - Parameter name: name of the activity
     /// - Returns: Activity or nil if no activity correspond to the name
-    func getActivity(name: String) -> Activity? {
+    func getActivity(patient : Patient, name: String) -> Activity? {
         
         // Get context
         let context = CoreDataManager.context
@@ -110,7 +110,7 @@ class DAOcoreDataActivity : DAOactivityProtocol{
     ///
     /// - Parameter activity
     /// - Returns: true if the activity was successfully add in the CoreData
-    func addActivity(activity: Activity) -> Bool {
+    func addActivity(patient : Patient, activity: Activity) -> Bool {
         
         // Get context
         let context = CoreDataManager.context
@@ -143,7 +143,7 @@ class DAOcoreDataActivity : DAOactivityProtocol{
     ///
     /// - Parameter activity: activity to remove
     /// - Returns: true if the activity was successfully removed.
-    func removeActivity(activity: Activity) -> Bool {
+    func removeActivity(patient : Patient, activity: Activity) -> Bool {
 
         // Get context
         let context = CoreDataManager.context
@@ -166,7 +166,7 @@ class DAOcoreDataActivity : DAOactivityProtocol{
         return true
     }
     
-    func updateActivity(oldActivity: Activity, newActivity: Activity) -> Bool {
+    func updateActivity(patient : Patient, oldActivity: Activity, newActivity: Activity) -> Bool {
         
         // Get context
         let context = CoreDataManager.context

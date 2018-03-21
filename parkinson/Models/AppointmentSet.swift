@@ -35,7 +35,7 @@ class AppointmentSet {
     /// - Returns : 'AppointmentSet' with the appointment enter in parameter
     @discardableResult
     func addAppointment(appointment : Appointment) -> AppointmentSet {
-        if dao.addAppointment(appointment : appointment) {
+        if dao.addAppointment(patient : Factory.sharedData.patient, appointment : appointment) {
             appointmentSet.append(appointment)
             for d in delegates {
                 d.appointmentAdded(at : self.count-1)
@@ -60,7 +60,7 @@ class AppointmentSet {
     func removeAppointment(appointment : Appointment) -> AppointmentSet {
         if let index=appointmentSet.index(where: { $0 === appointment })
         {
-            if dao.removeAppointment(appointment : appointment) {
+            if dao.removeAppointment(patient : Factory.sharedData.patient, appointment : appointment) {
                 appointmentSet.remove(at: index)
                 for d in delegates {
                     d.appointmentDeleted(at : index)
@@ -143,7 +143,7 @@ class AppointmentSet {
     func updateAppointment(old : Appointment, new : Appointment) -> AppointmentSet {
         if let index=appointmentSet.index(where: { $0 === old })
         {
-            if dao.updateAppointment(old : old, new : new) {
+            if dao.updateAppointment(patient : Factory.sharedData.patient, old : old, new : new) {
                 appointmentSet[index] = new
                 for d : AppointmentSetDelegate in delegates {
                     d.appointmentUpdated(at : index)

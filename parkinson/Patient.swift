@@ -17,28 +17,28 @@ class Patient {
     init(daoActivity: DAOactivityProtocol, daoTreatment: DAOtreatmentProtocol, daoAppointment : DAOappointmentProtocol) {
         
         // activitySet
-        if daoActivity.getActivities() != nil {
-            self.activitySet = daoActivity.getActivities()!
-        }
-        else {
+//        if daoActivity.getActivities() != nil {
+//            self.activitySet = daoActivity.getActivities()!
+//        }
+//        else {
             self.activitySet = ActivitySet(dao: daoActivity)
-        }
+//        }
         
         // treatmentSet
-        if daoTreatment.getTreatments() != nil {
-            self.treatmentSet = daoTreatment.getTreatments()!
-        }
-        else {
+//        if daoTreatment.getTreatments() != nil {
+//            self.treatmentSet = daoTreatment.getTreatments()!
+//        }
+//        else {
             self.treatmentSet = TreatmentSet(dao: daoTreatment)
-        }
+//        }
         
         // appointmentSet
-        if daoAppointment.getAppointments() != nil {
-            self.appointmentSet = daoAppointment.getAppointments()!
-        }
-        else {
+//        if daoAppointment.getAppointments() != nil {
+//            self.appointmentSet = daoAppointment.getAppointments()!
+//        }
+//        else {
             self.appointmentSet = AppointmentSet(dao: daoAppointment)
-        }
+//        }
 
         
     }

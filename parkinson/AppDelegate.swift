@@ -18,13 +18,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func displayActivityTypes() {
         let dao = DAOcoreDataActivityType()
         
-        for a in dao.getActivityTypes() {
-            print (a)
-        }
+//        for a in dao.getActivityTypes() {
+//            print (a)
+//        }
     }
     func displayActivities() {
         let dao = DAOcoreDataActivity()
-        guard let activities = dao.getActivities() else {
+        guard let activities = dao.getActivities(patient : Factory.sharedData.patient) else {
             return
         }
         for a in activities {

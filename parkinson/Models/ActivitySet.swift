@@ -101,7 +101,7 @@ class ActivitySet: Sequence {
     @discardableResult
     func addActivity(activity: Activity) -> ActivitySet{
         if !self.contains(activity: activity){
-            if(self.dao.addActivity(activity: activity)){
+            if(self.dao.addActivity(patient : Factory.sharedData.patient, activity: activity)){
                 self.pset.append(activity)
                 for delegate in delegates {
                     delegate.activityAdded(at: self.count-1)

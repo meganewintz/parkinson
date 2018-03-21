@@ -13,9 +13,9 @@ protocol DAOactivityProtocol : class {
     /// Get all the activities from CoreData.
     ///
     /// - Returns: ActivitySet containing all the activities.
-    func getActivities() -> ActivitySet?
-    func getActivity(name: String) -> Activity?
-    func addActivity(activity: Activity) -> Bool
-    func removeActivity(activity: Activity) -> Bool
-    func updateActivity(oldActivity: Activity, newActivity: Activity) -> Bool
+    func getActivities(patient : Patient) -> [Activity]?
+    func getActivity(patient : Patient, name: String) -> Activity?
+    func addActivity(patient : Patient, activity: Activity) -> Bool
+    func removeActivity(patient : Patient, activity: Activity) -> Bool
+    func updateActivity(patient : Patient, oldActivity: Activity, newActivity: Activity) -> Bool
 }
