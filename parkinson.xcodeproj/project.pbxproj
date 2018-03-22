@@ -21,7 +21,6 @@
 		28D79D79205AD59E001C2BD7 /* DAOcoreDataAppointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D79D78205AD59E001C2BD7 /* DAOcoreDataAppointment.swift */; };
 		3D09154B2062490500EB7C2F /* DayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D09154A2062490500EB7C2F /* DayTableViewCell.swift */; };
 		3D09154E206258F700EB7C2F /* DAOcoreDataActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2597C9205840F400D00716 /* DAOcoreDataActivity.swift */; };
-		3D09154F206258F700EB7C2F /* DAOCoreDataActivityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D60553A20616DD60007BAE5 /* DAOCoreDataActivityType.swift */; };
 		3D091550206258F700EB7C2F /* DAOcoreDataTreatment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DB6996205ABABC00D4D5F0 /* DAOcoreDataTreatment.swift */; };
 		3D091551206258F700EB7C2F /* DAOcoreDataAppointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D79D78205AD59E001C2BD7 /* DAOcoreDataAppointment.swift */; };
 		3D0915532062590E00EB7C2F /* ActivitySetDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CE172055DB8B00ACC8C2 /* ActivitySetDelegate.swift */; };
@@ -62,7 +61,6 @@
 		3D2597CA205840F400D00716 /* DAOcoreDataActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2597C9205840F400D00716 /* DAOcoreDataActivity.swift */; };
 		3D2597CC205C429100D00716 /* FrequenceActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2597CB205C429100D00716 /* FrequenceActivityViewController.swift */; };
 		3D464FAD205C589400BF8A53 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D464FAC205C589400BF8A53 /* TabBarController.swift */; };
-		3D60553B20616DD60007BAE5 /* DAOCoreDataActivityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D60553A20616DD60007BAE5 /* DAOCoreDataActivityType.swift */; };
 		3D63CDBE2055D33900ACC8C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CDBD2055D33900ACC8C2 /* AppDelegate.swift */; };
 		3D63CDC02055D33900ACC8C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CDBF2055D33900ACC8C2 /* ViewController.swift */; };
 		3D63CDC32055D33900ACC8C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D63CDC12055D33900ACC8C2 /* Main.storyboard */; };
@@ -90,6 +88,8 @@
 		3D63CE1E2055DB8C00ACC8C2 /* PracticeSetDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CE182055DB8B00ACC8C2 /* PracticeSetDelegate.swift */; };
 		3D63CE1F2055DB8C00ACC8C2 /* EvaluationSetDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CE192055DB8C00ACC8C2 /* EvaluationSetDelegate.swift */; };
 		3D63CE212055DBC700ACC8C2 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CE202055DBC700ACC8C2 /* Test.swift */; };
+		3DD60E492064171100DD0749 /* DTOcoreDataFrequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD60E482064171100DD0749 /* DTOcoreDataFrequency.swift */; };
+		3DD60E4A2064171100DD0749 /* DTOcoreDataFrequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD60E482064171100DD0749 /* DTOcoreDataFrequency.swift */; };
 		3DF1C417205D8A7C00A606C4 /* TimePickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF1C416205D8A7C00A606C4 /* TimePickerTableViewCell.swift */; };
 		3DF1C41A205EA11400A606C4 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF1C419205EA11400A606C4 /* Event.swift */; };
 		52DB6993205AB6A100D4D5F0 /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DB6992205AB6A100D4D5F0 /* Patient.swift */; };
@@ -134,7 +134,6 @@
 		3D2597C9205840F400D00716 /* DAOcoreDataActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAOcoreDataActivity.swift; sourceTree = "<group>"; };
 		3D2597CB205C429100D00716 /* FrequenceActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequenceActivityViewController.swift; sourceTree = "<group>"; };
 		3D464FAC205C589400BF8A53 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		3D60553A20616DD60007BAE5 /* DAOCoreDataActivityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAOCoreDataActivityType.swift; sourceTree = "<group>"; };
 		3D63CDBA2055D33900ACC8C2 /* parkinson.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = parkinson.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D63CDBD2055D33900ACC8C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D63CDBF2055D33900ACC8C2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -168,6 +167,7 @@
 		3D63CE182055DB8B00ACC8C2 /* PracticeSetDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PracticeSetDelegate.swift; sourceTree = "<group>"; };
 		3D63CE192055DB8C00ACC8C2 /* EvaluationSetDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvaluationSetDelegate.swift; sourceTree = "<group>"; };
 		3D63CE202055DBC700ACC8C2 /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		3DD60E482064171100DD0749 /* DTOcoreDataFrequency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOcoreDataFrequency.swift; sourceTree = "<group>"; };
 		3DF1C416205D8A7C00A606C4 /* TimePickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerTableViewCell.swift; sourceTree = "<group>"; };
 		3DF1C419205EA11400A606C4 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		52DB6992205AB6A100D4D5F0 /* Patient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
@@ -210,17 +210,6 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		3D2597C820583E4A00D00716 /* DAO */ = {
-			isa = PBXGroup;
-			children = (
-				3D2597C9205840F400D00716 /* DAOcoreDataActivity.swift */,
-				3D60553A20616DD60007BAE5 /* DAOCoreDataActivityType.swift */,
-				52DB6996205ABABC00D4D5F0 /* DAOcoreDataTreatment.swift */,
-				28D79D78205AD59E001C2BD7 /* DAOcoreDataAppointment.swift */,
-			);
-			path = DAO;
-			sourceTree = "<group>";
-		};
 		3D63CDB12055D33900ACC8C2 = {
 			isa = PBXGroup;
 			children = (
@@ -245,9 +234,10 @@
 			isa = PBXGroup;
 			children = (
 				52DB6994205AB86000D4D5F0 /* Factory.swift */,
+				52DB6992205AB6A100D4D5F0 /* Patient.swift */,
+				3DD60E472064165B00DD0749 /* CoreData */,
 				3D194CCD2060082A00E7A0AC /* Helpers */,
 				3D63CE202055DBC700ACC8C2 /* Test.swift */,
-				3D2597C820583E4A00D00716 /* DAO */,
 				3D63CE132055DB5000ACC8C2 /* Delegates */,
 				3D63CDFA2055DA8600ACC8C2 /* Models */,
 				3D63CDF22055D6E400ACC8C2 /* Views */,
@@ -258,7 +248,6 @@
 				3D63CDC92055D33900ACC8C2 /* LaunchScreen.storyboard */,
 				3D63CDCC2055D33900ACC8C2 /* Info.plist */,
 				3D63CDC42055D33900ACC8C2 /* parkinson.xcdatamodeld */,
-				52DB6992205AB6A100D4D5F0 /* Patient.swift */,
 			);
 			path = parkinson;
 			sourceTree = "<group>";
@@ -358,6 +347,17 @@
 				2895A856206177D700EE28BA /* DAOactivityTypeProtocol.swift */,
 			);
 			path = Delegates;
+			sourceTree = "<group>";
+		};
+		3DD60E472064165B00DD0749 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				3D2597C9205840F400D00716 /* DAOcoreDataActivity.swift */,
+				3DD60E482064171100DD0749 /* DTOcoreDataFrequency.swift */,
+				52DB6996205ABABC00D4D5F0 /* DAOcoreDataTreatment.swift */,
+				28D79D78205AD59E001C2BD7 /* DAOcoreDataAppointment.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -513,7 +513,6 @@
 				3D63CE1B2055DB8C00ACC8C2 /* TreatmentSetDelegate.swift in Sources */,
 				3D63CE1C2055DB8C00ACC8C2 /* AppointmentSetDelegate.swift in Sources */,
 				3D63CE1E2055DB8C00ACC8C2 /* PracticeSetDelegate.swift in Sources */,
-				3D60553B20616DD60007BAE5 /* DAOCoreDataActivityType.swift in Sources */,
 				3D2597CA205840F400D00716 /* DAOcoreDataActivity.swift in Sources */,
 				3D22A1D1205D4C4700DE0F75 /* ActivityTableViewCell.swift in Sources */,
 				28D79D74205ACEF9001C2BD7 /* DAOtreatmentProtocol.swift in Sources */,
@@ -527,6 +526,7 @@
 				3D63CE092055DB0200ACC8C2 /* Treatment.swift in Sources */,
 				3D63CE0B2055DB0200ACC8C2 /* DoseSet.swift in Sources */,
 				3DF1C41A205EA11400A606C4 /* Event.swift in Sources */,
+				3DD60E492064171100DD0749 /* DTOcoreDataFrequency.swift in Sources */,
 				3D63CE212055DBC700ACC8C2 /* Test.swift in Sources */,
 				3D63CE0D2055DB0200ACC8C2 /* State.swift in Sources */,
 				3D63CDBE2055D33900ACC8C2 /* AppDelegate.swift in Sources */,
@@ -555,10 +555,10 @@
 				3D0915642062591700EB7C2F /* Practice.swift in Sources */,
 				3D09155E2062591700EB7C2F /* ActivitySet.swift in Sources */,
 				3D09156B2062591700EB7C2F /* EvaluationSet.swift in Sources */,
+				3DD60E4A2064171100DD0749 /* DTOcoreDataFrequency.swift in Sources */,
 				3D63CDD62055D33A00ACC8C2 /* parkinsonTests.swift in Sources */,
 				3D091550206258F700EB7C2F /* DAOcoreDataTreatment.swift in Sources */,
 				3D0915662062591700EB7C2F /* State.swift in Sources */,
-				3D09154F206258F700EB7C2F /* DAOCoreDataActivityType.swift in Sources */,
 				3D0915542062590E00EB7C2F /* AppointmentSetDelegate.swift in Sources */,
 				3D09155B2062590E00EB7C2F /* DAOappointmentProtocol.swift in Sources */,
 				3D09155C2062590E00EB7C2F /* DAOactivityTypeProtocol.swift in Sources */,

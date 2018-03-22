@@ -10,20 +10,20 @@ import UIKit
 
 class ActivitiesTableViewController : NSObject, UITableViewDataSource, ActivitySetDelegate {
     
-    //var activities: ActivitySet
+    var activities: ActivitySet
     
     var tableView: UITableView!
-    var activities = ["Natation","Jardinage","Marche"]
+    //var activities = ["Natation","Jardinage","Marche"]
 
     
     init(tableView: UITableView, activities: ActivitySet) {
-        //self.activities = activities
+        self.activities = activities
         super.init()
         //self.factory.initializeData()
         
         self.tableView = tableView
         self.tableView.dataSource = self
-        //self.activities.addDelegate(delegate: self)
+        self.activities.addDelegate(delegate: self)
     }
     
     // MARK: - Table view data source
@@ -106,8 +106,8 @@ class ActivitiesTableViewController : NSObject, UITableViewDataSource, ActivityS
     private func displayCell(cell: ActivityTableViewCell, atIndexPath indexPath: IndexPath) -> UITableViewCell{
         //cell.nameLabel.text = activities?[indexPath.row].name
         //        cell.descriptionLabel.text = activities?[indexPath.row].description
-        cell.nameLabel.text = activities[indexPath.row]//.name
-        cell.descriptionLabel.text = activities[indexPath.row]//.description
+        cell.nameLabel.text = activities[indexPath.row].name
+        cell.descriptionLabel.text = activities[indexPath.row].description
 
         
         return cell

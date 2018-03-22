@@ -12,7 +12,7 @@ class Activity {
     
     var name : String
     var description: String
-    var frequency: [Event]
+    var frequencies: [Event]
     private var practices : PracticesSet
     
     
@@ -26,7 +26,7 @@ class Activity {
     init(name : String, description: String) {
         self.name = name
         self.description = description
-        self.frequency = []
+        self.frequencies = []
         self.practices = PracticesSet()
     }
     
@@ -38,10 +38,10 @@ class Activity {
     ///   - name: `String`
     ///   - description:  `String`
     ///   - frenquency: [Event] days and hours when the activity must be done.
-    init(name : String, description: String, frequency: [Event]) {
+    init(name : String, description: String, frequencies: [Event]) {
         self.name = name
         self.description = description
-        self.frequency = frequency
+        self.frequencies = frequencies
         self.practices = PracticesSet()
     }
     

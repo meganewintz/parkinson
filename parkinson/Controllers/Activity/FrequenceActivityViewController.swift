@@ -10,15 +10,14 @@ import UIKit
 
 
 protocol FrequenceActivityViewControllerDelegate {
-    func updateActivityFrenquency(frequency: [Event])
+    func updateActivityFrenquencies(frequencies: [Event])
 }
 
 class FrequenceActivityViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var timePickerIndexPath: IndexPath? = nil
     var dateFormatter = DateFormatter()
-    var frequency = [Event]()
-    var test = "It's a test"
+    var frequencies = [Event]()
     var delegate: FrequenceActivityViewControllerDelegate? = nil
 
     
@@ -31,7 +30,6 @@ class FrequenceActivityViewController : UIViewController, UITableViewDataSource,
 
         //let precView = navigationController as! AddActivityViewController
         //events = precView.events
-        print("viewDidLoad")
         
         // Do any additional setup after loading the view.
 //        self.tableView = tableView
@@ -55,7 +53,7 @@ class FrequenceActivityViewController : UIViewController, UITableViewDataSource,
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var rows = frequency.count
+        var rows = frequencies.count
         if timePickerIndexPath != nil {
             rows = rows + 1
         }
@@ -70,13 +68,13 @@ class FrequenceActivityViewController : UIViewController, UITableViewDataSource,
         
         if timePickerIndexPath != nil && timePickerIndexPath!.row == indexPath.row {
             timeCell = tableView.dequeueReusableCell(withIdentifier: "timePickerCell")! as! TimePickerTableViewCell
-            let event = frequency[indexPath.row - 1]
+            let event = frequencies[indexPath.row - 1]
             timeCell.timePicker.setDate(event.time, animated: true)
             return timeCell
   
         } else {
             dayCell = tableView.dequeueReusableCell(withIdentifier: "dayCell")! as! DayTableViewCell
-            if self.frequency[indexPath.row].enable {
+            if self.frequencies[indexPath.row].enable {
                 dayCell.switchButton.isOn = true
             } else {
                 dayCell.hourLabel.isHidden = true // hide the hour
@@ -84,7 +82,7 @@ class FrequenceActivityViewController : UIViewController, UITableViewDataSource,
                 dayCell.setSelected(true, animated: false)
 
             }
-            let event = frequency[indexPath.row]
+            let event = frequencies[indexPath.row]
             dayCell.dayLabel.text = event.title
             dayCell.hourLabel.text = dateFormatter.string(from: event.time)
 
@@ -136,7 +134,7 @@ class FrequenceActivityViewController : UIViewController, UITableViewDataSource,
     @IBAction func timePicker(_ sender: UIDatePicker) {
         let parentIndexPath = IndexPath(row: timePickerIndexPath!.row - 1, section: 0)
         // change model
-        let event = frequency[parentIndexPath.row]
+        let event = frequencies[parentIndexPath.row]
         event.time = sender.date
         // change view
         let dayCell = tableView.cellForRow(at: parentIndexPath)! as! DayTableViewCell
@@ -145,7 +143,6 @@ class FrequenceActivityViewController : UIViewController, UITableViewDataSource,
     
     // Action when we click on a switch button
     @IBAction func switchButton(_ sender: UISwitch) {
-        print(test)
         // get the index of the cell of the witch button we clicked
         let point = tableView.convert(CGPoint.zero, from: sender)
         guard let indexPath = tableView.indexPathForRow(at: point) else {
@@ -158,26 +155,26 @@ class FrequenceActivityViewController : UIViewController, UITableViewDataSource,
         if sender.isOn {
             dayCell.hourLabel.isHidden = false //display the hour
             dayCell.setSelected(false, animated: false)
-            self.frequency[indexPath.row].enable = true
+            self.frequencies[indexPath.row].enable = true
 
         }
         // If we turn off the button
         else {
             dayCell.hourLabel.isHidden = true // hide the hour
             dayCell.setSelected(true, animated: false)
-            self.frequency[indexPath.row].enable = true
+            self.frequencies[indexPath.row].enable = true
         }
         
     }
     
     
     @IBAction func validateButton(_ sender: Any) {
-        delegate?.updateActivityFrenquency(frequency: frequency)
+        delegate?.updateActivityFrenquencies(frequencies: frequencies)
         var i = 0
-        while i < frequency.count && !frequency[i].enable {
+        while i < frequencies.count && !frequencies[i].enable {
             i += 1
         }
-        if i <= frequency.count || frequency[frequency.count-1].enable{
+        if i <= frequencies.count || frequencies[frequencies.count-1].enable{
             _ = navigationController?.popViewController(animated: true)
         }
         else {
@@ -191,7 +188,7 @@ class FrequenceActivityViewController : UIViewController, UITableViewDataSource,
 
     @discardableResult
     private func displayCell(cell: DayTableViewCell, atIndexPath indexPath: IndexPath) -> UITableViewCell{
-        let event = frequency[indexPath.row]
+        let event = frequencies[indexPath.row]
         cell.dayLabel.text = event.title
         cell.hourLabel.text = dateFormatter.string(from: event.time as Date)
         return cell

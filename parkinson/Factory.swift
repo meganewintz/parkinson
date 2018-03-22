@@ -15,6 +15,16 @@ class Factory {
     let patient: Patient
     
     private init(daoActivity: DAOactivityProtocol, daoTreatment: DAOtreatmentProtocol, daoAppointment : DAOappointmentProtocol) {
-        patient = Patient(daoActivity: daoActivity, daoTreatment: daoTreatment, daoAppointment : daoAppointment)
+        self.patient = Patient(daoActivity: daoActivity, daoTreatment: daoTreatment, daoAppointment : daoAppointment)
+        //Factory.initiateActivities()
+        
+    }
+    
+    static func initiateActivities() {
+        let patient = Factory.sharedData.patient
+        let dao = DAOcoreDataActivity()
+        if let activities = dao.getActivities(patient: patient) {
+            patient.activitySet.initialize(activities: activities)
+        }
     }
 }
