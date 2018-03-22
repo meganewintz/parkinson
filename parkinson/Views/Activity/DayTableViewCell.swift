@@ -15,6 +15,8 @@ class DayTableViewCell: UITableViewCell {
     
     @IBOutlet weak var hourLabel: UILabel!
 
+    @IBOutlet weak var switchButton: UISwitch!
+    
     @IBAction func `switch`(_ sender: Any) {
     }
     override func awakeFromNib() {
@@ -24,7 +26,6 @@ class DayTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
 

@@ -22,6 +22,9 @@ class Patient {
 //        }
 //        else {
             self.activitySet = ActivitySet(dao: daoActivity)
+//        if let set = daoActivity.getActivities(patient: Factory.sharedData.patient)  {
+//            self.pset = set
+//        }
 //        }
         
         // treatmentSet

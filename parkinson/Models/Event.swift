@@ -7,11 +7,16 @@
 //
 
 import Foundation
+
+// class use in FrequenceActivityViewController
+// an event has a title, a time and it's enable or not.
 class Event {
     let title: String
     var time: Date
+    var enable: Bool
     init(title: String, time: Date) {
         self.title = title
         self.time = time
+        self.enable = false
     }
 }

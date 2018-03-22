@@ -21,7 +21,7 @@ class ActivitiesViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         //self.displayActivities()
-        self.tableViewController = ActivitiesTableViewController(tableView: self.tableView)//, activities: Factory.sharedData.patient.activitySet)
+        self.tableViewController = ActivitiesTableViewController(tableView: self.tableView, activities: Factory.sharedData.patient.activitySet)
     }
 
     override func didReceiveMemoryWarning() {

@@ -16,7 +16,7 @@ class ActivitiesTableViewController : NSObject, UITableViewDataSource, ActivityS
     var activities = ["Natation","Jardinage","Marche"]
 
     
-    init(tableView: UITableView){//}, activities: ActivitySet) {
+    init(tableView: UITableView, activities: ActivitySet) {
         //self.activities = activities
         super.init()
         //self.factory.initializeData()
