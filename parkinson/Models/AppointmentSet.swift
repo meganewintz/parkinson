@@ -102,32 +102,14 @@ class AppointmentSet {
     ///
     /// - Returns : Appointment?
     func nextAppointment() -> Appointment? {
-        guard appointmentSet.count > 0 else { return nil }
-        
-        // get only the future appointments
-        let currentDate = Date()
         var futureAppointments = [Appointment]()
+        let currentDate = Date()
         for appointment in appointmentSet {
             if appointment.date > currentDate {
                 futureAppointments.append(appointment)
             }
         }
-        
-        if futureAppointments.count == 0 {
-            // no future appointment
-            return nil
-        } else {
-            // find the appointment which minimise the time interval between its date and the current date
-            var nearestAppointment = futureAppointments[0]
-            var smallestInterval = nearestAppointment.date.timeIntervalSince(currentDate)
-            for appointment in futureAppointments {
-                if appointment.date.timeIntervalSince(currentDate) < smallestInterval {
-                    smallestInterval = appointment.date.timeIntervalSince(currentDate)
-                    nearestAppointment = appointment
-                }
-            }
-            return nearestAppointment
-        }
+        return appointmentSet.min(by : { $0.date < $1.date })
     }
     
     

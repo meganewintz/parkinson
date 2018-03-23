@@ -49,6 +49,9 @@ class Activity {
     ///
     /// give the date of the next practice programed
     ///
-    /// - Returns : 'Date' the date of the next practice programed
+    /// - Returns : 'Date?' the date of the next practice programed
+    func dateNextPractice() -> Date? {
+        return nil;
+    }
 
 }
