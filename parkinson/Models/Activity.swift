@@ -8,38 +8,11 @@
 
 import Foundation
 
-/// Activity type
-///
-
-/// ---- Proprieties
-///
-/// name : String
-///
-/// description : String
-
-
-/// ---- Methods
-///
-
-/// init
-///
-/// initialize an 'Activity' with his name and his description
-///
-/// - Parameters:
-///   - name: `String`
-///   - description:  `String`
-
-
-/// dateNextPractice
-///
-/// give the date of the next practice programed
-///
-/// - Returns : 'Date' the date of the next practice programed
-
 class Activity {
     
     var name : String
     var description: String
+    var frequencies: [Event]
     private var practices : PracticesSet
     
     
@@ -53,9 +26,24 @@ class Activity {
     init(name : String, description: String) {
         self.name = name
         self.description = description
+        self.frequencies = []
         self.practices = PracticesSet()
     }
     
+    /// init
+    ///
+    /// initialize an 'Activity' with his name and his description
+    ///
+    /// - Parameters:
+    ///   - name: `String`
+    ///   - description:  `String`
+    ///   - frenquency: [Event] days and hours when the activity must be done.
+    init(name : String, description: String, frequencies: [Event]) {
+        self.name = name
+        self.description = description
+        self.frequencies = frequencies
+        self.practices = PracticesSet()
+    }
     
     /// dateNextPractice
     ///

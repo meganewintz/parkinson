@@ -44,7 +44,6 @@ class ActivitiesTableViewController : NSObject, UITableViewDataSource, ActivityS
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "activityCell", for: indexPath) as! ActivityTableViewCell
-        
         return displayCell(cell: cell, atIndexPath: indexPath)
         
     }

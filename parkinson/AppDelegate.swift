@@ -14,14 +14,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    
-    func displayActivityTypes() {
-        let dao = DAOcoreDataActivityType()
-        
-//        for a in dao.getActivityTypes() {
-//            print (a)
-//        }
+    var dateFormatter = DateFormatter()
+
+    func displayFreq() {
+        self.dateFormatter.dateFormat = "HH:mm"
+        let dto = DTOcoreDataFrequency()
+        guard let activities = dto.fetchAll() else {print("rien")
+            return
+        }
+        for a in activities {
+            let h = a.hour!
+            let hour = dateFormatter.string(from: h)
+            print (a.day!, "-", hour, "-")
+        }
     }
+
     func displayActivities() {
         let dao = DAOcoreDataActivity()
         guard let activities = dao.getActivities(patient : Factory.sharedData.patient) else {
@@ -43,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         do {
             // Executes batch
-            let result = try context.execute(deleteRequest) as? NSBatchDeleteResult
+            _ = try context.execute(deleteRequest) as? NSBatchDeleteResult
             
         } catch {
             fatalError("Failed to execute request: \(error)")
@@ -55,6 +62,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //removeActivity()
         //displayActivityTypes()
         //displayActivities()
+        displayFreq()
+        Factory.initiateActivities()
         return true
     }
 

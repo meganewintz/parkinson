@@ -10,6 +10,8 @@ import Foundation
 
 class Patient {
     
+    // var firstname
+    // var surname
     var activitySet: ActivitySet
     var treatmentSet: TreatmentSet
     var appointmentSet : AppointmentSet
@@ -22,6 +24,9 @@ class Patient {
 //        }
 //        else {
             self.activitySet = ActivitySet(dao: daoActivity)
+//        if let set = daoActivity.getActivities(patient: Factory.sharedData.patient)  {
+//            self.pset = set
+//        }
 //        }
         
         // treatmentSet
@@ -39,7 +44,9 @@ class Patient {
 //        else {
             self.appointmentSet = AppointmentSet(dao: daoAppointment)
 //        }
-
-        
+    }
+    
+    func addActivity(activity: Activity) {
+        self.activitySet.addActivity(activity: activity)
     }
 }

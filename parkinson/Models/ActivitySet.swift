@@ -90,6 +90,11 @@ class ActivitySet: Sequence {
         self.dao = dao
         delegates = [ActivitySetDelegate]()
     }
+    
+    func initialize(activities: [Activity]){
+        self.pset = activities
+    }
+    
 
  
     /// addActivity
