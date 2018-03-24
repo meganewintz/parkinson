@@ -120,7 +120,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		280464732062587B00EDB0A7 /* parkinson.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = parkinson.entitlements; sourceTree = "<group>"; };
 		283FF7B3205C2C980038029C /* EvaluationSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationSet.swift; sourceTree = "<group>"; };
 		284CE4BD205AFAE6000551AD /* TypeOfState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOfState.swift; sourceTree = "<group>"; };
 		2855F65D20669D0100CDF510 /* EventTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTests.swift; sourceTree = "<group>"; };
@@ -251,7 +250,6 @@
 		3D63CDBC2055D33900ACC8C2 /* parkinson */ = {
 			isa = PBXGroup;
 			children = (
-				280464732062587B00EDB0A7 /* parkinson.entitlements */,
 				52DB6994205AB86000D4D5F0 /* Factory.swift */,
 				52DB6992205AB6A100D4D5F0 /* Patient.swift */,
 				3DD60E472064165B00DD0749 /* CoreData */,
