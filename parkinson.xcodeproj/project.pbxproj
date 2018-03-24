@@ -20,6 +20,7 @@
 		2855F6612066A07000CDF510 /* ActivityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2855F6602066A07000CDF510 /* ActivityTests.swift */; };
 		2855F6632066C75000CDF510 /* ActivitySetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2855F6622066C75000CDF510 /* ActivitySetTests.swift */; };
 		2855F66520670B8300CDF510 /* DailyDoseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2855F66420670B8300CDF510 /* DailyDoseTests.swift */; };
+		2855F66720670DDA00CDF510 /* TreatmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2855F66620670DDA00CDF510 /* TreatmentTests.swift */; };
 		28C1E71B2058236100368EF0 /* DailyDose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C1E71A2058236100368EF0 /* DailyDose.swift */; };
 		28D79D72205ACEE3001C2BD7 /* DAOactivityProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D79D71205ACEE3001C2BD7 /* DAOactivityProtocol.swift */; };
 		28D79D74205ACEF9001C2BD7 /* DAOtreatmentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D79D73205ACEF9001C2BD7 /* DAOtreatmentProtocol.swift */; };
@@ -127,6 +128,7 @@
 		2855F6602066A07000CDF510 /* ActivityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTests.swift; sourceTree = "<group>"; };
 		2855F6622066C75000CDF510 /* ActivitySetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitySetTests.swift; sourceTree = "<group>"; };
 		2855F66420670B8300CDF510 /* DailyDoseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyDoseTests.swift; sourceTree = "<group>"; };
+		2855F66620670DDA00CDF510 /* TreatmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreatmentTests.swift; sourceTree = "<group>"; };
 		2895A856206177D700EE28BA /* DAOactivityTypeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAOactivityTypeProtocol.swift; sourceTree = "<group>"; };
 		2895A8592061788C00EE28BA /* ActivityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityType.swift; sourceTree = "<group>"; };
 		28C1E71A2058236100368EF0 /* DailyDose.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyDose.swift; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 				2855F6602066A07000CDF510 /* ActivityTests.swift */,
 				2855F6622066C75000CDF510 /* ActivitySetTests.swift */,
 				2855F66420670B8300CDF510 /* DailyDoseTests.swift */,
+				2855F66620670DDA00CDF510 /* TreatmentTests.swift */,
 			);
 			path = parkinsonTests;
 			sourceTree = "<group>";
@@ -586,6 +589,7 @@
 				3D091551206258F700EB7C2F /* DAOcoreDataAppointment.swift in Sources */,
 				3D0915562062590E00EB7C2F /* EvaluationSetDelegate.swift in Sources */,
 				284B933120623E1500C02E13 /* ActivityType.swift in Sources */,
+				2855F66720670DDA00CDF510 /* TreatmentTests.swift in Sources */,
 				3D09155F2062591700EB7C2F /* Appointment.swift in Sources */,
 				3D0915642062591700EB7C2F /* Practice.swift in Sources */,
 				3D09155E2062591700EB7C2F /* ActivitySet.swift in Sources */,

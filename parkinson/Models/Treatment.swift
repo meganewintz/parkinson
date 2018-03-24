@@ -83,6 +83,7 @@ class Treatment	 {
     ///   - dailyDose: `DailyDose`
     ///
     /// - Returns : the treatment with the daily dose added
+    @discardableResult
     public func addDailyDose(dailyDose : DailyDose) -> Treatment {
         dailyDoses.append(dailyDose)
         dailyDoses.sort(by:{ $0.dailyPeriod < $1.dailyPeriod } )
@@ -107,9 +108,9 @@ class Treatment	 {
     /// - Parameters:
     ///   - i: int
     ///
-    /// - Returns : 'DailyDose?' the i-th dose of the day
-    public func getDailyDose(index i : Int) -> DailyDose? {
-        guard i>=0 && i<self.dailyDoseCount else { return nil }
+    /// - Returns : 'DailyDose' the i-th dose of the day
+    public func getDailyDose(at i : Int) -> DailyDose {
+        guard i>=0 && i<self.dailyDoseCount else { fatalError("Index out of range for a daily dose") }
         return dailyDoses[i]
     }
     
@@ -122,7 +123,8 @@ class Treatment	 {
     ///   - i:Int
     ///
     /// - Returns : Treatment without the i-th daily dose in parameter
-    public func removeDailyDose(i : Int) -> Treatment {
+    @discardableResult
+    public func removeDailyDose(at i : Int) -> Treatment {
         dailyDoses.remove(at : i)
         return self
     }
