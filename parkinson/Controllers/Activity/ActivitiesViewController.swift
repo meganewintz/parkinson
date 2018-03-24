@@ -11,9 +11,9 @@ import CoreData
 
 class ActivitiesViewController: UIViewController {
 
-    @IBOutlet weak var addButton: UIButton!
-    var tableViewController: ActivitiesTableViewController!
+    var tableViewController     : ActivitiesTableViewController!
     
+    @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -104,6 +104,7 @@ class ActivitiesViewController: UIViewController {
         
         present(alert, animated: true)
     }
+    
     
     /*
     // MARK: - Navigation

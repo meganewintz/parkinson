@@ -8,20 +8,21 @@
 
 import UIKit
 
-class AddActivityViewController: UIViewController, FrequenceActivityViewControllerDelegate {
+class AddActivityViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate{
 
-    let activities = Factory.sharedData.patient.activitySet
-    var dateFormatter = DateFormatter()
-    var test = "It's ok"
-    var frequencies = [Event]()
+    var tableViewController: FrequenceActivityTableViewController!
+    let activities      = Factory.sharedData.patient.activitySet
+    var dateFormatter   = DateFormatter()
 
-    @IBOutlet weak var descrTextView: UITextView!
     @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var descrTextView: UITextView!
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setDateFormatter()
-        self.createEvents()
+        setDateFormatter()
+        self.tableViewController = FrequenceActivityTableViewController(tableView: self.tableView)
+        
         
         // Do any additional setup after loading the view.
     }
@@ -30,11 +31,12 @@ class AddActivityViewController: UIViewController, FrequenceActivityViewControll
         // Dispose of any resources that can be recreated.
     }
     
+    
+    //-------------------------------------------------------------------------------------------------
     // MARK: - Actions -
     
     // action when we click on the validate Button
     @IBAction func validerButton(_ sender: Any) {
-        print(test)
         guard let nameToSave = nameTextField.text else {
             alertError(errorMsg: "Veuillez entrer un nom d'activité")
             return
@@ -51,30 +53,73 @@ class AddActivityViewController: UIViewController, FrequenceActivityViewControll
             alertError(errorMsg: "Veuillez entrer une description d'activité")
             return
         }
-        self.saveActivity(withName: nameToSave, withDescr: descrToSave, withFreq: getEnableFrequencies(frequencies:self.frequencies))
+        if !checkPeriodicity() {
+            alert(title: "Oups!", message: "Vous devez sélectionner au moins 1 jour")
+            return
+        }
+        let frequencies = getEnableFrequencies(frequencies:self.tableViewController.frequencies)
+        self.saveActivity(withName: nameToSave, withDescr: descrToSave, withFreq: frequencies)
         _ = navigationController?.popViewController(animated: true)
 
     }
     
-
+    // Action when we click on a switch button
+    @IBAction func switchAction(_ sender: UISwitch) {
+        let point = tableView.convert(CGPoint.zero, from: sender)
+        guard let indexPath = tableView.indexPathForRow(at: point) else {
+            fatalError("can't find point in tableView")
+        }
         
-        // MARK: - Activity Data Management -
+        let dayCell = tableView.cellForRow(at: indexPath)! as! DayTableViewCell
+        
+        // If we turn on the button
+        if sender.isOn {
+            dayCell.hourLabel.isHidden = false //display the hour
+            dayCell.setSelected(false, animated: false)
+            self.tableViewController.frequencies[indexPath.row].enable = true
+            
+        }
+            // If we turn off the button
+        else {
+            dayCell.hourLabel.isHidden = true // hide the hour
+            dayCell.setSelected(true, animated: false)
+            self.tableViewController.frequencies[indexPath.row].enable = true
+        }
+    }
+    
+    // Action when we change the hour in a timePicker (relative to a day)
+    @IBAction func timePickerAction(_ sender: UIDatePicker) {
+        let parentIndexPath = IndexPath(row: tableViewController.timePickerIndexPath!.row - 1, section: 0)
+        // change model
+        let event = self.tableViewController.frequencies[parentIndexPath.row]
+        event.time = sender.date
+        // change view
+        let dayCell = tableView.cellForRow(at: parentIndexPath)! as! DayTableViewCell
+        dayCell.hourLabel.text = dateFormatter.string(from: sender.date)
+        for t in tableViewController.frequencies {
+            print(t.title, dateFormatter.string(from: t.time))
+        }
+    }
+    
+    
+    //-------------------------------------------------------------------------------------------------
+    // MARK: - Activity Data Management -
         
     func saveActivity(withName name: String, withDescr descr: String, withFreq frequencies: [Event]) {
         activities.addActivity(activity: Activity(name: name, description: descr, frequencies: frequencies))
     }
     
+    
+    //-------------------------------------------------------------------------------------------------
     // MARK: - Delegate -
     
-    func updateActivityFrenquencies(frequencies: [Event]) {
-        self.test = frequencies[0].title
-        self.frequencies = frequencies
-        print("ici")
-        for fre in frequencies {
-            print(fre.title, fre.enable)
-        }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 
+
+    //-------------------------------------------------------------------------------------------------
     /*
     // MARK: - Navigation
 
@@ -87,13 +132,15 @@ class AddActivityViewController: UIViewController, FrequenceActivityViewControll
     // Used to send the data frequencies already choose
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "frequencyChoiceSegue" {
-            let frequenceVC = segue.destination as! FrequenceActivityViewController
-            frequenceVC.delegate = self
-            frequenceVC.frequencies = self.frequencies
+            //let frequenceVC = segue.destination as! FrequenceActivityTableViewController
+            //frequenceVC.delegate = self
+            //frequenceVC.frequencies = self.frequencies
             
         }
     }
     
+    
+    //-------------------------------------------------------------------------------------------------
     // MARK: - Utilities -
     
     // Return the activity effectively choose by the user
@@ -106,32 +153,29 @@ class AddActivityViewController: UIViewController, FrequenceActivityViewControll
         }
         return activityFreq
     }
-    
-    func createEvents() { // called in viewDidLoad()
-        let event1 = Event(title: "Lundi", time: dateFormatter.date(from: "14:00")!)
-        let event2 = Event(title: "Mardi", time: dateFormatter.date(from: "14:00")!)
-        let event3 = Event(title: "Mercredi", time: dateFormatter.date(from: "14:00")!)
-        let event4 = Event(title: "Jeudi", time: dateFormatter.date(from: "14:00")!)
-        let event5 = Event(title: "Vendredi", time: dateFormatter.date(from: "14:00")!)
-        let event6 = Event(title: "Samedi", time: dateFormatter.date(from: "14:00")!)
-        let event7 = Event(title: "Dimanche", time: dateFormatter.date(from: "14:00")!)
-        
-        self.frequencies.append(event1)
-        self.frequencies.append(event2)
-        self.frequencies.append(event3)
-        self.frequencies.append(event4)
-        self.frequencies.append(event5)
-        self.frequencies.append(event6)
-        self.frequencies.append(event7)
+
+    func checkPeriodicity() -> Bool {
+        //delegate?.updateActivityFrenquencies(frequencies: frequencies)
+        var frequencies = tableViewController.frequencies
+        var i = 0
+        while i < frequencies.count && !frequencies[i].enable {
+            i += 1
+        }
+        if i <= frequencies.count || frequencies[frequencies.count-1].enable{
+            return true
+        }
+        else {
+            return false
+        }
     }
     
-    func setDateFormatter() { // called in viewDidLoad()
+    func setDateFormatter() {
         self.dateFormatter.dateFormat = "HH:mm"
     }
     
     
-    func alert(message: String, userInfo user: String = "") {
-        let alert = UIAlertController(title: message,
+    func alert(title: String,  message: String) {
+        let alert = UIAlertController(title: title,
                                       message: message,
                                       preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Ok ",

@@ -10,15 +10,11 @@ import UIKit
 
 class DayTableViewCell: UITableViewCell {
 
-    
-    @IBOutlet weak var dayLabel: UILabel!
-    
-    @IBOutlet weak var hourLabel: UILabel!
-
     @IBOutlet weak var switchButton: UISwitch!
+    @IBOutlet weak var dayLabel: UILabel!
+    @IBOutlet weak var hourLabel: UILabel!
     
-    @IBAction func `switch`(_ sender: Any) {
-    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
