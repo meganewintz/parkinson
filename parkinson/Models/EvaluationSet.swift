@@ -14,7 +14,7 @@ class EvaluationSet {
     private var delegates : [EvaluationSetDelegate]
     
     
-    init() {
+    internal init() {
         evaluations = [Evaluation]()
         delegates = [EvaluationSetDelegate]()
     }

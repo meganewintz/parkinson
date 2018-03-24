@@ -18,7 +18,7 @@ class DoseSet {
     ///
     /// initialize an 'DoseSet', empty.
     ///
-    init(){
+    internal init(){
         doses = [Dose]()
         delegates = [DoseSetDelegate]()
     }

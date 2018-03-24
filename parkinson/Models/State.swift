@@ -20,7 +20,7 @@ class State {
     ///
     /// - Parameters:
     ///   - date : Date
-    init(state : TypeOfState, date : Date) {
+    internal init(state : TypeOfState, date : Date) {
         self.state = state
         self.date = date
     }

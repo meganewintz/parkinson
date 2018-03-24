@@ -86,7 +86,7 @@ class ActivitySet: Sequence {
     private var delegates : [ActivitySetDelegate]
     private var dao: DAOactivityProtocol
     
-    init(dao: DAOactivityProtocol){
+    internal init(dao: DAOactivityProtocol){
         self.dao = dao
         delegates = [ActivitySetDelegate]()
     }

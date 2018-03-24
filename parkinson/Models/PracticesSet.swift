@@ -18,7 +18,7 @@ class PracticesSet {
     ///
     /// initialize an 'PracticesSet', empty.
     ///
-    init(){
+    internal init(){
         practices = [Practice]()
         delegates = [PracticeSetDelegate]()
     }

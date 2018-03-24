@@ -19,7 +19,7 @@ class TreatmentSet {
     ///
     /// initialize an 'TreatmentSet', empty.
     ///
-    init(dao: DAOtreatmentProtocol){
+    internal init(dao: DAOtreatmentProtocol){
         self.dao = dao
         self.treatments = [Treatment]()
         self.delegates = [TreatmentSetDelegate]()

@@ -14,9 +14,21 @@ class Event {
     let title: String
     var time: Date
     var enable: Bool
-    init(title: String, time: Date) {
+    internal init(title: String, time: Date) {
         self.title = title
         self.time = time
         self.enable = false
+    }
+    
+    var day : Int {
+        return Calendar.current.weekdaySymbols.index(where : { $0 == title} )!
+    }
+    
+    var hour : Int {
+        return Calendar.current.component(.hour, from: Date())
+    }
+    
+    var minute : Int {
+        return Calendar.current.component(.minute, from: Date())
     }
 }
