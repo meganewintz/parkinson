@@ -212,6 +212,23 @@ class ActivitySet: Sequence {
         }
         return self
     }
+    
+    
+    /// nextActivity
+    ///
+    /// Returns : 'Activity?' the next activity programmed
+    func nextActivity() -> Activity? {
+        var futureActivities = [Activity]()
+        let currentDate = Date()
+        for activity in pset {
+            if let date = activity.dateNextPractice() {
+                if date > currentDate {
+                    futureActivities.append(activity)
+                }
+            }
+        }
+        return futureActivities.min(by : { $0.dateNextPractice()! < $1.dateNextPractice()! })
+    }
 
     
     subscript(index: Int) -> Activity {

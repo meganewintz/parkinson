@@ -107,7 +107,6 @@ class PracticesSet {
     /// - Returns : 'PracticesSet' with all the practices in this practicesSet occur during the dates enter in paramater
     
     
-    
     /// addDelegate
     ///
     /// add a delegate to this model

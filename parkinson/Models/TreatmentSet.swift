@@ -105,9 +105,12 @@ class TreatmentSet {
     /// - Returns : [Treatment]
     func nextTreatments() -> [Treatment] {
         var futureTreatments = [Treatment]()
+        let currentDate = Date()
         for t in treatments {
-            if t.dateNextTreatment() != nil {
-                futureTreatments.append(t)
+            if let date = t.dateNextTreatment() {
+                if date > currentDate {
+                    futureTreatments.append(t)
+                }
             }
         }
         
