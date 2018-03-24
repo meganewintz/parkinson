@@ -16,4 +16,3 @@ protocol EvaluationSetDelegate : class {
     func errorDataBaseRead()
     func errorDataBaseWrite()
 }
-

@@ -19,4 +19,16 @@ class Event {
         self.time = time
         self.enable = false
     }
+    
+    var day : Int {
+        return Calendar.current.weekdaySymbols.index(where : { $0 == title} )!
+    }
+    
+    var hour : Int {
+        return Calendar.current.component(.hour, from: Date())
+    }
+    
+    var minute : Int {
+        return Calendar.current.component(.minute, from: Date())
+    }
 }
