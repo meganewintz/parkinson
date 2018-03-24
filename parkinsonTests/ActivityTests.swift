@@ -22,7 +22,7 @@ class ActivityTests {
         XCTAssert(activity.name == "Natation", "Name is not Natation")
         XCTAssert(activity.description == "Nager", "Description is not Nager")
         XCTAssert(activity.dateNextPractice() != nil, "There is no next practice")
-        XCTAssert(Calendar.current.component(.weekday, from: activity.dateNextPractice()!) == 7, "Next practice is not on satursday")
+        XCTAssert(Calendar.current.component(.weekday, from: activity.dateNextPractice()) == 7, "Next practice is not on satursday")
     }
     
 }

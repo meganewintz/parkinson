@@ -28,6 +28,8 @@ class parkinsonTests: XCTestCase {
         eventTest.test()
         let activityTest = ActivityTests()
         activityTest.test()
+        let dailyDoseTest = DailyDoseTests()
+        dailyDoseTest.test()
     }
     
     func testPerformanceExample() {
