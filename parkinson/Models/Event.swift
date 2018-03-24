@@ -25,10 +25,10 @@ class Event {
     }
     
     var hour : Int {
-        return Calendar.current.component(.hour, from: Date())
+        return Calendar.current.component(.hour, from: time)
     }
     
     var minute : Int {
-        return Calendar.current.component(.minute, from: Date())
+        return Calendar.current.component(.minute, from: time)
     }
 }
