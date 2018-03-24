@@ -18,7 +18,7 @@ class Appointment {
     public var journeyTime : Int?
     public var note : String?
     
-    init(date:Date, doctor:String, specialty:String){
+    internal init(date:Date, doctor:String, specialty:String){
         self.date = date
         self.doctor = doctor
         self.specialty = specialty

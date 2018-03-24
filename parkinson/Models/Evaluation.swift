@@ -28,7 +28,7 @@ class Evaluation {
 ///   - appointment: `Appointment` first name of `Person`
 ///   - morningHour:  `Date` reveille of the 'Patient'
 ///   - eveningHour: `Date` bedtime of the 'Patient'
-    init(appointment : Appointment, morningHour : Date, eveningHour : Date) {
+    internal init(appointment : Appointment, morningHour : Date, eveningHour : Date) {
         self.appointment = appointment
         self.morningHour = morningHour
         self.eveningHour = eveningHour

@@ -19,7 +19,7 @@ class Practice {
     ///
     /// initialize a 'Practise', no taken and no reminded.
     ///
-    init() {
+    internal init() {
         isDone = false
         reminderNb = 0
     }

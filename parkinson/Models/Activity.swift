@@ -23,7 +23,7 @@ class Activity {
     /// - Parameters:
     ///   - name: `String`
     ///   - description:  `String`
-    init(name : String, description: String) {
+    internal init(name : String, description: String) {
         self.name = name
         self.description = description
         self.frequencies = []

@@ -19,7 +19,7 @@ class AppointmentSet {
     ///
     /// initialize an 'AppointmentSet', empty.
     ///
-    init(dao : DAOappointmentProtocol){
+    internal init(dao : DAOappointmentProtocol){
         appointmentSet = [Appointment]()
         delegates = [AppointmentSetDelegate]()
         self.dao = dao

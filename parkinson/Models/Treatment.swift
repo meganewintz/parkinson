@@ -26,7 +26,7 @@ class Treatment	 {
     ///   - description:  `String`
     ///   - type : String
     ///   - frequency : String
-    init(name : String, description : String, type : String){
+    internal init(name : String, description : String, type : String){
         self.name = name
         self.description = description
         self.type = type

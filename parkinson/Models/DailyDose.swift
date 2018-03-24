@@ -13,7 +13,7 @@ class DailyDose {
     public var dailyPeriod : Float
     public var quantity : Int
     
-    init(dailyPeriod : Float, quantity : Int){
+    internal init(dailyPeriod : Float, quantity : Int){
         self.dailyPeriod = dailyPeriod
         self.quantity = quantity
     }

@@ -19,7 +19,7 @@ class Dose {
     ///
     /// initialize a 'Dose', no taken and no reminded.
     ///
-    init(){
+    internal init(){
         isTaken = false
         reminderNb = 0
     }
