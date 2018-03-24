@@ -21,7 +21,7 @@ class Event {
     }
     
     var day : Int {
-        return Calendar.current.weekdaySymbols.index(where : { $0 == title} )!
+        return Calendar.current.weekdaySymbols.index(where : { $0 == title} )! + 1
     }
     
     var hour : Int {

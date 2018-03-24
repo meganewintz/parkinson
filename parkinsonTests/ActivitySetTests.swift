@@ -1,5 +1,5 @@
 //
-//  ActivityTest.swift
+//  ActivitySetTests.swift
 //  parkinsonTests
 //
 //  Created by Florent BERLAND on 24/03/2018.
@@ -7,18 +7,11 @@
 //
 
 import Foundation
-import XCTest
 
-class ActivityTest {
+class ActivitySetTests{
     
     func test(){
-        // Test of patient initialization
-        let patient = Factory.sharedData.patient
-        XCTAssert(patient.activitySet.count == 0, "Patient's activity set is not empty after initialization")
-        XCTAssert(patient.appointmentSet.count == 0, "Patient's appointment set is not empty after initialization")
-        XCTAssert(patient.treatmentSet.count == 0, "Patient's treatment set is not empty after initialization")
-        
-        // Management of an activity
+        /*
         let activity = Activity(name : "Natation", description : "Effectuer 20 longueurs")
         let activity2 = Activity(name : "Natation", description : "")
         let activity3 = Activity(name : "Marche", description : "")
@@ -38,6 +31,6 @@ class ActivityTest {
         XCTAssert(!patient.activitySet.contains(activity: activity),"Activity set contains a removed activity")
         patient.activitySet.removeActivity(index: 0)
         XCTAssert(patient.activitySet.count == 0, "An activity has not been removed")
-    }
-    
+*/
+ }
 }

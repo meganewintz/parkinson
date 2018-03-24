@@ -49,11 +49,11 @@ class Activity {
     ///
     /// give the date of the next practice programed
     ///
-    /// - Returns : 'Date?' the date of the next practice programed
-    func dateNextPractice() -> Date? {
+    /// - Returns : 'Date' the date of the next practice programed
+    func dateNextPractice() -> Date {
         let currentDate = Date()
         let calendar = Calendar.current
-        let day = calendar.component(.day, from: currentDate)
+        let day = calendar.component(.weekday, from: currentDate)
         let hour = calendar.component(.hour, from: currentDate)
         let minute = calendar.component(.minute, from: currentDate)
         /*
@@ -106,25 +106,30 @@ class Activity {
                     date de l'event = date suivante (en date absolue)
          */
         
+        var nextDate : Date?
+        
         if let todayEvent = frequencies.first(where: { $0.day == day }){
             if todayEvent.hour > hour {
                 // bonne date
-                return Calendar.current.nextDate(after: currentDate, matching: DateComponents(hour : todayEvent.hour, minute : todayEvent.minute), matchingPolicy: .nextTime)
+                nextDate = Calendar.current.nextDate(after: currentDate, matching: DateComponents(hour : todayEvent.hour, minute : todayEvent.minute), matchingPolicy: .nextTime)
             } else if todayEvent.hour == hour && todayEvent.minute > minute {
                 // bonne date
-                return Calendar.current.nextDate(after: currentDate, matching: DateComponents(hour : todayEvent.hour, minute : todayEvent.minute), matchingPolicy: .nextTime)
+                nextDate = Calendar.current.nextDate(after: currentDate, matching: DateComponents(hour : todayEvent.hour, minute : todayEvent.minute), matchingPolicy: .nextTime)
             }
         }
-        // Here, there is no event today or event has already occured (hour<actual hour  or  hour= and minute<)
-        if day >= (frequencies.max(by: { $0.day < $1.day })?.day)! {
-            // Here, the today is the last activity day of the week, so it returns the first of the next week
-            let nextEvent = frequencies.min(by: { $0.day < $1.day })
-            return Calendar.current.nextDate(after: currentDate, matching: DateComponents(day : nextEvent!.day, hour : nextEvent!.hour, minute : nextEvent!.minute), matchingPolicy: .nextTime)
-        } else {
-            // Here, it returns the next activity day : the minimum of all days after today
-            let nextEvent = frequencies.filter({ $0.day > day }).min(by: { $0.day < $1.day })
-            return Calendar.current.nextDate(after: currentDate, matching: DateComponents(day : nextEvent!.day, hour : nextEvent!.hour, minute : nextEvent!.minute), matchingPolicy: .nextTime)
+        if nextDate == nil {
+            // Here, there is no event today or event has already occured (hour<actual hour  or  hour= and minute<)
+            if day >= (frequencies.max(by: { $0.day < $1.day })?.day)! {
+                // Here, the today is the last activity day of the week, so it returns the first of the next week
+                let nextEvent = frequencies.min(by: { $0.day < $1.day })
+                nextDate = Calendar.current.nextDate(after: currentDate, matching: DateComponents(day : nextEvent!.day, hour : nextEvent!.hour, minute : nextEvent!.minute), matchingPolicy: .nextTime)
+            } else {
+                // Here, it returns the next activity day : the minimum of all days after today
+                let nextEvent = frequencies.filter({ $0.day > day }).min(by: { $0.day < $1.day })
+                nextDate = Calendar.current.nextDate(after: currentDate, matching: DateComponents(day : nextEvent!.day, hour : nextEvent!.hour, minute : nextEvent!.minute), matchingPolicy: .nextTime)
+            }
         }
+        return nextDate!
     }
 
 }

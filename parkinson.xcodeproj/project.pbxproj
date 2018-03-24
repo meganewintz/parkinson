@@ -17,7 +17,8 @@
 		284CE4BE205AFAE6000551AD /* TypeOfState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284CE4BD205AFAE6000551AD /* TypeOfState.swift */; };
 		2855F65E20669D0100CDF510 /* EventTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2855F65D20669D0100CDF510 /* EventTests.swift */; };
 		2855F65F2066A01100CDF510 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF1C419205EA11400A606C4 /* Event.swift */; };
-		2855F6612066A07000CDF510 /* ActivityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2855F6602066A07000CDF510 /* ActivityTest.swift */; };
+		2855F6612066A07000CDF510 /* ActivityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2855F6602066A07000CDF510 /* ActivityTests.swift */; };
+		2855F6632066C75000CDF510 /* ActivitySetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2855F6622066C75000CDF510 /* ActivitySetTests.swift */; };
 		28C1E71B2058236100368EF0 /* DailyDose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C1E71A2058236100368EF0 /* DailyDose.swift */; };
 		28D79D72205ACEE3001C2BD7 /* DAOactivityProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D79D71205ACEE3001C2BD7 /* DAOactivityProtocol.swift */; };
 		28D79D74205ACEF9001C2BD7 /* DAOtreatmentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D79D73205ACEF9001C2BD7 /* DAOtreatmentProtocol.swift */; };
@@ -123,7 +124,8 @@
 		283FF7B3205C2C980038029C /* EvaluationSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationSet.swift; sourceTree = "<group>"; };
 		284CE4BD205AFAE6000551AD /* TypeOfState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOfState.swift; sourceTree = "<group>"; };
 		2855F65D20669D0100CDF510 /* EventTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTests.swift; sourceTree = "<group>"; };
-		2855F6602066A07000CDF510 /* ActivityTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTest.swift; sourceTree = "<group>"; };
+		2855F6602066A07000CDF510 /* ActivityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTests.swift; sourceTree = "<group>"; };
+		2855F6622066C75000CDF510 /* ActivitySetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitySetTests.swift; sourceTree = "<group>"; };
 		2895A856206177D700EE28BA /* DAOactivityTypeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAOactivityTypeProtocol.swift; sourceTree = "<group>"; };
 		2895A8592061788C00EE28BA /* ActivityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityType.swift; sourceTree = "<group>"; };
 		28C1E71A2058236100368EF0 /* DailyDose.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyDose.swift; sourceTree = "<group>"; };
@@ -275,7 +277,8 @@
 				3D63CDD52055D33A00ACC8C2 /* parkinsonTests.swift */,
 				3D63CDD72055D33A00ACC8C2 /* Info.plist */,
 				2855F65D20669D0100CDF510 /* EventTests.swift */,
-				2855F6602066A07000CDF510 /* ActivityTest.swift */,
+				2855F6602066A07000CDF510 /* ActivityTests.swift */,
+				2855F6622066C75000CDF510 /* ActivitySetTests.swift */,
 			);
 			path = parkinsonTests;
 			sourceTree = "<group>";
@@ -596,8 +599,9 @@
 				3D09155C2062590E00EB7C2F /* DAOactivityTypeProtocol.swift in Sources */,
 				284B934F20623E3A00C02E13 /* AppDelegate.swift in Sources */,
 				3D0915532062590E00EB7C2F /* ActivitySetDelegate.swift in Sources */,
+				2855F6632066C75000CDF510 /* ActivitySetTests.swift in Sources */,
 				3D0915582062590E00EB7C2F /* TreatmentSetDelegate.swift in Sources */,
-				2855F6612066A07000CDF510 /* ActivityTest.swift in Sources */,
+				2855F6612066A07000CDF510 /* ActivityTests.swift in Sources */,
 				3D0915572062590E00EB7C2F /* PracticeSetDelegate.swift in Sources */,
 				3D09155A2062590E00EB7C2F /* DAOtreatmentProtocol.swift in Sources */,
 				284B932F20623E1500C02E13 /* CoreDataManager.swift in Sources */,

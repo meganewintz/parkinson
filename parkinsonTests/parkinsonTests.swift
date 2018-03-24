@@ -26,6 +26,8 @@ class parkinsonTests: XCTestCase {
         
         let eventTest = EventTests()
         eventTest.test()
+        let activityTest = ActivityTests()
+        activityTest.test()
     }
     
     func testPerformanceExample() {
