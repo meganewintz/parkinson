@@ -106,14 +106,18 @@ class ActivitiesViewController: UIViewController {
     }
     
     
-    /*
+    //-------------------------------------------------------------------------------------------------
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
+    let segueShowActivityID = "showActivitySegue"
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-     }
-    */
-
+        if segue.identifier == segueShowActivityID {
+            let indexPath = self.tableView.indexPathForSelectedRow
+            let showActivityViewController = segue.destination as! ActivityViewController
+            showActivityViewController.activity = self.tableViewController.activities[(indexPath?.row)!]
+            self.tableView.deselectRow(at: indexPath!, animated: true)
+    
+        }
+    }
 }

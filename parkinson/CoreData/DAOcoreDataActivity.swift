@@ -132,7 +132,7 @@ class DAOcoreDataActivity : DAOactivityProtocol{
                 // if the frequency already exist in coreData
                 frequencyData = dtoFrequencyData.search(day: freq.title, hour: freq.time)
                 if frequencyData != nil {
-                    activityData.frequencies?.adding(frequencyData!)
+                    activityData.addToFrequencies(frequencyData!)
                 }
                     
                 // if the frequency doesn't exist, we need to create it.
@@ -140,7 +140,7 @@ class DAOcoreDataActivity : DAOactivityProtocol{
                     frequencyData = FrequencyData(context: context)
                     frequencyData!.day = freq.title
                     frequencyData!.hour = freq.time
-                    activityData.frequencies?.adding(frequencyData!)
+                    activityData.addToFrequencies(frequencyData!)
                 }
             }
             self.save()

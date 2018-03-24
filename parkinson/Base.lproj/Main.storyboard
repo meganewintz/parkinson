@@ -41,10 +41,10 @@
             </objects>
             <point key="canvasLocation" x="2049" y="-14"/>
         </scene>
-        <!--Ajouter une activité-->
+        <!--Votre activité-->
         <scene sceneID="mjp-Fi-Crb">
             <objects>
-                <viewController title="Ajouter une activité" id="Dhz-tA-3rs" customClass="AddActivityViewController" customModule="parkinson" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Votre activité" id="Dhz-tA-3rs" customClass="ActivityViewController" customModule="parkinson" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XXg-kc-geE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1250"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -284,6 +284,7 @@
                                         <connections>
                                             <outlet property="descriptionLabel" destination="0XC-Yt-I6O" id="wzy-Fp-uUo"/>
                                             <outlet property="nameLabel" destination="s2H-aj-b9v" id="VgT-H8-T4S"/>
+                                            <segue destination="Dhz-tA-3rs" kind="show" identifier="showActivitySegue" id="zyZ-nI-hah"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -464,4 +465,7 @@
     <resources>
         <image name="accueil" width="20" height="20"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="zyZ-nI-hah"/>
+    </inferredMetricsTieBreakers>
 </document>

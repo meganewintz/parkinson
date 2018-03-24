@@ -56,10 +56,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             fatalError("Failed to execute request: \(error)")
         }
     }
+    func removeFreq() {
+        let context = CoreDataManager.context
+        // Creates a request for entity `Dog`
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "FrequencyData")
+        // Creates new batch delete request with a specific request
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: request)
+        
+        // Asks to return the objectIDs deleted
+        deleteRequest.resultType = .resultTypeObjectIDs
+        
+        do {
+            // Executes batch
+            _ = try context.execute(deleteRequest) as? NSBatchDeleteResult
+            
+        } catch {
+            fatalError("Failed to execute request: \(error)")
+        }
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         //removeActivity()
+        //removeFreq()
         displayActivities()
         displayFreq()
         Factory.initiateActivities()

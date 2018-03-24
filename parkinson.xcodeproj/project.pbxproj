@@ -55,14 +55,13 @@
 		3D09156F206259A300EB7C2F /* DAOactivityTypeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2895A856206177D700EE28BA /* DAOactivityTypeProtocol.swift */; };
 		3D194CCA2060043000E7A0AC /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D194CC92060043000E7A0AC /* CoreDataManager.swift */; };
 		3D194CCC206007FD00E7A0AC /* DialogBoxHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D194CCB206007FD00E7A0AC /* DialogBoxHelper.swift */; };
-		3D194CCF20603C5500E7A0AC /* AddActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D194CCE20603C5500E7A0AC /* AddActivityViewController.swift */; };
+		3D194CCF20603C5500E7A0AC /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D194CCE20603C5500E7A0AC /* ActivityViewController.swift */; };
 		3D22A1CE205D4BE200DE0F75 /* ActivitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22A1CD205D4BE200DE0F75 /* ActivitiesTableViewController.swift */; };
 		3D22A1D1205D4C4700DE0F75 /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22A1D0205D4C4700DE0F75 /* ActivityTableViewCell.swift */; };
 		3D2597C520573B1400D00716 /* ActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2597C420573B1400D00716 /* ActivitiesViewController.swift */; };
 		3D2597CA205840F400D00716 /* DAOcoreDataActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2597C9205840F400D00716 /* DAOcoreDataActivity.swift */; };
 		3D2597CC205C429100D00716 /* FrequenceActivityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2597CB205C429100D00716 /* FrequenceActivityTableViewController.swift */; };
 		3D464FAD205C589400BF8A53 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D464FAC205C589400BF8A53 /* TabBarController.swift */; };
-		3D6334EE2066C1FF008B8B33 /* ShowActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6334ED2066C1FF008B8B33 /* ShowActivityViewController.swift */; };
 		3D63CDBE2055D33900ACC8C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CDBD2055D33900ACC8C2 /* AppDelegate.swift */; };
 		3D63CDC02055D33900ACC8C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CDBF2055D33900ACC8C2 /* ViewController.swift */; };
 		3D63CDC32055D33900ACC8C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D63CDC12055D33900ACC8C2 /* Main.storyboard */; };
@@ -130,14 +129,13 @@
 		3D09154A2062490500EB7C2F /* DayTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayTableViewCell.swift; sourceTree = "<group>"; };
 		3D194CC92060043000E7A0AC /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		3D194CCB206007FD00E7A0AC /* DialogBoxHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogBoxHelper.swift; sourceTree = "<group>"; };
-		3D194CCE20603C5500E7A0AC /* AddActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivityViewController.swift; sourceTree = "<group>"; };
+		3D194CCE20603C5500E7A0AC /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		3D22A1CD205D4BE200DE0F75 /* ActivitiesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesTableViewController.swift; sourceTree = "<group>"; };
 		3D22A1D0205D4C4700DE0F75 /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
 		3D2597C420573B1400D00716 /* ActivitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesViewController.swift; sourceTree = "<group>"; };
 		3D2597C9205840F400D00716 /* DAOcoreDataActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAOcoreDataActivity.swift; sourceTree = "<group>"; };
 		3D2597CB205C429100D00716 /* FrequenceActivityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequenceActivityTableViewController.swift; sourceTree = "<group>"; };
 		3D464FAC205C589400BF8A53 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		3D6334ED2066C1FF008B8B33 /* ShowActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowActivityViewController.swift; sourceTree = "<group>"; };
 		3D63CDBA2055D33900ACC8C2 /* parkinson.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = parkinson.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D63CDBD2055D33900ACC8C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D63CDBF2055D33900ACC8C2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -288,8 +286,8 @@
 			isa = PBXGroup;
 			children = (
 				3D63CDBF2055D33900ACC8C2 /* ViewController.swift */,
-				3D63CDEF2055D36800ACC8C2 /* Activity */,
 				3D464FAC205C589400BF8A53 /* TabBarController.swift */,
+				3D63CDEF2055D36800ACC8C2 /* Activity */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -299,9 +297,8 @@
 			children = (
 				3D2597C420573B1400D00716 /* ActivitiesViewController.swift */,
 				3D22A1CD205D4BE200DE0F75 /* ActivitiesTableViewController.swift */,
-				3D194CCE20603C5500E7A0AC /* AddActivityViewController.swift */,
+				3D194CCE20603C5500E7A0AC /* ActivityViewController.swift */,
 				3D2597CB205C429100D00716 /* FrequenceActivityTableViewController.swift */,
-				3D6334ED2066C1FF008B8B33 /* ShowActivityViewController.swift */,
 			);
 			path = Activity;
 			sourceTree = "<group>";
@@ -530,7 +527,7 @@
 				3D194CCC206007FD00E7A0AC /* DialogBoxHelper.swift in Sources */,
 				3DF1C417205D8A7C00A606C4 /* TimePickerTableViewCell.swift in Sources */,
 				52DB6995205AB86000D4D5F0 /* Factory.swift in Sources */,
-				3D194CCF20603C5500E7A0AC /* AddActivityViewController.swift in Sources */,
+				3D194CCF20603C5500E7A0AC /* ActivityViewController.swift in Sources */,
 				283FF7B4205C2C980038029C /* EvaluationSet.swift in Sources */,
 				3D63CE082055DB0200ACC8C2 /* Dose.swift in Sources */,
 				3D63CE112055DB0200ACC8C2 /* TreatmentSet.swift in Sources */,
@@ -553,7 +550,6 @@
 				3D63CE092055DB0200ACC8C2 /* Treatment.swift in Sources */,
 				3D63CE0B2055DB0200ACC8C2 /* DoseSet.swift in Sources */,
 				3DF1C41A205EA11400A606C4 /* Event.swift in Sources */,
-				3D6334EE2066C1FF008B8B33 /* ShowActivityViewController.swift in Sources */,
 				3DD60E492064171100DD0749 /* DTOcoreDataFrequency.swift in Sources */,
 				3D63CE212055DBC700ACC8C2 /* Test.swift in Sources */,
 				3D63CE0D2055DB0200ACC8C2 /* State.swift in Sources */,
