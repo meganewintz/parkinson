@@ -8,11 +8,12 @@
 
 import UIKit
 
-class AddActivityViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate{
+class ActivityViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate{
 
     var tableViewController: FrequenceActivityTableViewController!
     let activities      = Factory.sharedData.patient.activitySet
     var dateFormatter   = DateFormatter()
+    var activity: Activity?
 
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var descrTextView: UITextView!
@@ -20,12 +21,19 @@ class AddActivityViewController: UIViewController, UITextFieldDelegate, UITextVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setDateFormatter()
-        self.tableViewController = FrequenceActivityTableViewController(tableView: self.tableView)
         
-        
-        // Do any additional setup after loading the view.
-    }
+        if let activityShown = self.activity{
+            self.nameTextField.text = activityShown.name
+            self.descrTextView.text = activityShown.description
+            let frequencies         = activityShown.frequencies
+            tableViewController     = FrequenceActivityTableViewController(tableView: tableView, frequencies: frequencies )
+        }
+        else{
+            self.tableViewController = FrequenceActivityTableViewController(tableView: self.tableView, frequencies: createEvents())
+        }    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -119,29 +127,32 @@ class AddActivityViewController: UIViewController, UITextFieldDelegate, UITextVi
     }
 
 
-    //-------------------------------------------------------------------------------------------------
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    // Used to send the data frequencies already choose
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "frequencyChoiceSegue" {
-            //let frequenceVC = segue.destination as! FrequenceActivityTableViewController
-            //frequenceVC.delegate = self
-            //frequenceVC.frequencies = self.frequencies
-            
-        }
-    }
+    
     
     
     //-------------------------------------------------------------------------------------------------
     // MARK: - Utilities -
+    
+    func createEvents() -> [Event] {
+        var events = [Event]()
+        let event1 = Event(title: "lundi", time: dateFormatter.date(from: "14:00")!)
+        let event2 = Event(title: "mardi", time: dateFormatter.date(from: "14:00")!)
+        let event3 = Event(title: "mercredi", time: dateFormatter.date(from: "14:00")!)
+        let event4 = Event(title: "jeudi", time: dateFormatter.date(from: "14:00")!)
+        
+        let event5 = Event(title: "vendredi", time: dateFormatter.date(from: "14:00")!)
+        let event6 = Event(title: "samedi", time: dateFormatter.date(from: "14:00")!)
+        let event7 = Event(title: "dimanche", time: dateFormatter.date(from: "14:00")!)
+        
+        events.append(event1)
+        events.append(event2)
+        events.append(event3)
+        events.append(event4)
+        events.append(event5)
+        events.append(event6)
+        events.append(event7)
+        return events
+    }
     
     // Return the activity effectively choose by the user
     func getEnableFrequencies(frequencies: [Event]) -> [Event] {

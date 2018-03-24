@@ -15,10 +15,10 @@ class FrequenceActivityTableViewController : NSObject, UITableViewDataSource, UI
     var frequencies             = [Event]()
     var tableView               : UITableView!
 
-    init(tableView: UITableView) {
+    init(tableView: UITableView, frequencies: [Event]) {
         super.init()
         self.setDateFormatter()
-        self.frequencies            = self.createEvents()
+        self.frequencies            = frequencies
         self.tableView              = tableView
         self.tableView.dataSource   = self
         self.tableView.delegate     = self
@@ -128,26 +128,7 @@ class FrequenceActivityTableViewController : NSObject, UITableViewDataSource, UI
         self.dateFormatter.dateFormat = "HH:mm"
     }
     
-    func createEvents() -> [Event] {
-        var events = [Event]()
-        let event1 = Event(title: "Lundi", time: dateFormatter.date(from: "14:00")!)
-        let event2 = Event(title: "Mardi", time: dateFormatter.date(from: "14:00")!)
-        let event3 = Event(title: "Mercredi", time: dateFormatter.date(from: "14:00")!)
-        let event4 = Event(title: "Jeudi", time: dateFormatter.date(from: "14:00")!)
-        let event5 = Event(title: "Vendredi", time: dateFormatter.date(from: "14:00")!)
-        let event6 = Event(title: "Samedi", time: dateFormatter.date(from: "14:00")!)
-        let event7 = Event(title: "Dimanche", time: dateFormatter.date(from: "14:00")!)
-        
-        events.append(event1)
-        events.append(event2)
-        events.append(event3)
-        events.append(event4)
-        events.append(event5)
-        events.append(event6)
-        events.append(event7)
-        return events
-    }
-
+    
 }
 
 

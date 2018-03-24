@@ -59,7 +59,7 @@
 		3D09156F206259A300EB7C2F /* DAOactivityTypeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2895A856206177D700EE28BA /* DAOactivityTypeProtocol.swift */; };
 		3D194CCA2060043000E7A0AC /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D194CC92060043000E7A0AC /* CoreDataManager.swift */; };
 		3D194CCC206007FD00E7A0AC /* DialogBoxHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D194CCB206007FD00E7A0AC /* DialogBoxHelper.swift */; };
-		3D194CCF20603C5500E7A0AC /* AddActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D194CCE20603C5500E7A0AC /* AddActivityViewController.swift */; };
+		3D194CCF20603C5500E7A0AC /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D194CCE20603C5500E7A0AC /* ActivityViewController.swift */; };
 		3D22A1CE205D4BE200DE0F75 /* ActivitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22A1CD205D4BE200DE0F75 /* ActivitiesTableViewController.swift */; };
 		3D22A1D1205D4C4700DE0F75 /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22A1D0205D4C4700DE0F75 /* ActivityTableViewCell.swift */; };
 		3D2597C520573B1400D00716 /* ActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2597C420573B1400D00716 /* ActivitiesViewController.swift */; };
@@ -136,7 +136,7 @@
 		3D09154A2062490500EB7C2F /* DayTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayTableViewCell.swift; sourceTree = "<group>"; };
 		3D194CC92060043000E7A0AC /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		3D194CCB206007FD00E7A0AC /* DialogBoxHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogBoxHelper.swift; sourceTree = "<group>"; };
-		3D194CCE20603C5500E7A0AC /* AddActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivityViewController.swift; sourceTree = "<group>"; };
+		3D194CCE20603C5500E7A0AC /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		3D22A1CD205D4BE200DE0F75 /* ActivitiesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesTableViewController.swift; sourceTree = "<group>"; };
 		3D22A1D0205D4C4700DE0F75 /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
 		3D2597C420573B1400D00716 /* ActivitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesViewController.swift; sourceTree = "<group>"; };
@@ -296,8 +296,8 @@
 			isa = PBXGroup;
 			children = (
 				3D63CDBF2055D33900ACC8C2 /* ViewController.swift */,
-				3D63CDEF2055D36800ACC8C2 /* Activity */,
 				3D464FAC205C589400BF8A53 /* TabBarController.swift */,
+				3D63CDEF2055D36800ACC8C2 /* Activity */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -307,7 +307,7 @@
 			children = (
 				3D2597C420573B1400D00716 /* ActivitiesViewController.swift */,
 				3D22A1CD205D4BE200DE0F75 /* ActivitiesTableViewController.swift */,
-				3D194CCE20603C5500E7A0AC /* AddActivityViewController.swift */,
+				3D194CCE20603C5500E7A0AC /* ActivityViewController.swift */,
 				3D2597CB205C429100D00716 /* FrequenceActivityTableViewController.swift */,
 			);
 			path = Activity;
@@ -537,7 +537,7 @@
 				3D194CCC206007FD00E7A0AC /* DialogBoxHelper.swift in Sources */,
 				3DF1C417205D8A7C00A606C4 /* TimePickerTableViewCell.swift in Sources */,
 				52DB6995205AB86000D4D5F0 /* Factory.swift in Sources */,
-				3D194CCF20603C5500E7A0AC /* AddActivityViewController.swift in Sources */,
+				3D194CCF20603C5500E7A0AC /* ActivityViewController.swift in Sources */,
 				283FF7B4205C2C980038029C /* EvaluationSet.swift in Sources */,
 				3D63CE082055DB0200ACC8C2 /* Dose.swift in Sources */,
 				3D63CE112055DB0200ACC8C2 /* TreatmentSet.swift in Sources */,
