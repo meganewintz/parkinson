@@ -39,10 +39,11 @@ class DAOcoreDataActivity : DAOactivityProtocol{
 
         // Execute Request
         do {
-            try activities = context.fetch(request)
+            try activities = context.fetch(self.request)
             var activityFrequencies: [Event]
             for a in activities{
                 activityFrequencies = getFrequencies(patient: patient, activity: a)
+
                 activitySet.append(Activity(name: a.name!, description: a.descr!, frequencies: activityFrequencies))
             }
         }

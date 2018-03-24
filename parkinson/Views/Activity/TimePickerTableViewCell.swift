@@ -10,8 +10,8 @@ import UIKit
 
 class TimePickerTableViewCell: UITableViewCell {
 
-    
     @IBOutlet weak var timePicker: UIDatePicker!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

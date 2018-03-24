@@ -8,50 +8,31 @@
 
 import UIKit
 
-
-protocol FrequenceActivityViewControllerDelegate {
-    func updateActivityFrenquencies(frequencies: [Event])
-}
-
-class FrequenceActivityViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
+class FrequenceActivityTableViewController : NSObject, UITableViewDataSource, UITableViewDelegate{
     
-    var timePickerIndexPath: IndexPath? = nil
-    var dateFormatter = DateFormatter()
-    var frequencies = [Event]()
-    var delegate: FrequenceActivityViewControllerDelegate? = nil
+    var timePickerIndexPath     : IndexPath? = nil
+    var dateFormatter           = DateFormatter()
+    var frequencies             = [Event]()
+    var tableView               : UITableView!
 
-    
-    @IBOutlet weak var tableView: UITableView!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    init(tableView: UITableView) {
+        super.init()
         self.setDateFormatter()
-        //self.createEvents()
-
-        //let precView = navigationController as! AddActivityViewController
-        //events = precView.events
-        
-        // Do any additional setup after loading the view.
-//        self.tableView = tableView
-//        self.tableView.dataSource = self        
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+        self.frequencies            = self.createEvents()
+        self.tableView              = tableView
+        self.tableView.dataSource   = self
+        self.tableView.delegate     = self
+}
 
     // MARK: - Table view data source
     
-    /// <#Description#>
-    ///
-    /// - Parameter tableView: <#tableView description#>
-    /// - Returns: <#return value description#>
+    // Nulber of section
     func numberOfSections(in tableView: UITableView) -> Int {
         // Incomplete implementation, return the number of sections
         return 1
     }
 
+    // Number of rows in section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var rows = frequencies.count
         if timePickerIndexPath != nil {
@@ -88,15 +69,10 @@ class FrequenceActivityViewController : UIViewController, UITableViewDataSource,
 
             return dayCell
         }
-
-//
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "dayCell", for: indexPath) as! PeriodicityTableViewCell
-//
-//        return displayCell(cell: cell, atIndexPath: indexPath)
+        //return displayCell(cell: cell, atIndexPath: indexPath)
         
     }
 
-    
 
     // define row height for the timeCell
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -125,63 +101,7 @@ class FrequenceActivityViewController : UIViewController, UITableViewDataSource,
         tableView.deselectRow(at: indexPath, animated: true)
         tableView.endUpdates()
     }
-    
-    //-------------------------------------------------------------------------------------------------
-    // MARK: - Action
-    
-    
-    // Action when we change the hour in a timePicker (relative to a day)
-    @IBAction func timePicker(_ sender: UIDatePicker) {
-        let parentIndexPath = IndexPath(row: timePickerIndexPath!.row - 1, section: 0)
-        // change model
-        let event = frequencies[parentIndexPath.row]
-        event.time = sender.date
-        // change view
-        let dayCell = tableView.cellForRow(at: parentIndexPath)! as! DayTableViewCell
-        dayCell.hourLabel.text = dateFormatter.string(from: sender.date)
-    }
-    
-    // Action when we click on a switch button
-    @IBAction func switchButton(_ sender: UISwitch) {
-        // get the index of the cell of the witch button we clicked
-        let point = tableView.convert(CGPoint.zero, from: sender)
-        guard let indexPath = tableView.indexPathForRow(at: point) else {
-            fatalError("can't find point in tableView")
-        }
-        
-        let dayCell = tableView.cellForRow(at: indexPath)! as! DayTableViewCell
 
-        // If we turn on the button
-        if sender.isOn {
-            dayCell.hourLabel.isHidden = false //display the hour
-            dayCell.setSelected(false, animated: false)
-            self.frequencies[indexPath.row].enable = true
-
-        }
-        // If we turn off the button
-        else {
-            dayCell.hourLabel.isHidden = true // hide the hour
-            dayCell.setSelected(true, animated: false)
-            self.frequencies[indexPath.row].enable = true
-        }
-        
-    }
-    
-    
-    @IBAction func validateButton(_ sender: Any) {
-        delegate?.updateActivityFrenquencies(frequencies: frequencies)
-        var i = 0
-        while i < frequencies.count && !frequencies[i].enable {
-            i += 1
-        }
-        if i <= frequencies.count || frequencies[frequencies.count-1].enable{
-            _ = navigationController?.popViewController(animated: true)
-        }
-        else {
-            alert(title: "Oups!", message: "Vous devez sélectionner au moins 1 jour")
-        }
-    }
-    
     //-------------------------------------------------------------------------------------------------
     // MARK: - convenience methods
     
@@ -204,23 +124,30 @@ class FrequenceActivityViewController : UIViewController, UITableViewDataSource,
         }
     }
     
-    func setDateFormatter() { // called in viewDidLoad()
+    func setDateFormatter() {
         self.dateFormatter.dateFormat = "HH:mm"
     }
-
     
-    
-    func alert(title: String,  message: String) {
-        let alert = UIAlertController(title: title,
-                                      message: message,
-                                      preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Ok ",
-                                     style: .default)
+    func createEvents() -> [Event] {
+        var events = [Event]()
+        let event1 = Event(title: "Lundi", time: dateFormatter.date(from: "14:00")!)
+        let event2 = Event(title: "Mardi", time: dateFormatter.date(from: "14:00")!)
+        let event3 = Event(title: "Mercredi", time: dateFormatter.date(from: "14:00")!)
+        let event4 = Event(title: "Jeudi", time: dateFormatter.date(from: "14:00")!)
+        let event5 = Event(title: "Vendredi", time: dateFormatter.date(from: "14:00")!)
+        let event6 = Event(title: "Samedi", time: dateFormatter.date(from: "14:00")!)
+        let event7 = Event(title: "Dimanche", time: dateFormatter.date(from: "14:00")!)
         
-        alert.addAction(okAction)
-        
-        present(alert, animated: true)
+        events.append(event1)
+        events.append(event2)
+        events.append(event3)
+        events.append(event4)
+        events.append(event5)
+        events.append(event6)
+        events.append(event7)
+        return events
     }
+
 }
 
 
