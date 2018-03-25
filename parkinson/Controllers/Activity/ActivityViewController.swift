@@ -12,7 +12,6 @@ class ActivityViewController: UIViewController, UITextFieldDelegate, UITextViewD
 
     var tableViewController: FrequenceActivityTableViewController!
     let activities      = Factory.sharedData.patient.activitySet
-    var dateFormatter   = DateFormatter()
     var activity: Activity?
 
     @IBOutlet weak var nameTextField: UITextField!
@@ -22,12 +21,13 @@ class ActivityViewController: UIViewController, UITextFieldDelegate, UITextViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setDateFormatter()
+        DateHelper.setDateFormatter()
         
         if let activityShown = self.activity{
             self.nameTextField.text = activityShown.name
             self.descrTextView.text = activityShown.description
             let frequencies         = activityShown.frequencies
+            self.nameTextField.isEnabled = false
             tableViewController     = FrequenceActivityTableViewController(tableView: tableView, frequencies: frequencies )
         }
         else{
@@ -43,33 +43,6 @@ class ActivityViewController: UIViewController, UITextFieldDelegate, UITextViewD
     //-------------------------------------------------------------------------------------------------
     // MARK: - Actions -
     
-    // action when we click on the validate Button
-    @IBAction func validerButton(_ sender: Any) {
-        guard let nameToSave = nameTextField.text else {
-            alertError(errorMsg: "Veuillez entrer un nom d'activité")
-            return
-        }
-        guard let descrToSave = descrTextView.text else {
-            alertError(errorMsg: "Veuillez entrer une description d'activité")
-            return
-        }
-        if nameToSave == "" {
-            alertError(errorMsg: "Veuillez entrer un nom d'activité")
-            return
-        }
-        if descrToSave == "" {
-            alertError(errorMsg: "Veuillez entrer une description d'activité")
-            return
-        }
-        if !checkPeriodicity() {
-            alert(title: "Oups!", message: "Vous devez sélectionner au moins 1 jour")
-            return
-        }
-        let frequencies = getEnableFrequencies(frequencies:self.tableViewController.frequencies)
-        self.saveActivity(withName: nameToSave, withDescr: descrToSave, withFreq: frequencies)
-        _ = navigationController?.popViewController(animated: true)
-
-    }
     
     // Action when we click on a switch button
     @IBAction func switchAction(_ sender: UISwitch) {
@@ -103,9 +76,9 @@ class ActivityViewController: UIViewController, UITextFieldDelegate, UITextViewD
         event.time = sender.date
         // change view
         let dayCell = tableView.cellForRow(at: parentIndexPath)! as! DayTableViewCell
-        dayCell.hourLabel.text = dateFormatter.string(from: sender.date)
+        dayCell.hourLabel.text = DateHelper.dateFormatter.string(from: sender.date)
         for t in tableViewController.frequencies {
-            print(t.title, dateFormatter.string(from: t.time))
+            print(t.title, DateHelper.dateFormatter.string(from: t.time))
         }
     }
     
@@ -135,14 +108,14 @@ class ActivityViewController: UIViewController, UITextFieldDelegate, UITextViewD
     
     func createEvents() -> [Event] {
         var events = [Event]()
-        let event1 = Event(title: "lundi", time: dateFormatter.date(from: "14:00")!)
-        let event2 = Event(title: "mardi", time: dateFormatter.date(from: "14:00")!)
-        let event3 = Event(title: "mercredi", time: dateFormatter.date(from: "14:00")!)
-        let event4 = Event(title: "jeudi", time: dateFormatter.date(from: "14:00")!)
+        let event1 = Event(title: "lundi", time: DateHelper.dateFormatter.date(from: "14:00")!)
+        let event2 = Event(title: "mardi", time: DateHelper.dateFormatter.date(from: "14:00")!)
+        let event3 = Event(title: "mercredi", time: DateHelper.dateFormatter.date(from: "14:00")!)
+        let event4 = Event(title: "jeudi", time: DateHelper.dateFormatter.date(from: "14:00")!)
         
-        let event5 = Event(title: "vendredi", time: dateFormatter.date(from: "14:00")!)
-        let event6 = Event(title: "samedi", time: dateFormatter.date(from: "14:00")!)
-        let event7 = Event(title: "dimanche", time: dateFormatter.date(from: "14:00")!)
+        let event5 = Event(title: "vendredi", time: DateHelper.dateFormatter.date(from: "14:00")!)
+        let event6 = Event(title: "samedi", time: DateHelper.dateFormatter.date(from: "14:00")!)
+        let event7 = Event(title: "dimanche", time: DateHelper.dateFormatter.date(from: "14:00")!)
         
         events.append(event1)
         events.append(event2)
@@ -178,35 +151,6 @@ class ActivityViewController: UIViewController, UITextFieldDelegate, UITextViewD
         else {
             return false
         }
-    }
-    
-    func setDateFormatter() {
-        self.dateFormatter.dateFormat = "HH:mm"
-    }
-    
-    
-    func alert(title: String,  message: String) {
-        let alert = UIAlertController(title: title,
-                                      message: message,
-                                      preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Ok ",
-                                     style: .default)
-        
-        alert.addAction(okAction)
-        
-        present(alert, animated: true)
-    }
-    
-    func alertError(errorMsg error: String, userInfo user: String = "") {
-        let alert = UIAlertController(title: error,
-                                      message: user,
-                                      preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Ok ",
-                                         style: .default)
-        
-        alert.addAction(cancelAction)
-        
-        present(alert, animated: true)
     }
 
 }

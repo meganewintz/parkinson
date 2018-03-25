@@ -13,7 +13,6 @@ class ActivitiesTableViewController : NSObject, UITableViewDataSource, ActivityS
     var activities: ActivitySet
     
     var tableView: UITableView!
-    //var activities = ["Natation","Jardinage","Marche"]
 
     
     init(tableView: UITableView, activities: ActivitySet) {
@@ -58,15 +57,18 @@ class ActivitiesTableViewController : NSObject, UITableViewDataSource, ActivityS
         //just managed deleting
         if (editingStyle == UITableViewCellEditingStyle.delete) {
             self.tableView.beginUpdates()
-            //            if self.delete(activityWithIndex: IndexPath.row) {
-            //                self.tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
-            //            }
+            self.deleteActivty(withIndex: forRowAt)
             self.tableView.endUpdates()
         }
     }
     
     
+    //-------------------------------------------------------------------------------------------------
+    // MARK: - Activity Data Management
     
+    func deleteActivty(withIndex indexPath: IndexPath) {
+        activities.removeActivity(index: indexPath.row)
+    }
     
     //-------------------------------------------------------------------------------------------------
     // MARK: - ActivitySetDelegate
@@ -79,17 +81,21 @@ class ActivitiesTableViewController : NSObject, UITableViewDataSource, ActivityS
     }
     
     func activityUpdated(at: Int) {
-        let indexPath = IndexPath(index: at)
+        let indexPath = IndexPath(row: at, section: 0)
         self.tableView.beginUpdates()
         self.tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.fade)
         self.tableView.endUpdates()
     }
     
     func activityRemoved(at: Int) {
-        let indexPath = IndexPath(index: at)
+        let indexPath = IndexPath(row: at, section: 0)
         self.tableView.beginUpdates()
         self.tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade)
         self.tableView.endUpdates()
+    }
+    
+    func activityAlreadyExist() {
+        
     }
     
     func errorDataBaseRead() {
@@ -112,6 +118,7 @@ class ActivitiesTableViewController : NSObject, UITableViewDataSource, ActivityS
         
         return cell
     }
+
 }
 
 
