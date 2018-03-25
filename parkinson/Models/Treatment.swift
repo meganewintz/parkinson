@@ -77,7 +77,7 @@ class Treatment	 {
     
     /// addDailyDose
     ///
-    /// add the quantity property with a daily period for a dose
+    /// add the quantity property with a daily period for a dose if its not already present
     ///
     /// - Parameters:
     ///   - dailyDose: `DailyDose`
@@ -85,8 +85,10 @@ class Treatment	 {
     /// - Returns : the treatment with the daily dose added
     @discardableResult
     public func addDailyDose(dailyDose : DailyDose) -> Treatment {
-        dailyDoses.append(dailyDose)
-        dailyDoses.sort(by:{ $0.dailyPeriod < $1.dailyPeriod } )
+        if !dailyDoses.contains(where: { $0 === dailyDose }){
+            dailyDoses.append(dailyDose)
+            dailyDoses.sort(by:{ $0.dailyPeriod < $1.dailyPeriod } )
+        }
         return self
     }
     
