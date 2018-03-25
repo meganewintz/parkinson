@@ -9,16 +9,7 @@
 import Foundation
 import UIKit
 
-/// ActivitiesSet type
-///
 
-/// ---- Methods
-///
-
-/// init
-///
-/// initialize an 'ActivitiesSet', empty.
-///
 
 
 /// nextActivity
@@ -37,15 +28,6 @@ import UIKit
 /// - Returns : 'ActivitiesSet' containing all the activities programed for the day enter
 
 
-/// getActivityByName
-///
-/// activity corresponding to the name
-///
-/// - Parameters:
-///   - name: `String` name of an activity
-/// - Returns : 'Activity?' activity corresponding to the name, nothing if the activity is not present in the set
-
-
 /// checkConflict
 ///
 /// check if the activity enter in paramter doesn't occur in the same time than another actiiviy present in the set
@@ -55,36 +37,14 @@ import UIKit
 /// - Returns : True if there is a conflict
 
 
-/// getActivityByName
-///
-/// activity corresponding to the name
-///
-/// - Parameters:
-///   - name: `String` name of an activity
-/// - Returns : 'Activity?' activity corresponding to the name, nothing if the activity is not present in the set
-
-
-/// addDelegate
-///
-/// add a delegate to this model
-///
-/// - Parameters:
-///   - delegate: `Delegate`
-
-
-/// removeDelegate
-///
-/// remove a delegate to this model
-///
-/// - Parameters:
-///   - delegate: `Delegate`
 
 
 class ActivitySet: Sequence {
     
-    fileprivate var pset : [Activity] = []
+    fileprivate var pset  : [Activity] = []
     private var delegates : [ActivitySetDelegate]
-    private var dao: DAOactivityProtocol
+    private var dao       : DAOactivityProtocol
+    
     
     internal init(dao: DAOactivityProtocol){
         self.dao = dao
@@ -126,9 +86,11 @@ class ActivitySet: Sequence {
     @discardableResult
     func removeActivity(activity: Activity) -> ActivitySet{
         if let index = pset.index(where: { $0 === activity }) {
-            self.pset.remove(at: index)
-            for d in delegates {
-                d.activityRemoved(at: index)
+            if(self.dao.removeActivity(patient : Factory.sharedData.patient, activity: activity)){
+                self.pset.remove(at: index)
+                for d in delegates {
+                    d.activityRemoved(at: index)
+                }
             }
         }
         return self
@@ -144,9 +106,11 @@ class ActivitySet: Sequence {
     @discardableResult
     func removeActivity(index: Int) -> ActivitySet{
         if (index < self.count) {
-            self.pset.remove(at: index)
-            for d in delegates {
-                d.activityRemoved(at: index)
+            if(self.dao.removeActivity(patient : Factory.sharedData.patient, activity: pset[index])){
+                self.pset.remove(at: index)
+                for d in delegates {
+                    d.activityRemoved(at: index)
+                }
             }
         }
         return self
