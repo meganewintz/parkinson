@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2804646F2062583400EDB0A7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D63CDD72055D33A00ACC8C2 /* Info.plist */; };
 		283FF7B4205C2C980038029C /* EvaluationSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283FF7B3205C2C980038029C /* EvaluationSet.swift */; };
+		2846233220683C6A005E3EBC /* Notifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2846233120683C6A005E3EBC /* Notifier.swift */; };
 		284B932C20623E0A00C02E13 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DB6994205AB86000D4D5F0 /* Factory.swift */; };
 		284B932F20623E1500C02E13 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D194CC92060043000E7A0AC /* CoreDataManager.swift */; };
 		284B933020623E1500C02E13 /* DialogBoxHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D194CCB206007FD00E7A0AC /* DialogBoxHelper.swift */; };
@@ -126,6 +127,7 @@
 
 /* Begin PBXFileReference section */
 		283FF7B3205C2C980038029C /* EvaluationSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationSet.swift; sourceTree = "<group>"; };
+		2846233120683C6A005E3EBC /* Notifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifier.swift; sourceTree = "<group>"; };
 		284CE4BD205AFAE6000551AD /* TypeOfState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOfState.swift; sourceTree = "<group>"; };
 		2855F65D20669D0100CDF510 /* EventTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTests.swift; sourceTree = "<group>"; };
 		2855F6602066A07000CDF510 /* ActivityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTests.swift; sourceTree = "<group>"; };
@@ -306,6 +308,7 @@
 		3D63CDEE2055D35100ACC8C2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2846233120683C6A005E3EBC /* Notifier.swift */,
 				3D63CDBF2055D33900ACC8C2 /* ViewController.swift */,
 				3D464FAC205C589400BF8A53 /* TabBarController.swift */,
 				3D63CDEF2055D36800ACC8C2 /* Activity */,
@@ -566,6 +569,7 @@
 				3D22A1D1205D4C4700DE0F75 /* ActivityTableViewCell.swift in Sources */,
 				28D79D74205ACEF9001C2BD7 /* DAOtreatmentProtocol.swift in Sources */,
 				3D63CE102055DB0200ACC8C2 /* ActivitySet.swift in Sources */,
+				2846233220683C6A005E3EBC /* Notifier.swift in Sources */,
 				3D22A1CE205D4BE200DE0F75 /* ActivitiesTableViewController.swift in Sources */,
 				28D79D79205AD59E001C2BD7 /* DAOcoreDataAppointment.swift in Sources */,
 				3D63CE0C2055DB0200ACC8C2 /* Evaluation.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-
+import UserNotifications
 
 
 
@@ -79,6 +79,9 @@ class ActivitySet: Sequence {
                 print("Erreur lors de l'ajout de l'activité")
             }
         }
+        
+        let notif = Notifier(title : "Nouvelle activité", content : activity.name + " a été ajoutée avec succès")
+        
         return self
     }
     
