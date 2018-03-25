@@ -67,7 +67,7 @@ class ActivitiesTableViewController : NSObject, UITableViewDataSource, ActivityS
     // MARK: - Activity Data Management
     
     func deleteActivty(withIndex indexPath: IndexPath) {
-        activities.removeActivity(index: indexPath.row)
+        activities.removeActivity(at: indexPath.row)
     }
     
     //-------------------------------------------------------------------------------------------------
