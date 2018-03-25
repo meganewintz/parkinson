@@ -84,9 +84,9 @@ class ActivitySet: Sequence {
     
     fileprivate var pset : [Activity] = []
     private var delegates : [ActivitySetDelegate]
-    private var dao: DAOactivityProtocol
+    private var dao: DAOactivityProtocol?
     
-    internal init(dao: DAOactivityProtocol){
+    internal init(dao: DAOactivityProtocol?){
         self.dao = dao
         delegates = [ActivitySetDelegate]()
     }
@@ -105,13 +105,18 @@ class ActivitySet: Sequence {
     /// - Returns: `ActivitySet` with new `Activity` added to the set, or `ActivitySet` unmodified if `Activity` belonged already to the set.
     @discardableResult
     func addActivity(activity: Activity) -> ActivitySet{
-        if !self.contains(activity: activity){
-            if(self.dao.addActivity(patient : Factory.sharedData.patient, activity: activity)){
+        if !self.contains(where: { $0.name == activity.name }){
+            if dao == nil {
                 self.pset.append(activity)
                 for delegate in delegates {
                     delegate.activityAdded(at: self.count-1)
                 }
-            }else{
+            } else if(self.dao!.addActivity(patient : Factory.sharedData.patient, activity: activity)){
+                self.pset.append(activity)
+                for delegate in delegates {
+                    delegate.activityAdded(at: self.count-1)
+                }
+            } else {
                 print("Erreur lors de l'ajout de l'activité")
             }
         }
