@@ -55,13 +55,16 @@
 		3D09156F206259A300EB7C2F /* DAOactivityTypeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2895A856206177D700EE28BA /* DAOactivityTypeProtocol.swift */; };
 		3D194CCA2060043000E7A0AC /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D194CC92060043000E7A0AC /* CoreDataManager.swift */; };
 		3D194CCC206007FD00E7A0AC /* DialogBoxHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D194CCB206007FD00E7A0AC /* DialogBoxHelper.swift */; };
-		3D194CCF20603C5500E7A0AC /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D194CCE20603C5500E7A0AC /* ActivityViewController.swift */; };
 		3D22A1CE205D4BE200DE0F75 /* ActivitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22A1CD205D4BE200DE0F75 /* ActivitiesTableViewController.swift */; };
 		3D22A1D1205D4C4700DE0F75 /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22A1D0205D4C4700DE0F75 /* ActivityTableViewCell.swift */; };
 		3D2597C520573B1400D00716 /* ActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2597C420573B1400D00716 /* ActivitiesViewController.swift */; };
 		3D2597CA205840F400D00716 /* DAOcoreDataActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2597C9205840F400D00716 /* DAOcoreDataActivity.swift */; };
 		3D2597CC205C429100D00716 /* FrequenceActivityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2597CB205C429100D00716 /* FrequenceActivityTableViewController.swift */; };
 		3D464FAD205C589400BF8A53 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D464FAC205C589400BF8A53 /* TabBarController.swift */; };
+		3D6334F02066DA2B008B8B33 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6334EF2066DA2B008B8B33 /* ActivityViewController.swift */; };
+		3D6334F220670DB4008B8B33 /* AddActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6334F120670DB4008B8B33 /* AddActivityViewController.swift */; };
+		3D6334F420670DCC008B8B33 /* EditActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6334F320670DCC008B8B33 /* EditActivityViewController.swift */; };
+		3D6334F62067B9B4008B8B33 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6334F52067B9B4008B8B33 /* DateHelper.swift */; };
 		3D63CDBE2055D33900ACC8C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CDBD2055D33900ACC8C2 /* AppDelegate.swift */; };
 		3D63CDC02055D33900ACC8C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CDBF2055D33900ACC8C2 /* ViewController.swift */; };
 		3D63CDC32055D33900ACC8C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D63CDC12055D33900ACC8C2 /* Main.storyboard */; };
@@ -129,13 +132,16 @@
 		3D09154A2062490500EB7C2F /* DayTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayTableViewCell.swift; sourceTree = "<group>"; };
 		3D194CC92060043000E7A0AC /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		3D194CCB206007FD00E7A0AC /* DialogBoxHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogBoxHelper.swift; sourceTree = "<group>"; };
-		3D194CCE20603C5500E7A0AC /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		3D22A1CD205D4BE200DE0F75 /* ActivitiesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesTableViewController.swift; sourceTree = "<group>"; };
 		3D22A1D0205D4C4700DE0F75 /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
 		3D2597C420573B1400D00716 /* ActivitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesViewController.swift; sourceTree = "<group>"; };
 		3D2597C9205840F400D00716 /* DAOcoreDataActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAOcoreDataActivity.swift; sourceTree = "<group>"; };
 		3D2597CB205C429100D00716 /* FrequenceActivityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequenceActivityTableViewController.swift; sourceTree = "<group>"; };
 		3D464FAC205C589400BF8A53 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		3D6334EF2066DA2B008B8B33 /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
+		3D6334F120670DB4008B8B33 /* AddActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivityViewController.swift; sourceTree = "<group>"; };
+		3D6334F320670DCC008B8B33 /* EditActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditActivityViewController.swift; sourceTree = "<group>"; };
+		3D6334F52067B9B4008B8B33 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		3D63CDBA2055D33900ACC8C2 /* parkinson.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = parkinson.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D63CDBD2055D33900ACC8C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D63CDBF2055D33900ACC8C2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -215,6 +221,7 @@
 				3D194CC92060043000E7A0AC /* CoreDataManager.swift */,
 				3D194CCB206007FD00E7A0AC /* DialogBoxHelper.swift */,
 				2895A8592061788C00EE28BA /* ActivityType.swift */,
+				3D6334F52067B9B4008B8B33 /* DateHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -297,8 +304,10 @@
 			children = (
 				3D2597C420573B1400D00716 /* ActivitiesViewController.swift */,
 				3D22A1CD205D4BE200DE0F75 /* ActivitiesTableViewController.swift */,
-				3D194CCE20603C5500E7A0AC /* ActivityViewController.swift */,
+				3D6334EF2066DA2B008B8B33 /* ActivityViewController.swift */,
 				3D2597CB205C429100D00716 /* FrequenceActivityTableViewController.swift */,
+				3D6334F120670DB4008B8B33 /* AddActivityViewController.swift */,
+				3D6334F320670DCC008B8B33 /* EditActivityViewController.swift */,
 			);
 			path = Activity;
 			sourceTree = "<group>";
@@ -524,16 +533,18 @@
 				28C1E71B2058236100368EF0 /* DailyDose.swift in Sources */,
 				3D63CE0F2055DB0200ACC8C2 /* Activity.swift in Sources */,
 				3D63CE0E2055DB0200ACC8C2 /* AppointmentSet.swift in Sources */,
+				3D6334F420670DCC008B8B33 /* EditActivityViewController.swift in Sources */,
 				3D194CCC206007FD00E7A0AC /* DialogBoxHelper.swift in Sources */,
 				3DF1C417205D8A7C00A606C4 /* TimePickerTableViewCell.swift in Sources */,
 				52DB6995205AB86000D4D5F0 /* Factory.swift in Sources */,
-				3D194CCF20603C5500E7A0AC /* ActivityViewController.swift in Sources */,
 				283FF7B4205C2C980038029C /* EvaluationSet.swift in Sources */,
+				3D6334F62067B9B4008B8B33 /* DateHelper.swift in Sources */,
 				3D63CE082055DB0200ACC8C2 /* Dose.swift in Sources */,
 				3D63CE112055DB0200ACC8C2 /* TreatmentSet.swift in Sources */,
 				52DB6997205ABABC00D4D5F0 /* DAOcoreDataTreatment.swift in Sources */,
 				3D63CDC02055D33900ACC8C2 /* ViewController.swift in Sources */,
 				3D63CE072055DB0200ACC8C2 /* PracticesSet.swift in Sources */,
+				3D6334F220670DB4008B8B33 /* AddActivityViewController.swift in Sources */,
 				3D63CE1B2055DB8C00ACC8C2 /* TreatmentSetDelegate.swift in Sources */,
 				3D63CE1C2055DB8C00ACC8C2 /* AppointmentSetDelegate.swift in Sources */,
 				3D63CE1E2055DB8C00ACC8C2 /* PracticeSetDelegate.swift in Sources */,
@@ -564,6 +575,7 @@
 				3D09156F206259A300EB7C2F /* DAOactivityTypeProtocol.swift in Sources */,
 				28D79D72205ACEE3001C2BD7 /* DAOactivityProtocol.swift in Sources */,
 				3D63CE1D2055DB8C00ACC8C2 /* ActivitySetDelegate.swift in Sources */,
+				3D6334F02066DA2B008B8B33 /* ActivityViewController.swift in Sources */,
 				3D63CE0A2055DB0200ACC8C2 /* Appointment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

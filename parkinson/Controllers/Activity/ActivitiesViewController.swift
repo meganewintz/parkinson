@@ -91,6 +91,24 @@ class ActivitiesViewController: UIViewController {
 //        self.alertError(errorMsg: error[0], userInfo: error[1])
 //    }
     
+    
+    
+    //-------------------------------------------------------------------------------------------------
+    // MARK: - Navigation
+    
+    let segueEditActivityID = "editActivitySegue"
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == segueEditActivityID {
+            let indexPath = self.tableView.indexPathForSelectedRow
+            let editActivityViewController = segue.destination as! EditActivityViewController
+            editActivityViewController.activity = self.tableViewController.activities[(indexPath?.row)!]
+            self.tableView.deselectRow(at: indexPath!, animated: true)
+    
+        }
+    }
+    
+    //-------------------------------------------------------------------------------------------------
     // MARK: - Utilities -
     
     func alertError(errorMsg error: String, userInfo user: String = "") {
@@ -106,18 +124,4 @@ class ActivitiesViewController: UIViewController {
     }
     
     
-    //-------------------------------------------------------------------------------------------------
-    // MARK: - Navigation
-    
-    let segueShowActivityID = "showActivitySegue"
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == segueShowActivityID {
-            let indexPath = self.tableView.indexPathForSelectedRow
-            let showActivityViewController = segue.destination as! ActivityViewController
-            showActivityViewController.activity = self.tableViewController.activities[(indexPath?.row)!]
-            self.tableView.deselectRow(at: indexPath!, animated: true)
-    
-        }
-    }
 }

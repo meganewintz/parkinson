@@ -13,6 +13,7 @@ protocol ActivitySetDelegate : class{
     func activityAdded(at: Int)
     func activityUpdated(at: Int)
     func activityRemoved(at: Int)
+    func activityAlreadyExist()
     func errorDataBaseRead()
     func errorDataBaseWrite()
 }

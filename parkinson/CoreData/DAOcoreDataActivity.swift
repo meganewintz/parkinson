@@ -197,7 +197,7 @@ class DAOcoreDataActivity : DAOactivityProtocol{
         if freqData.count-1 > 1 {
             for i in 0...freqData.count-1{
                 freq = freqData[i] as! FrequencyData //cast any to FrequencyData
-                frequencies.append(Event(title: freq.day!, time: freq.hour!))
+                frequencies.append(Event(title: freq.day!, time: freq.hour!, enable: true))
             }
         }
         return frequencies

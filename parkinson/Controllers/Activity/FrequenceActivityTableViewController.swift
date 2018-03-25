@@ -11,13 +11,12 @@ import UIKit
 class FrequenceActivityTableViewController : NSObject, UITableViewDataSource, UITableViewDelegate{
     
     var timePickerIndexPath     : IndexPath? = nil
-    var dateFormatter           = DateFormatter()
     var frequencies             = [Event]()
     var tableView               : UITableView!
 
     init(tableView: UITableView, frequencies: [Event]) {
         super.init()
-        self.setDateFormatter()
+        DateHelper.setDateFormatter()
         self.frequencies            = frequencies
         self.tableView              = tableView
         self.tableView.dataSource   = self
@@ -65,7 +64,7 @@ class FrequenceActivityTableViewController : NSObject, UITableViewDataSource, UI
             }
             let event = frequencies[indexPath.row]
             dayCell.dayLabel.text = event.title
-            dayCell.hourLabel.text = dateFormatter.string(from: event.time)
+            dayCell.hourLabel.text = DateHelper.dateFormatter.string(from: event.time)
 
             return dayCell
         }
@@ -110,7 +109,7 @@ class FrequenceActivityTableViewController : NSObject, UITableViewDataSource, UI
     private func displayCell(cell: DayTableViewCell, atIndexPath indexPath: IndexPath) -> UITableViewCell{
         let event = frequencies[indexPath.row]
         cell.dayLabel.text = event.title
-        cell.hourLabel.text = dateFormatter.string(from: event.time as Date)
+        cell.hourLabel.text = DateHelper.dateFormatter.string(from: event.time as Date)
         return cell
 
     }
@@ -122,10 +121,6 @@ class FrequenceActivityTableViewController : NSObject, UITableViewDataSource, UI
         } else { // case 1、3.1
             return IndexPath(row: indexPathSelected.row + 1, section: 0)
         }
-    }
-    
-    func setDateFormatter() {
-        self.dateFormatter.dateFormat = "HH:mm"
     }
     
     

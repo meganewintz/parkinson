@@ -11,46 +11,115 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Edit Activity View Controller-->
         <scene sceneID="3lG-Ba-UWS">
             <objects>
-                <viewController id="bx2-Lb-Yp9" sceneMemberID="viewController">
+                <viewController id="bx2-Lb-Yp9" customClass="EditActivityViewController" customModule="parkinson" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YFL-AX-mpm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Rf-dT-fqa">
+                                <rect key="frame" x="0.0" y="64" width="375" height="496"/>
+                                <connections>
+                                    <segue destination="Dhz-tA-3rs" kind="embed" identifier="showActivitySegue" id="HIM-ad-2CL"/>
+                                </connections>
+                            </containerView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nAU-yF-iyD">
+                                <rect key="frame" x="0.0" y="568" width="375" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ub-Uq-Dn9">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                        <state key="normal" title="Mis à jour"/>
+                                        <connections>
+                                            <action selector="updateButton:" destination="bx2-Lb-Yp9" eventType="touchUpInside" id="ecI-nC-l7H"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ZWr-Cn-Hua"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nAU-yF-iyD" firstAttribute="top" secondItem="4Rf-dT-fqa" secondAttribute="bottom" constant="8" id="1vT-qt-YiM"/>
+                            <constraint firstItem="4Rf-dT-fqa" firstAttribute="leading" secondItem="Etu-wI-gEN" secondAttribute="leading" id="6yj-M7-34e"/>
+                            <constraint firstItem="nAU-yF-iyD" firstAttribute="bottom" secondItem="Etu-wI-gEN" secondAttribute="bottom" id="CmE-Fz-ZeW"/>
+                            <constraint firstItem="nAU-yF-iyD" firstAttribute="trailing" secondItem="Etu-wI-gEN" secondAttribute="trailing" id="d5O-Gk-rHt"/>
+                            <constraint firstItem="nAU-yF-iyD" firstAttribute="leading" secondItem="Etu-wI-gEN" secondAttribute="leading" id="l8h-gJ-68A"/>
+                            <constraint firstItem="Etu-wI-gEN" firstAttribute="trailing" secondItem="4Rf-dT-fqa" secondAttribute="trailing" id="vnb-Q9-qPx"/>
+                            <constraint firstItem="4Rf-dT-fqa" firstAttribute="top" secondItem="Etu-wI-gEN" secondAttribute="top" id="xbr-BA-pEg"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Etu-wI-gEN"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w2j-Cq-lam" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2050" y="-677"/>
+            <point key="canvasLocation" x="2961" y="322"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Activity View Controller-->
         <scene sceneID="tw0-0c-mIc">
             <objects>
-                <viewController id="VVS-QC-Jau" sceneMemberID="viewController">
+                <viewController id="VVS-QC-Jau" customClass="AddActivityViewController" customModule="parkinson" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eGB-LQ-d4t">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0qg-PN-vWD">
+                                <rect key="frame" x="0.0" y="568" width="375" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EHO-9c-d2b">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                        <state key="normal" title="Ajouter l'activité"/>
+                                        <connections>
+                                            <action selector="addButton:" destination="VVS-QC-Jau" eventType="touchUpInside" id="fXU-hO-xyJ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="MnT-Lv-uki"/>
+                                </constraints>
+                            </stackView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U5J-H0-LOY">
+                                <rect key="frame" x="0.0" y="64" width="375" height="496"/>
+                                <connections>
+                                    <segue destination="Dhz-tA-3rs" kind="embed" id="BGm-5x-NF0"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="L7j-tp-DhY" firstAttribute="trailing" secondItem="0qg-PN-vWD" secondAttribute="trailing" id="85k-dD-TTJ"/>
+                            <constraint firstItem="U5J-H0-LOY" firstAttribute="top" secondItem="L7j-tp-DhY" secondAttribute="top" id="9EI-YZ-9XL"/>
+                            <constraint firstItem="L7j-tp-DhY" firstAttribute="bottom" secondItem="0qg-PN-vWD" secondAttribute="bottom" id="9oX-uU-euE"/>
+                            <constraint firstItem="U5J-H0-LOY" firstAttribute="trailing" secondItem="L7j-tp-DhY" secondAttribute="trailing" id="Bux-YH-fBL"/>
+                            <constraint firstItem="0qg-PN-vWD" firstAttribute="leading" secondItem="L7j-tp-DhY" secondAttribute="leading" id="J82-S3-gBQ"/>
+                            <constraint firstItem="0qg-PN-vWD" firstAttribute="top" secondItem="U5J-H0-LOY" secondAttribute="bottom" constant="8" id="dJY-Xc-lbc"/>
+                            <constraint firstItem="U5J-H0-LOY" firstAttribute="leading" secondItem="L7j-tp-DhY" secondAttribute="leading" id="lRx-tm-36y"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="L7j-tp-DhY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ELM-9B-Qj0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2049" y="-14"/>
+            <point key="canvasLocation" x="2962" y="986"/>
         </scene>
         <!--Votre activité-->
         <scene sceneID="mjp-Fi-Crb">
             <objects>
                 <viewController title="Votre activité" id="Dhz-tA-3rs" customClass="ActivityViewController" customModule="parkinson" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XXg-kc-geE">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1250"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ClR-TR-Xsq">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="1201"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="1100"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wWE-7D-frl">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1100"/>
@@ -61,7 +130,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="caX-Pc-7ad">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="entrer un nom" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="caX-Pc-7ad">
                                                 <rect key="frame" x="90" y="20" width="270" height="33"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
@@ -170,26 +239,16 @@
                                                     </tableViewCell>
                                                 </prototypes>
                                             </tableView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="omu-MD-n3J">
-                                                <rect key="frame" x="149" y="962" width="77" height="44"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <state key="normal" title="Valider"/>
-                                                <connections>
-                                                    <action selector="validerButton:" destination="Dhz-tA-3rs" eventType="touchUpInside" id="eI9-aq-HHX"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="Fjp-8F-jDY" firstAttribute="trailing" secondItem="DaG-Iy-MSo" secondAttribute="trailing" id="1Jg-dG-IBV"/>
                                             <constraint firstItem="Fjp-8F-jDY" firstAttribute="top" secondItem="FSU-Ck-8Wv" secondAttribute="bottom" constant="10" id="3fp-xS-Dhh"/>
-                                            <constraint firstItem="omu-MD-n3J" firstAttribute="top" secondItem="DaG-Iy-MSo" secondAttribute="bottom" constant="20" id="3hl-kd-VKz"/>
                                             <constraint firstItem="caX-Pc-7ad" firstAttribute="leading" secondItem="TZT-Yj-Ubp" secondAttribute="trailing" constant="8" id="9dB-uy-wSR"/>
                                             <constraint firstItem="caX-Pc-7ad" firstAttribute="top" secondItem="wWE-7D-frl" secondAttribute="top" constant="20" id="C6t-cX-tzP"/>
                                             <constraint firstItem="TZT-Yj-Ubp" firstAttribute="top" secondItem="wWE-7D-frl" secondAttribute="top" constant="20" id="CG9-v2-aqZ"/>
                                             <constraint firstItem="TZT-Yj-Ubp" firstAttribute="leading" secondItem="wWE-7D-frl" secondAttribute="leading" constant="15" id="Fy8-BO-ot8"/>
                                             <constraint firstItem="FSU-Ck-8Wv" firstAttribute="leading" secondItem="wWE-7D-frl" secondAttribute="leading" constant="15" id="Gb9-oq-tq9"/>
-                                            <constraint firstItem="omu-MD-n3J" firstAttribute="centerX" secondItem="wWE-7D-frl" secondAttribute="centerX" id="Hag-eD-bWg"/>
                                             <constraint firstAttribute="trailing" secondItem="dce-ho-dgy" secondAttribute="trailing" constant="15" id="M0K-D4-Hls"/>
                                             <constraint firstAttribute="trailing" secondItem="Fjp-8F-jDY" secondAttribute="trailing" constant="15" id="Uhq-mN-Lee"/>
                                             <constraint firstAttribute="trailing" secondItem="FSU-Ck-8Wv" secondAttribute="trailing" constant="15" id="WKU-7u-g2c"/>
@@ -223,7 +282,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JCI-qU-8ul"/>
                     </view>
-                    <size key="freeformSize" width="375" height="1250"/>
+                    <size key="freeformSize" width="375" height="1100"/>
                     <connections>
                         <outlet property="descrTextView" destination="Fjp-8F-jDY" id="054-v3-XAb"/>
                         <outlet property="nameTextField" destination="caX-Pc-7ad" id="lFA-fD-Zqo"/>
@@ -232,7 +291,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dhx-O7-m9Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3556" y="797"/>
+            <point key="canvasLocation" x="4031" y="723"/>
         </scene>
         <!--Mes activités-->
         <scene sceneID="tne-QT-ifu">
@@ -247,7 +306,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="Ajouter une nouvelle activité"/>
                                 <connections>
-                                    <segue destination="Dhz-tA-3rs" kind="show" id="Koa-jI-Sb4"/>
+                                    <segue destination="VVS-QC-Jau" kind="show" id="0my-Nb-gOG"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="gMc-93-eRE">
@@ -284,7 +343,7 @@
                                         <connections>
                                             <outlet property="descriptionLabel" destination="0XC-Yt-I6O" id="wzy-Fp-uUo"/>
                                             <outlet property="nameLabel" destination="s2H-aj-b9v" id="VgT-H8-T4S"/>
-                                            <segue destination="Dhz-tA-3rs" kind="show" identifier="showActivitySegue" id="zyZ-nI-hah"/>
+                                            <segue destination="bx2-Lb-Yp9" kind="show" identifier="editActivitySegue" id="oAf-ko-5jF"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -404,9 +463,6 @@
                                 <rect key="frame" x="70" y="564" width="234" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="Ajouter un traitement"/>
-                                <connections>
-                                    <segue destination="OYh-YQ-GSV" kind="show" id="olt-4Y-vEH"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -466,6 +522,6 @@
         <image name="accueil" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zyZ-nI-hah"/>
+        <segue reference="HIM-ad-2CL"/>
     </inferredMetricsTieBreakers>
 </document>
