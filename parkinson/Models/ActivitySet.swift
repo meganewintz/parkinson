@@ -90,7 +90,7 @@ class ActivitySet: Sequence {
     @discardableResult
     func removeActivity(activity: Activity) -> ActivitySet{
         if let index = pset.index(where: { $0 === activity }) {
-            if(self.dao.removeActivity(patient : Factory.sharedData.patient, activity: activity)){
+            if(self.dao!.removeActivity(patient : Factory.sharedData.patient, activity: activity)){
                 self.pset.remove(at: index)
                 for d in delegates {
                     d.activityRemoved(at: index)
@@ -110,7 +110,7 @@ class ActivitySet: Sequence {
     @discardableResult
     func removeActivity(index: Int) -> ActivitySet{
         if (index < self.count) {
-            if(self.dao.removeActivity(patient : Factory.sharedData.patient, activity: pset[index])){
+            if(self.dao!.removeActivity(patient : Factory.sharedData.patient, activity: pset[index])){
                 self.pset.remove(at: index)
                 for d in delegates {
                     d.activityRemoved(at: index)
