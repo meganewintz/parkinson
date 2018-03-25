@@ -82,6 +82,34 @@ class ActivitySet: Sequence {
         return self
     }
     
+    
+    /// updateActivity
+    ///
+    /// replace an activity by another one with different values
+    ///
+    /// - Parameter old : activity to replace
+    /// - Parameter new : activity which will replace
+    /// - Returns : 'ActivitySet' with activity replaced if old belonged to the set
+    @discardableResult
+    func updateActivity(old : Activity, new : Activity) -> ActivitySet {
+        if let index = pset.index(where: { $0 === old }){
+            if dao == nil {
+                pset[index] = new
+                for d in delegates {
+                    d.activityUpdated(at: index)
+                }
+            } else if dao!.updateActivity(patient: Factory.sharedData.patient, oldActivity: old, newActivity: new){
+                pset[index] = new
+                for d in delegates {
+                    d.activityUpdated(at: index)
+                }
+            } else {
+                print("Error on updating activity")
+            }
+        }
+        return self
+    }
+    
 
     /// removeActivity
     ///
@@ -90,7 +118,12 @@ class ActivitySet: Sequence {
     @discardableResult
     func removeActivity(activity: Activity) -> ActivitySet{
         if let index = pset.index(where: { $0 === activity }) {
-            if(self.dao!.removeActivity(patient : Factory.sharedData.patient, activity: activity)){
+            if dao == nil {
+                self.pset.remove(at: index)
+                for d in delegates {
+                    d.activityRemoved(at: index)
+                }
+            } else if(self.dao!.removeActivity(patient : Factory.sharedData.patient, activity: activity)){
                 self.pset.remove(at: index)
                 for d in delegates {
                     d.activityRemoved(at: index)
@@ -103,14 +136,19 @@ class ActivitySet: Sequence {
 
     /// removeActivity
     ///
-    /// `ActivitySet` x `Activity` -> `ActivitySet` -- if `Activity` belongs to `ActivitySet`, remove it from the set, else do nothing
+    /// `Int` x `Activity` -> `ActivitySet` -- if `Activity` belongs to `ActivitySet`, remove it from the set, else do nothing
     ///
     /// - Parameter activity: `Activity` to be removed
-    /// - Returns: `ActivitySet` with `Activity` removed if `Activity` belonged to `ActivitySet`
+    /// - Returns: `ActivitySet` with `Activity` removed at index
     @discardableResult
-    func removeActivity(index: Int) -> ActivitySet{
+    func removeActivity(at index: Int) -> ActivitySet{
         if (index < self.count) {
-            if(self.dao!.removeActivity(patient : Factory.sharedData.patient, activity: pset[index])){
+            if dao == nil {
+                self.pset.remove(at: index)
+                for d in delegates {
+                    d.activityRemoved(at: index)
+                }
+            } else if(self.dao!.removeActivity(patient : Factory.sharedData.patient, activity: pset[index])){
                 self.pset.remove(at: index)
                 for d in delegates {
                     d.activityRemoved(at: index)

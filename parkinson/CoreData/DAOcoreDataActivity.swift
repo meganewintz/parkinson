@@ -158,6 +158,7 @@ class DAOcoreDataActivity : DAOactivityProtocol{
         // Get the ActivityData
         let activityToRemove = getActivityData(name: activity.name)
         
+        
         if activityToRemove == nil {
             return false
         }
@@ -194,11 +195,9 @@ class DAOcoreDataActivity : DAOactivityProtocol{
         var frequencies = [Event]()
         var freqData = activity.frequencies!.allObjects // array [Any]
         var freq: FrequencyData
-        if freqData.count-1 > 1 {
-            for i in 0...freqData.count-1{
-                freq = freqData[i] as! FrequencyData //cast any to FrequencyData
-                frequencies.append(Event(title: freq.day!, time: freq.hour!, enable: true))
-            }
+        for i in 0...freqData.count-1{
+            freq = freqData[i] as! FrequencyData //cast any to FrequencyData
+            frequencies.append(Event(title: freq.day!, time: freq.hour!, enable: true))
         }
         return frequencies
     }
