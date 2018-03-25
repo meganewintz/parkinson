@@ -10,11 +10,19 @@ import Foundation
 
 class DailyDose {
     
-    public var dailyPeriod : Float
+    public var dailyPeriod : Date
     public var quantity : Int
     
-    internal init(dailyPeriod : Float, quantity : Int){
+    internal init(dailyPeriod : Date, quantity : Int){
         self.dailyPeriod = dailyPeriod
         self.quantity = quantity
+    }
+    
+    var hour : Int {
+        return Calendar.current.component(.hour, from: dailyPeriod)
+    }
+    
+    var minute : Int {
+        return Calendar.current.component(.minute, from: dailyPeriod)
     }
 }

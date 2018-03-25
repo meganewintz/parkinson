@@ -21,14 +21,14 @@ class Event {
     }
     
     var day : Int {
-        return Calendar.current.weekdaySymbols.index(where : { $0 == title} )!
+        return Calendar.current.weekdaySymbols.index(where : { $0 == title} )! + 1
     }
     
     var hour : Int {
-        return Calendar.current.component(.hour, from: Date())
+        return Calendar.current.component(.hour, from: time)
     }
     
     var minute : Int {
-        return Calendar.current.component(.minute, from: Date())
+        return Calendar.current.component(.minute, from: time)
     }
 }
