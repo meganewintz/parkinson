@@ -64,7 +64,7 @@ class EditActivityViewController: UIViewController {
         if segue.identifier == segueShowActivityID {
             DateHelper.setDateFormatter()
             let showActivityViewController = segue.destination as! ActivityViewController
-            //activity.frequencies = completeEvents(events: activity.frequencies)
+            activity.frequencies = completeEvents(events: activity.frequencies)
             showActivityViewController.activity = self.activity
         }
     }

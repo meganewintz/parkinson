@@ -30,7 +30,7 @@
         <relationship name="treatments" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="TreatmentData" inverseName="drug" inverseEntity="TreatmentData" syncable="YES"/>
     </entity>
     <entity name="DrugQuantityData" representedClassName="DrugQuantityData" syncable="YES" codeGenerationType="class">
-        <attribute name="quantity" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="quantity" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="drugs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DrugData" inverseName="quantities" inverseEntity="DrugData" syncable="YES"/>
     </entity>
     <entity name="EvaluationData" representedClassName="EvaluationData" syncable="YES" codeGenerationType="class">

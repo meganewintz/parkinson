@@ -11,7 +11,7 @@ import Foundation
 class Treatment	 {
     
     public var name : String
-    public var description : String
+    public var description : String?
     public var type : String
     public var doses : DoseSet
     public var endDate : Date
