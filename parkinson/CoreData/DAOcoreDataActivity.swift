@@ -20,7 +20,6 @@ class DAOcoreDataActivity : DAOactivityProtocol{
     func save(){
         CoreDataManager.save()
     }
-    
     // MARK: - Methods from DAOactivityProtocol
     
     /// get the activities from the CoreData
@@ -84,7 +83,7 @@ class DAOcoreDataActivity : DAOactivityProtocol{
     /// - Parameter name: name of the activity
     /// - Returns: ActivityData or nil if no activity correspond to the name
     func getActivityData(name: String) -> ActivityData? {
-
+        
         // Get context
         let context = CoreDataManager.context
 
@@ -195,9 +194,11 @@ class DAOcoreDataActivity : DAOactivityProtocol{
         var frequencies = [Event]()
         var freqData = activity.frequencies!.allObjects // array [Any]
         var freq: FrequencyData
-        for i in 0...freqData.count-1{
-            freq = freqData[i] as! FrequencyData //cast any to FrequencyData
-            frequencies.append(Event(title: freq.day!, time: freq.hour!, enable: true))
+        if freqData.count > 0 {
+            for i in 0...freqData.count-1{
+                freq = freqData[i] as! FrequencyData //cast any to FrequencyData
+                frequencies.append(Event(title: freq.day!, time: freq.hour!, enable: true))
+            }
         }
         return frequencies
     }
