@@ -67,6 +67,7 @@
 		3D2625BE2067DBD800A69604 /* DialogBoxHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2625BD2067DBD800A69604 /* DialogBoxHelper.swift */; };
 		3D2625C02067F5E300A69604 /* DTOcoreDataDrug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2625BF2067F5E300A69604 /* DTOcoreDataDrug.swift */; };
 		3D2625C22067F85900A69604 /* DTOcoreDataDrugQuantity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2625C12067F85900A69604 /* DTOcoreDataDrugQuantity.swift */; };
+		3D2625C42068417300A69604 /* ManageDrugs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2625C32068417300A69604 /* ManageDrugs.swift */; };
 		3D464FAD205C589400BF8A53 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D464FAC205C589400BF8A53 /* TabBarController.swift */; };
 		3D6334F02066DA2B008B8B33 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6334EF2066DA2B008B8B33 /* ActivityViewController.swift */; };
 		3D6334F220670DB4008B8B33 /* AddActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6334F120670DB4008B8B33 /* AddActivityViewController.swift */; };
@@ -150,6 +151,7 @@
 		3D2625BD2067DBD800A69604 /* DialogBoxHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogBoxHelper.swift; sourceTree = "<group>"; };
 		3D2625BF2067F5E300A69604 /* DTOcoreDataDrug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOcoreDataDrug.swift; sourceTree = "<group>"; };
 		3D2625C12067F85900A69604 /* DTOcoreDataDrugQuantity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOcoreDataDrugQuantity.swift; sourceTree = "<group>"; };
+		3D2625C32068417300A69604 /* ManageDrugs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageDrugs.swift; sourceTree = "<group>"; };
 		3D464FAC205C589400BF8A53 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		3D6334EF2066DA2B008B8B33 /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		3D6334F120670DB4008B8B33 /* AddActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivityViewController.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				2895A8592061788C00EE28BA /* ActivityType.swift */,
 				3D6334F52067B9B4008B8B33 /* DateHelper.swift */,
 				3D2625BD2067DBD800A69604 /* DialogBoxHelper.swift */,
+				3D2625C32068417300A69604 /* ManageDrugs.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -558,6 +561,7 @@
 				283FF7B4205C2C980038029C /* EvaluationSet.swift in Sources */,
 				3D6334F62067B9B4008B8B33 /* DateHelper.swift in Sources */,
 				3D63CE082055DB0200ACC8C2 /* Dose.swift in Sources */,
+				3D2625C42068417300A69604 /* ManageDrugs.swift in Sources */,
 				3D63CE112055DB0200ACC8C2 /* TreatmentSet.swift in Sources */,
 				52DB6997205ABABC00D4D5F0 /* DAOcoreDataTreatment.swift in Sources */,
 				3D63CDC02055D33900ACC8C2 /* ViewController.swift in Sources */,

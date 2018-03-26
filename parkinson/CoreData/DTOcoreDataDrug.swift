@@ -21,12 +21,32 @@ class DTOcoreDataDrug {
     /// get all the drugs from the CoreData
     ///
     /// - Returns: [String] or nil if there is no drug in the CoreData
-    func getAllDrugs() -> [String]? {
+    func getAllDrugsName() -> [String]? {
         do{
             let drugsData = try CoreDataManager.context.fetch(self.request)
             var drugs = [String]()
             for drug in drugsData {
                 drugs.append(drug.name!)
+            }
+            return drugs
+        }
+        catch{
+            return nil
+        }
+    }
+    
+    /// get all the drugs from the CoreData
+    ///
+    /// - Returns: [Drug] or nil if there is no drug in the CoreData
+    func getAllDrugs() -> [Drug]? {
+        do{
+            let drugsData = try CoreDataManager.context.fetch(self.request)
+            var drugs = [Drug]()
+            for drug in drugsData {
+                let quantities = getQuantities(drug: drug.name!)
+                if quantities != nil && quantities!.count > 0 {
+                    drugs.append(Drug(name: drug.name!, quantities: quantities!))
+                }
             }
             return drugs
         }
@@ -119,6 +139,30 @@ class DTOcoreDataDrug {
             
             self.save()
             return true
+        }
+    }
+    
+    /// get all the quantites associeted to a drug
+    ///
+    /// - Parameter drug
+    /// - Returns: [Float] containing all the quantities for a drug. Nil if there isn't quantity
+    func getQuantities(drug: String) -> [Float]? {
+        self.request.predicate = NSPredicate(format: "name == %@", drug)
+        do{
+            let result = try CoreDataManager.context.fetch(request) as [DrugData]
+            var quantities: [Float]
+            if result.count != 0 {
+                guard let quantitiesData = result[0].quantities else { return nil }
+                for quantity in quantitiesData {
+                    quantities.append(quantity as! Float) // there is only float in DrugQuantityData
+                }
+                return quantities
+            }
+            else { return nil }
+        }
+        catch{
+            print("Error during Drug search")
+            return nil
         }
     }
     
