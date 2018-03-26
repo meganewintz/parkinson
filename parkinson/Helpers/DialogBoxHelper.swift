@@ -25,5 +25,4 @@ class DialogBoxHelper {
         alert.addAction(okAction)
         view.present(alert,animated: true)
     }
-    
 }
