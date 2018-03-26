@@ -12,7 +12,7 @@ import UIKit
 
 
 class DAOcoreDataActivity : DAOactivityProtocol{
-
+    
     let context = CoreDataManager.context
     let request : NSFetchRequest<ActivityData> = ActivityData.fetchRequest()
     let dtoFrequencyData = DTOcoreDataFrequency()
@@ -33,17 +33,17 @@ class DAOcoreDataActivity : DAOactivityProtocol{
         
         // Add predicate, to get activities relative to the patient
         //self.request.predicate = NSPredicate(format: "patient.firstname == %@", patient.firstname)
-
+        
         let activities: [ActivityData]
         var activitySet = [Activity]()
-
+        
         // Execute Request
         do {
             try activities = context.fetch(self.request)
             var activityFrequencies: [Event]
             for a in activities{
                 activityFrequencies = getFrequencies(patient: patient, activity: a)
-
+                
                 activitySet.append(Activity(name: a.name!, description: a.descr!, frequencies: activityFrequencies))
             }
         }
@@ -53,15 +53,15 @@ class DAOcoreDataActivity : DAOactivityProtocol{
         }
         return activitySet
     }
-   
+    
     /// Give an activity from the CoreData with a specific name and return an Activity
     ///
     /// - Parameter name: name of the activity
     /// - Returns: Activity or nil if no activity correspond to the name
     func getActivity(patient : Patient, name: String) -> Activity? {
-     
+        
         // Add Predicate
-        let predicate = NSPredicate(format: "type?.name == %@", name) // !!!!! Verif avec le nom en majuscule !!!!!!
+        let predicate = NSPredicate(format: "type?.name == %@", name)
         self.request.predicate = predicate
         
         // Execute Request
@@ -84,21 +84,21 @@ class DAOcoreDataActivity : DAOactivityProtocol{
     /// - Parameter name: name of the activity
     /// - Returns: ActivityData or nil if no activity correspond to the name
     func getActivityData(name: String) -> ActivityData? {
-
+        
         // Get context
         let context = CoreDataManager.context
-
+        
         // Create Fetch Request
         let request: NSFetchRequest<ActivityData> = ActivityData.fetchRequest()
         //let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
-
+        
         // Add Predicate
         let predicate = NSPredicate(format: "name == %@", name)
         request.predicate = predicate
         
         // Execute Request
         do {
-           let result = try context.fetch(request)
+            let result = try context.fetch(request)
             guard result.count != 0 else {
                 return nil
             }
@@ -121,7 +121,7 @@ class DAOcoreDataActivity : DAOactivityProtocol{
         if getActivityData(name: activity.name) != nil {
             return false
         }
-        // Case 2: activity name doesn't exist, we need to create it.
+            // Case 2: activity name doesn't exist, we need to create it.
         else {
             let activityData = ActivityData(context: CoreDataManager.context)
             activityData.name = activity.name
@@ -135,7 +135,7 @@ class DAOcoreDataActivity : DAOactivityProtocol{
                     activityData.addToFrequencies(frequencyData!)
                 }
                     
-                // if the frequency doesn't exist, we need to create it.
+                    // if the frequency doesn't exist, we need to create it.
                 else {
                     frequencyData = FrequencyData(context: context)
                     frequencyData!.day = freq.title
@@ -147,7 +147,7 @@ class DAOcoreDataActivity : DAOactivityProtocol{
             return true
         }
     }
-
+    
     
     /// Remove the activity from ActivityData and return true if the remove success
     ///
@@ -201,6 +201,6 @@ class DAOcoreDataActivity : DAOactivityProtocol{
         }
         return frequencies
     }
-
+    
 }
 

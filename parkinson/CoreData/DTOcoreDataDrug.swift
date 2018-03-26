@@ -24,7 +24,7 @@ class DTOcoreDataDrug {
     func getAllDrugsName() -> [String]? {
         do{
             let drugsData = try CoreDataManager.context.fetch(self.request)
-            var drugs = [String]()
+            var drugs : [String] = []
             for drug in drugsData {
                 drugs.append(drug.name!)
             }
@@ -41,7 +41,8 @@ class DTOcoreDataDrug {
     func getAllDrugs() -> [Drug]? {
         do{
             let drugsData = try CoreDataManager.context.fetch(self.request)
-            var drugs = [Drug]()
+            print (drugsData.count)
+            var drugs : [Drug] = []
             for drug in drugsData {
                 let quantities = getQuantities(drug: drug.name!)
                 if quantities != nil && quantities!.count > 0 {
@@ -63,8 +64,13 @@ class DTOcoreDataDrug {
         self.request.predicate = NSPredicate(format: "name == %@", drug)
         do{
             let result = try CoreDataManager.context.fetch(request) as [DrugData]
-            if result.count != 0 { return false }
-            else { return true }
+            if result.count != 0 {
+                let name = result[0].name
+                let qu = getQuantities(drug: name!)
+                return true
+                
+            }
+            else { return false }
         }
         catch{
             print("Error during Drug search")
@@ -79,7 +85,7 @@ class DTOcoreDataDrug {
     func getDrug(drug: String) -> DrugData? {
         self.request.predicate = NSPredicate(format: "name == %@", drug)
         do{
-            let result = try CoreDataManager.context.fetch(request) as [DrugData]
+            let result = try CoreDataManager.context.fetch(request)
             if result.count != 0 { return result[0] }
             else { return nil }
         }
@@ -101,7 +107,7 @@ class DTOcoreDataDrug {
         if search(drug: name) {
             return false
         }
-        // Case 2: drug name doesn't exist, we create it.
+            // Case 2: drug name doesn't exist, we create it.
         else {
             let drugData = DrugData(context: CoreDataManager.context)
             drugData.name = name
@@ -150,11 +156,11 @@ class DTOcoreDataDrug {
         self.request.predicate = NSPredicate(format: "name == %@", drug)
         do{
             let result = try CoreDataManager.context.fetch(request) as [DrugData]
-            var quantities: [Float]
+            var quantities = [Float]()
             if result.count != 0 {
                 guard let quantitiesData = result[0].quantities else { return nil }
                 for quantity in quantitiesData {
-                    quantities.append(quantity as! Float) // there is only float in DrugQuantityData
+                    quantities.append((quantity as! DrugQuantityData).quantity)
                 }
                 return quantities
             }
@@ -201,7 +207,7 @@ class DTOcoreDataDrug {
             return false
         }
         guard let quantityData = dtoDrugQuantity.getDrugQuantity(quantity: quantity) else {return false}
-            drugData.addToQuantities(quantityData)
+        drugData.addToQuantities(quantityData)
         self.save()
         return true
     }
@@ -246,6 +252,32 @@ class DTOcoreDataDrug {
     }
     
     
+    /// remove the drug from the CoreData
+    ///
+    /// - Parameter drug: `
+    /// - Returns: <#return value description#>
+    func removeAllDrugs() {
+        let context = CoreDataManager.context
+        // Creates a request
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "DrugData")
+        // Creates new batch delete request with a specific request
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: request)
+        
+        // Asks to return the objectIDs deleted
+        deleteRequest.resultType = .resultTypeObjectIDs
+        
+        do {
+            // Executes batch
+            _ = try context.execute(deleteRequest) as? NSBatchDeleteResult
+            
+        } catch {
+            fatalError("Failed to execute request: \(error)")
+        }
+        
+        // ------------ Ajouter la suppr du treatment en plus ----------------------------
+        // -------------------------------------------------------------------------------
+    }
+    
     
     /// remove the drug from the CoreData
     ///
@@ -260,7 +292,8 @@ class DTOcoreDataDrug {
         CoreDataManager.context.delete(drugToRemove)
         self.save()
         return true
-// ------------ Ajouter la suppr du treatment en plus ----------------------------
-// -------------------------------------------------------------------------------
+        // ------------ Ajouter la suppr du treatment en plus ----------------------------
+        // -------------------------------------------------------------------------------
     }
 }
+
