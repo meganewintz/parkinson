@@ -450,7 +450,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jC5-QN-pzD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="937" y="1701"/>
+            <point key="canvasLocation" x="937" y="2015"/>
         </scene>
         <!--Mes traitmements-->
         <scene sceneID="r2W-4Q-8G7">
@@ -496,7 +496,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UXo-eS-v1x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1793" y="1701"/>
+            <point key="canvasLocation" x="1793" y="2015"/>
         </scene>
         <!--Ajouter un traitement-->
         <scene sceneID="1hS-O7-KFT">
@@ -511,7 +511,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pTl-fU-jH1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2622" y="1700"/>
+            <point key="canvasLocation" x="2652" y="2015"/>
         </scene>
         <!--Activités-->
         <scene sceneID="e2A-x3-HsW">

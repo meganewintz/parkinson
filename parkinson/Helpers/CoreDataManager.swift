@@ -31,6 +31,7 @@ class CoreDataManager: NSObject {
             return nil
         }
         catch let error as NSError {
+            print("Error during the saving")
             return error
         }
     }

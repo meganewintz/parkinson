@@ -38,4 +38,5 @@ class Event {
     var minute : Int {
         return Calendar.current.component(.minute, from: time)
     }
+    
 }
