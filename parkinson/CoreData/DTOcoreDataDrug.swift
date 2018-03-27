@@ -41,7 +41,6 @@ class DTOcoreDataDrug {
     func getAllDrugs() -> [Drug]? {
         do{
             let drugsData = try CoreDataManager.context.fetch(self.request)
-            print (drugsData.count)
             var drugs : [Drug] = []
             for drug in drugsData {
                 let quantities = getQuantities(drug: drug.name!)
@@ -64,12 +63,7 @@ class DTOcoreDataDrug {
         self.request.predicate = NSPredicate(format: "name == %@", drug)
         do{
             let result = try CoreDataManager.context.fetch(request) as [DrugData]
-            if result.count != 0 {
-                let name = result[0].name
-                let qu = getQuantities(drug: name!)
-                return true
-                
-            }
+            if result.count != 0 { return true }
             else { return false }
         }
         catch{
@@ -101,11 +95,11 @@ class DTOcoreDataDrug {
     ///   - name
     ///   - quantities
     /// - Returns: true if the drug was successfully added, false if it is already present
-    func createDrug(withName name: String, withQuantities quantities: [Float]) -> Bool {
+    func createDrug(withName name: String, withQuantities quantities: [Float]) {//-> Bool {
         
         // Case 1: drug name already exist in CoreData, we don't add it
         if search(drug: name) {
-            return false
+            return //false
         }
             // Case 2: drug name doesn't exist, we create it.
         else {
@@ -113,11 +107,11 @@ class DTOcoreDataDrug {
             drugData.name = name
             
             for quantity in quantities {
-                guard let quantityData = dtoDrugQuantity.getDrugQuantity(quantity: quantity) else { return false }
+                guard let quantityData = dtoDrugQuantity.getDrugQuantity(quantity: quantity) else { return }//false }
                 drugData.addToQuantities(quantityData)
             }
             self.save()
-            return true
+            //return true
         }
     }
     

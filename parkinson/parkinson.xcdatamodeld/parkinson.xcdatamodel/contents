@@ -32,6 +32,7 @@
     <entity name="DrugQuantityData" representedClassName="DrugQuantityData" syncable="YES" codeGenerationType="class">
         <attribute name="quantity" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="drugs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DrugData" inverseName="quantities" inverseEntity="DrugData" syncable="YES"/>
+        <relationship name="treatments" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="TreatmentData" inverseName="quantity" inverseEntity="TreatmentData" syncable="YES"/>
     </entity>
     <entity name="EvaluationData" representedClassName="EvaluationData" syncable="YES" codeGenerationType="class">
         <attribute name="duration" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -45,6 +46,10 @@
         <attribute name="day" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="hour" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="activity" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ActivityData" inverseName="frequencies" inverseEntity="ActivityData" syncable="YES"/>
+    </entity>
+    <entity name="HourData" representedClassName="HourData" syncable="YES" codeGenerationType="class">
+        <attribute name="hour" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="treatments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TreatmentData" inverseName="hours" inverseEntity="TreatmentData" syncable="YES"/>
     </entity>
     <entity name="IsDoneActivityData" representedClassName="IsDoneActivityData" syncable="YES" codeGenerationType="class">
         <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
@@ -60,11 +65,6 @@
         <relationship name="appointments" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="AppointmentData" inverseName="patient" inverseEntity="AppointmentData" syncable="YES"/>
         <relationship name="treatments" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="TreatmentData" inverseName="patient" inverseEntity="TreatmentData" syncable="YES"/>
     </entity>
-    <entity name="QuantityTreatmentHourData" representedClassName="QuantityTreatmentHourData" syncable="YES" codeGenerationType="class">
-        <attribute name="hour" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="quantity" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="treatment" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TreatmentData" inverseName="quantityPerHour" inverseEntity="TreatmentData" syncable="YES"/>
-    </entity>
     <entity name="SpecialityData" representedClassName="SpecialityData" syncable="YES" codeGenerationType="class">
         <attribute name="speciality" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="doctors" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="DoctorData" inverseName="speciality" inverseEntity="DoctorData" syncable="YES"/>
@@ -75,10 +75,10 @@
         <relationship name="evaluations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EvaluationData" inverseName="states" inverseEntity="EvaluationData" syncable="YES"/>
     </entity>
     <entity name="TreatmentData" representedClassName="TreatmentData" syncable="YES" codeGenerationType="class">
-        <attribute name="descr" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="drug" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DrugData" inverseName="treatments" inverseEntity="DrugData" syncable="YES"/>
+        <relationship name="hours" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="HourData" inverseName="treatments" inverseEntity="HourData" syncable="YES"/>
         <relationship name="patient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PatientData" inverseName="treatments" inverseEntity="PatientData" syncable="YES"/>
-        <relationship name="quantityPerHour" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="QuantityTreatmentHourData" inverseName="treatment" inverseEntity="QuantityTreatmentHourData" syncable="YES"/>
+        <relationship name="quantity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DrugQuantityData" inverseName="treatments" inverseEntity="DrugQuantityData" syncable="YES"/>
     </entity>
     <elements>
         <element name="ActivityData" positionX="-468" positionY="-9" width="128" height="120"/>
@@ -86,12 +86,12 @@
         <element name="DateData" positionX="-819" positionY="243" width="128" height="103"/>
         <element name="DoctorData" positionX="-1226" positionY="54" width="128" height="73"/>
         <element name="DrugData" positionX="-819" positionY="-330" width="128" height="88"/>
-        <element name="DrugQuantityData" positionX="-1026" positionY="-333" width="128" height="73"/>
+        <element name="DrugQuantityData" positionX="-1026" positionY="-333" width="128" height="88"/>
         <element name="EvaluationData" positionX="-1224" positionY="261" width="128" height="133"/>
         <element name="FrequencyData" positionX="-468" positionY="-135" width="128" height="88"/>
         <element name="IsDoneActivityData" positionX="-423" positionY="158" width="128" height="103"/>
         <element name="PatientData" positionX="-819" positionY="-0" width="128" height="133"/>
-        <element name="QuantityTreatmentHourData" positionX="-650" positionY="-189" width="128" height="88"/>
+        <element name="HourData" positionX="-650" positionY="-189" width="128" height="73"/>
         <element name="SpecialityData" positionX="-1224" positionY="-90" width="128" height="73"/>
         <element name="StateData" positionX="-1008" positionY="345" width="128" height="88"/>
         <element name="TreatmentData" positionX="-828" positionY="-199" width="128" height="103"/>

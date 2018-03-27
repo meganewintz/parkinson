@@ -25,7 +25,7 @@ class FrequenceActivityTableViewController : NSObject, UITableViewDataSource, UI
 
     // MARK: - Table view data source
     
-    // Nulber of section
+    // Number of section
     func numberOfSections(in tableView: UITableView) -> Int {
         // Incomplete implementation, return the number of sections
         return 1

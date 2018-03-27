@@ -11,8 +11,7 @@ import Foundation
 class Treatment	 {
     
     public var name : String
-    public var description : String?
-    public var type : String
+    public var quantity : Float
     public var doses : DoseSet
     public var endDate : Date
 
@@ -27,14 +26,15 @@ class Treatment	 {
     ///   - description:  `String`
     ///   - type : String
     ///   - frequency : String
-    internal init(name : String, description : String, type : String, endDate : Date){
+    internal init(name: String, quantity: Float, hours: [Date], endDate: Date){
         self.name = name
-        self.description = description
-        self.type = type
+        self.quantity = quantity
         self.doses = DoseSet()
         self.dailyDoses = [DailyDose]()
         self.endDate = endDate
     }
+    
+
     
     
     /// isFinished
