@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2804646F2062583400EDB0A7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D63CDD72055D33A00ACC8C2 /* Info.plist */; };
+		2819DEC02069AEDF001C069F /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2819DEBF2069AEDF001C069F /* EventCell.swift */; };
 		283FF7B4205C2C980038029C /* EvaluationSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283FF7B3205C2C980038029C /* EvaluationSet.swift */; };
 		2846233220683C6A005E3EBC /* Notifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2846233120683C6A005E3EBC /* Notifier.swift */; };
 		284B932C20623E0A00C02E13 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DB6994205AB86000D4D5F0 /* Factory.swift */; };
@@ -128,6 +129,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2819DEBF2069AEDF001C069F /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		283FF7B3205C2C980038029C /* EvaluationSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationSet.swift; sourceTree = "<group>"; };
 		2846233120683C6A005E3EBC /* Notifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifier.swift; sourceTree = "<group>"; };
 		284CE4BD205AFAE6000551AD /* TypeOfState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOfState.swift; sourceTree = "<group>"; };
@@ -317,6 +319,7 @@
 				2846233120683C6A005E3EBC /* Notifier.swift */,
 				3D63CDBF2055D33900ACC8C2 /* ViewController.swift */,
 				3D464FAC205C589400BF8A53 /* TabBarController.swift */,
+				2819DEBF2069AEDF001C069F /* EventCell.swift */,
 				3D63CDEF2055D36800ACC8C2 /* Activity */,
 			);
 			path = Controllers;
@@ -569,6 +572,7 @@
 				52DB6997205ABABC00D4D5F0 /* DAOcoreDataTreatment.swift in Sources */,
 				3D63CDC02055D33900ACC8C2 /* ViewController.swift in Sources */,
 				3D63CE072055DB0200ACC8C2 /* PracticesSet.swift in Sources */,
+				2819DEC02069AEDF001C069F /* EventCell.swift in Sources */,
 				3D6334F220670DB4008B8B33 /* AddActivityViewController.swift in Sources */,
 				3D63CE1B2055DB8C00ACC8C2 /* TreatmentSetDelegate.swift in Sources */,
 				3D63CE1C2055DB8C00ACC8C2 /* AppointmentSetDelegate.swift in Sources */,
