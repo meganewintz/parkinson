@@ -20,8 +20,18 @@ class EventCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
 
+    @IBAction func validated(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func delayed(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func cancelled(_ sender: UIButton) {
+        
+    }
 }

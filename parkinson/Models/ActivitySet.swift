@@ -80,7 +80,7 @@ class ActivitySet: Sequence {
             }
         }
         
-        let notif = Notifier(title : "Nouvelle activité", content : activity.name + " a été ajoutée avec succès")
+        let notif = Notifier(title : "Nouvelle activité", shortTopic : activity.name + " a été ajoutée avec succès", fullBody : "")
         
         return self
     }

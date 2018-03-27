@@ -14,16 +14,9 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert])
-        { (success, error) in
-            if success {
-                print("Notifications permission granted")
-            } else {
-                print("Notifications permission denied")
-            }
-        }
-        let a = Notifier(title: "Notification", content: "Déclenchée à une certaine date")
-        a.displayOn(date: Calendar.current.date(byAdding: DateComponents(minute : 1), to: Date())!)
+        { (success, error) in }
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

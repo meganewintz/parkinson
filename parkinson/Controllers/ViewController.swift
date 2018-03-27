@@ -10,13 +10,15 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    let dataTab = ["Test", "12345", "Bonjour"]
+    var dataTab = [Notifier]()
     
     @IBOutlet weak var eventsTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        let notifier = Notifier(title : "Vous avez un message", shortTopic : "Consultez l'app pour plus d'informations", fullBody : "Ce message constitue un premier test\nde l'affichage des notifications sur l'écran d'accueil")
+        notifier.displayOn(date: Calendar.current.date(byAdding: DateComponents(minute : 1), to: Date())!, controller : self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,6 +26,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Dispose of any resources that can be recreated.
     }
 
+    @objc func addData(timer : Timer){
+        dataTab.append(timer.userInfo as! Notifier)
+        eventsTableView.reloadData()
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -34,8 +41,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as! EventCell
-        cell.titleLabel.text = dataTab[indexPath.row]
-        cell.bodyLabel.text = "Test\nsur plusieurs\nlignes"
+        cell.titleLabel.text = dataTab[indexPath.row].title
+        cell.bodyLabel.text = dataTab[indexPath.row].fullBody
         return cell
     }
 }
