@@ -12,17 +12,15 @@ class PracticesSet {
 
     private var practices : [Practice]
     private var delegates : [PracticeSetDelegate]
-    private var dao : DAOpracticeProtocol?
     
     
     /// init
     ///
     /// initialize an 'PracticesSet', empty.
     ///
-    internal init(dao : DAOpracticeProtocol?){
+    internal init(){
         practices = [Practice]()
         delegates = [PracticeSetDelegate]()
-        self.dao = dao
     }
     
     
@@ -34,7 +32,7 @@ class PracticesSet {
     ///   - practice: `Practice`
     /// - Returns : 'PracticesSet' with the practice enter in parameter
     @discardableResult
-    public func addPractice(practice : Practice) -> PracticesSet {
+        public func addPractice(practice : Practice) -> PracticesSet {
         practices.append(practice)
         for d in delegates {
             d.practiceAdded(at: self.count-1)
@@ -148,43 +146,44 @@ class PracticesSet {
 
     
     @discardableResult
-    func validatePractice(dateNextPractice date : Date) -> PracticesSet {
+    func validatePractice(dateNextPractice date : Date) -> Practice {
         if let practice = lastUncheckedPractice(){
             practice.isDone = true;
         }
         let nextPractice = Practice()
         nextPractice.dateFirstReminder = date
         self.addPractice(practice: nextPractice)
-        return self
+        return nextPractice
     }
     
     
     @discardableResult
-    func delayPractice() -> PracticesSet {
+    func delayPractice() -> Practice? {
         if let practice = lastUncheckedPractice(){
             practice.reminderNb += 1
             if practice.reminderNb == 4 {
                 practice.isCancelled = true
             }
+            return practice
         }
-        return self
+        return nil
     }
     
     
     @discardableResult
-    func cancelPractice(dateNextPractice date : Date) -> PracticesSet {
+    func cancelPractice(dateNextPractice date : Date) -> Practice {
         if let practice = lastUncheckedPractice(){
             practice.isCancelled = true;
         }
         let nextPractice = Practice()
         nextPractice.dateFirstReminder = date
         self.addPractice(practice: nextPractice)
-        return self
+        return nextPractice
     }
     
     
     /// returns the next practice not validated or not cancelled
-    private func lastUncheckedPractice() -> Practice? {
+    func lastUncheckedPractice() -> Practice? {
         return practices.filter({ !$0.isDone }).min(by: { $0.dateNextReminder()! < $1.dateNextReminder()! })
     }
 }

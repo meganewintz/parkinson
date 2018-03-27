@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17D102" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17D47" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="ActivityData" representedClassName="ActivityData" syncable="YES" codeGenerationType="class">
         <attribute name="descr" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -52,6 +52,7 @@
         <relationship name="treatments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TreatmentData" inverseName="hours" inverseEntity="TreatmentData" syncable="YES"/>
     </entity>
     <entity name="IsDoneActivityData" representedClassName="IsDoneActivityData" syncable="YES" codeGenerationType="class">
+        <attribute name="isCancelled" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="remindNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="activity" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ActivityData" inverseName="isDoneHour" inverseEntity="ActivityData" syncable="YES"/>
@@ -89,9 +90,9 @@
         <element name="DrugQuantityData" positionX="-1026" positionY="-333" width="128" height="88"/>
         <element name="EvaluationData" positionX="-1224" positionY="261" width="128" height="133"/>
         <element name="FrequencyData" positionX="-468" positionY="-135" width="128" height="88"/>
-        <element name="IsDoneActivityData" positionX="-423" positionY="158" width="128" height="103"/>
-        <element name="PatientData" positionX="-819" positionY="-0" width="128" height="133"/>
         <element name="HourData" positionX="-650" positionY="-189" width="128" height="73"/>
+        <element name="IsDoneActivityData" positionX="-423" positionY="158" width="128" height="118"/>
+        <element name="PatientData" positionX="-819" positionY="-0" width="128" height="133"/>
         <element name="SpecialityData" positionX="-1224" positionY="-90" width="128" height="73"/>
         <element name="StateData" positionX="-1008" positionY="345" width="128" height="88"/>
         <element name="TreatmentData" positionX="-828" positionY="-199" width="128" height="103"/>

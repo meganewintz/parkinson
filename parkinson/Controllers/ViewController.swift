@@ -40,7 +40,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     /// - Warning : this must be called only one time, after loading the app
     func scheduleActivity(_ activity : Activity){
         let notifier = Notifier(title: activity.name, shortTopic: "Cliquer pour plus d'informations", fullBody: activity.description, activity)
-        notifier.displayOn(date: activity.dateNextPractice(), controller: self)
+        notifier.displayOn(date: activity.dateNextPractice()!, controller: self)
     }
 
     // MARK: - Table View

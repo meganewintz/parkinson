@@ -227,11 +227,11 @@ class ActivitySet: Sequence {
         var futureActivities = [Activity]()
         let currentDate = Date()
         for activity in pset {
-            if activity.dateNextPractice() > currentDate {
+            if activity.dateNextPractice() != nil && activity.dateNextPractice()! > currentDate {
                 futureActivities.append(activity)
             }
         }
-        return futureActivities.min(by : { $0.dateNextPractice() < $1.dateNextPractice() })
+        return futureActivities.min(by : { $0.dateNextPractice()! < $1.dateNextPractice()! })
     }
 
     

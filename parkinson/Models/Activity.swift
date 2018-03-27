@@ -27,7 +27,12 @@ class Activity {
         self.name = name
         self.description = description
         self.frequencies = []
-        self.practices = PracticesSet(dao : Factory.sharedData.daoPractice)
+        self.practices = PracticesSet()
+        if let practArray = Factory.sharedData.daoPractice.getPractices(patient: Factory.sharedData.patient, activity: self) {
+            for p in practArray {
+                practices.addPractice(practice: p)
+            }
+        }
     }
     
     /// init
@@ -42,7 +47,12 @@ class Activity {
         self.name = name
         self.description = description
         self.frequencies = frequencies
-        self.practices = PracticesSet(dao : Factory.sharedData.daoPractice)
+        self.practices = PracticesSet()
+        if let practArray = Factory.sharedData.daoPractice.getPractices(patient: Factory.sharedData.patient, activity: self) {
+            for p in practArray {
+                practices.addPractice(practice: p)
+            }
+        }
     }
     
     /// dateNextPractice
@@ -50,7 +60,9 @@ class Activity {
     /// give the date of the next practice programed
     ///
     /// - Returns : 'Date' the date of the next practice programed
-    func dateNextPractice() -> Date {
+    func dateNextPractice() -> Date? {
+        guard frequencies.count > 0 else { return nil }
+        
         let currentDate = Date()
         let calendar = Calendar.current
         let day = calendar.component(.weekday, from: currentDate)
@@ -136,19 +148,25 @@ class Activity {
     /// validates the next practice
     @discardableResult
     func practiceValidated() -> Activity {
-        practices.validatePractice(dateNextPractice: dateNextPractice())
+        if let updatedPractice = practices.lastUncheckedPractice() {
+            Factory.sharedData.daoPractice.updatePractice(old: updatedPractice, new: practices.validatePractice(dateNextPractice: dateNextPractice()!), patient: Factory.sharedData.patient, activity: self)
+        }
         return self
     }
     
     @discardableResult
     func practiceDelayed() -> Activity {
-        practices.delayPractice()
+        if let updatedPractice = practices.lastUncheckedPractice() {
+            Factory.sharedData.daoPractice.updatePractice(old: updatedPractice, new: practices.delayPractice()!, patient: Factory.sharedData.patient, activity: self)
+        }
         return self
     }
     
     @discardableResult
     func practiceCancelled() -> Activity {
-        practices.cancelPractice(dateNextPractice: dateNextPractice())
+        if let updatedPractice = practices.lastUncheckedPractice() {
+            Factory.sharedData.daoPractice.updatePractice(old: updatedPractice, new: practices.cancelPractice(dateNextPractice: dateNextPractice()!), patient: Factory.sharedData.patient, activity: self)
+        }
         return self
     }
 
