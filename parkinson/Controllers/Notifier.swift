@@ -43,7 +43,7 @@ class Notifier {
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: notification, trigger: trigger)
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
         
-        let timer = Timer(fireAt: Calendar.current.date(byAdding: DateComponents(minute : 1), to: Date())!, interval: 0, target: controller, selector: (#selector(controller.addData)), userInfo: self, repeats: false)
+        let timer = Timer(fireAt: Calendar.current.date(byAdding: DateComponents(minute : 1), to: Date())!, interval: 0, target: controller, selector: (#selector(controller.addEvent)), userInfo: self, repeats: false)
         RunLoop.main.add(timer, forMode: RunLoopMode.commonModes)
     }
 }
