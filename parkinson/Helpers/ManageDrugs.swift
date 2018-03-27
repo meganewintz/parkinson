@@ -28,23 +28,21 @@ class Drug {
 }
 
 class DrugsManager {
-    private var pset : [Drug]
-    let dto = DTOcoreDataDrug()
+    private let dto = DTOcoreDataDrug()
     
-    init() {
-        self.pset = []
-    }
-    
-    init(drugs: [Drug]) {
-        self.pset = drugs
-    }
-    
-    init(drug: Drug) {
-        self.pset = [drug]
-    }
+//    init() {
+//        self.pset = []
+//    }
+//
+//    init(drugs: [Drug]) {
+//        self.pset = drugs
+//    }
+//
+//    init(drug: Drug) {
+//        self.pset = [drug]
+//    }
     
     func displayDrugs() {
-        let names = dto.getAllDrugsName()
         guard let drugs = self.dto.getAllDrugs() else {
             return
         }
@@ -53,6 +51,13 @@ class DrugsManager {
                 print (drug.name, " : ", quant)
             }
         }
+    }
+    
+    func getDrugs() -> [Drug]? {
+        guard let drugs = self.dto.getAllDrugs() else {
+            return nil
+        }
+        return drugs
     }
     
     func addDrugs() {

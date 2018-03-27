@@ -102,6 +102,9 @@
 		3D63CE1E2055DB8C00ACC8C2 /* PracticeSetDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CE182055DB8B00ACC8C2 /* PracticeSetDelegate.swift */; };
 		3D63CE1F2055DB8C00ACC8C2 /* EvaluationSetDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CE192055DB8C00ACC8C2 /* EvaluationSetDelegate.swift */; };
 		3D63CE212055DBC700ACC8C2 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CE202055DBC700ACC8C2 /* Test.swift */; };
+		3DB707CD2069C649003ECFAF /* DoseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB707CC2069C648003ECFAF /* DoseTableViewCell.swift */; };
+		3DB707D02069C666003ECFAF /* TreatmentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB707CF2069C666003ECFAF /* TreatmentTableViewController.swift */; };
+		3DB707D22069CEB1003ECFAF /* DrugChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB707D12069CEB1003ECFAF /* DrugChoiceViewController.swift */; };
 		3DD60E492064171100DD0749 /* DTOcoreDataFrequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD60E482064171100DD0749 /* DTOcoreDataFrequency.swift */; };
 		3DD60E4A2064171100DD0749 /* DTOcoreDataFrequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD60E482064171100DD0749 /* DTOcoreDataFrequency.swift */; };
 		3DF1C417205D8A7C00A606C4 /* TimePickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF1C416205D8A7C00A606C4 /* TimePickerTableViewCell.swift */; };
@@ -194,6 +197,9 @@
 		3D63CE182055DB8B00ACC8C2 /* PracticeSetDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PracticeSetDelegate.swift; sourceTree = "<group>"; };
 		3D63CE192055DB8C00ACC8C2 /* EvaluationSetDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvaluationSetDelegate.swift; sourceTree = "<group>"; };
 		3D63CE202055DBC700ACC8C2 /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		3DB707CC2069C648003ECFAF /* DoseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DoseTableViewCell.swift; path = Treatment/DoseTableViewCell.swift; sourceTree = "<group>"; };
+		3DB707CF2069C666003ECFAF /* TreatmentTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TreatmentTableViewController.swift; path = Treatment/TreatmentTableViewController.swift; sourceTree = "<group>"; };
+		3DB707D12069CEB1003ECFAF /* DrugChoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugChoiceViewController.swift; sourceTree = "<group>"; };
 		3DD60E482064171100DD0749 /* DTOcoreDataFrequency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOcoreDataFrequency.swift; sourceTree = "<group>"; };
 		3DF1C416205D8A7C00A606C4 /* TimePickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerTableViewCell.swift; sourceTree = "<group>"; };
 		3DF1C419205EA11400A606C4 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
@@ -316,6 +322,7 @@
 		3D63CDEE2055D35100ACC8C2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3DB707CE2069C658003ECFAF /* Treatment */,
 				2846233120683C6A005E3EBC /* Notifier.swift */,
 				3D63CDBF2055D33900ACC8C2 /* ViewController.swift */,
 				3D464FAC205C589400BF8A53 /* TabBarController.swift */,
@@ -341,6 +348,7 @@
 		3D63CDF22055D6E400ACC8C2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3DB707CB2069C621003ECFAF /* Treatment */,
 				3D63CDF32055D73A00ACC8C2 /* Activity */,
 			);
 			path = Views;
@@ -394,6 +402,23 @@
 				2895A856206177D700EE28BA /* DAOactivityTypeProtocol.swift */,
 			);
 			path = Delegates;
+			sourceTree = "<group>";
+		};
+		3DB707CB2069C621003ECFAF /* Treatment */ = {
+			isa = PBXGroup;
+			children = (
+				3DB707CC2069C648003ECFAF /* DoseTableViewCell.swift */,
+			);
+			name = Treatment;
+			sourceTree = "<group>";
+		};
+		3DB707CE2069C658003ECFAF /* Treatment */ = {
+			isa = PBXGroup;
+			children = (
+				3DB707CF2069C666003ECFAF /* TreatmentTableViewController.swift */,
+				3DB707D12069CEB1003ECFAF /* DrugChoiceViewController.swift */,
+			);
+			name = Treatment;
 			sourceTree = "<group>";
 		};
 		3DD60E472064165B00DD0749 /* CoreData */ = {
@@ -556,6 +581,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D63CE1A2055DB8C00ACC8C2 /* DoseSetDelegate.swift in Sources */,
+				3DB707D22069CEB1003ECFAF /* DrugChoiceViewController.swift in Sources */,
 				3D63CE122055DB0200ACC8C2 /* Practice.swift in Sources */,
 				3D09156E2062598D00EB7C2F /* ActivityType.swift in Sources */,
 				28C1E71B2058236100368EF0 /* DailyDose.swift in Sources */,
@@ -563,6 +589,7 @@
 				3D63CE0E2055DB0200ACC8C2 /* AppointmentSet.swift in Sources */,
 				3D6334F420670DCC008B8B33 /* EditActivityViewController.swift in Sources */,
 				3DF1C417205D8A7C00A606C4 /* TimePickerTableViewCell.swift in Sources */,
+				3DB707CD2069C649003ECFAF /* DoseTableViewCell.swift in Sources */,
 				52DB6995205AB86000D4D5F0 /* Factory.swift in Sources */,
 				283FF7B4205C2C980038029C /* EvaluationSet.swift in Sources */,
 				3D6334F62067B9B4008B8B33 /* DateHelper.swift in Sources */,
@@ -590,6 +617,7 @@
 				3D63CE1F2055DB8C00ACC8C2 /* EvaluationSetDelegate.swift in Sources */,
 				3D63CE092055DB0200ACC8C2 /* Treatment.swift in Sources */,
 				3D2625BE2067DBD800A69604 /* DialogBoxHelper.swift in Sources */,
+				3DB707D02069C666003ECFAF /* TreatmentTableViewController.swift in Sources */,
 				3D63CE0B2055DB0200ACC8C2 /* DoseSet.swift in Sources */,
 				3DF1C41A205EA11400A606C4 /* Event.swift in Sources */,
 				3DD60E492064171100DD0749 /* DTOcoreDataFrequency.swift in Sources */,

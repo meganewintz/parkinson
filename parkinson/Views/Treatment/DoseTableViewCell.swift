@@ -16,6 +16,7 @@ class DoseTableViewCell: UITableViewCell {
     @IBOutlet weak var comprLabel: UILabel!
     
     @IBOutlet weak var hourLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

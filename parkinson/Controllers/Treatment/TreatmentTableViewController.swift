@@ -21,6 +21,8 @@ class TreatmentTableViewController: UITableViewController {
     let mySectionNumberWithButton = 1
     
     //var treatment: Treatment
+    var drugsManager = DrugsManager()
+    var drugs: [Drug]?
     let sections = ["Médicament", "Dose", "Date de fin"]
     let itemSection0 = ["Nom", "Quantité"]
     var doseHours : [DailyDose] = []
@@ -29,6 +31,9 @@ class TreatmentTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setDateFormatter()
+        drugs = drugsManager.getDrugs()
+            
+        
         //self.treatment = Treatment(name: "", quantity: 0, hours: [timeFormatter.date(from: "14:00")!], endDate: dateFormatter.date(from: "14.12.2018")!)
 
         // Uncomment the following line to preserve selection between presentations
@@ -61,7 +66,8 @@ class TreatmentTableViewController: UITableViewController {
             return 2
         }
         else if section == 1 {
-            return doseHours.count*2
+            if doseHours.count > 0 { return doseHours.count*2 + 1}
+            else { return 1 }
         }
         else {
            return 2
@@ -83,11 +89,13 @@ class TreatmentTableViewController: UITableViewController {
             return cell
             
         } else if indexPath.section == 1 {
-            doseCell = tableView.dequeueReusableCell(withIdentifier: "doseCell")! as! DoseTableViewCell
-            doseCell.quantityLabel.text = "1"
-            doseCell.comprLabel.text = "comprimé"
-            doseCell.hourLabel.text = ""
-            return doseCell
+            let addDoseCell = tableView.dequeueReusableCell(withIdentifier: "addDoseCell", for: indexPath)
+            return addDoseCell
+//            doseCell = tableView.dequeueReusableCell(withIdentifier: "doseCell")! as! DoseTableViewCell
+//            doseCell.quantityLabel.text = "1"
+//            doseCell.comprLabel.text = "comprimé"
+//            doseCell.hourLabel.text = ""
+//            return doseCell
             
         } else {
             let dateCell = tableView.dequeueReusableCell(withIdentifier: "dateCell")!
@@ -134,14 +142,19 @@ class TreatmentTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     let seguedrugChoiceID = "drugChoiceSegue"
+    
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+         if segue.identifier == seguedrugChoiceID {
+         let indexPath = self.tableView.indexPathForSelectedRow
+         let editActivityViewController = segue.destination as! EditActivityViewController
+         //editActivityViewController.activity = self.tableViewController.activities[(indexPath?.row)!]
+         self.tableView.deselectRow(at: indexPath!, animated: true)
+     
+     }
+ }
 
 }
