@@ -27,7 +27,7 @@ class Activity {
         self.name = name
         self.description = description
         self.frequencies = []
-        self.practices = PracticesSet()
+        self.practices = PracticesSet(dao : Factory.sharedData.daoPractice)
     }
     
     /// init
@@ -42,7 +42,7 @@ class Activity {
         self.name = name
         self.description = description
         self.frequencies = frequencies
-        self.practices = PracticesSet()
+        self.practices = PracticesSet(dao : Factory.sharedData.daoPractice)
     }
     
     /// dateNextPractice
@@ -136,16 +136,19 @@ class Activity {
     /// validates the next practice
     @discardableResult
     func practiceValidated() -> Activity {
+        practices.validatePractice(dateNextPractice: dateNextPractice())
         return self
     }
     
     @discardableResult
     func practiceDelayed() -> Activity {
+        practices.delayPractice()
         return self
     }
     
     @discardableResult
     func practiceCancelled() -> Activity {
+        practices.cancelPractice(dateNextPractice: dateNextPractice())
         return self
     }
 

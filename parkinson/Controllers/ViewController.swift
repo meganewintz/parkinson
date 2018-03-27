@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ActivitySetDelegate {
 
     var notifiers = [Notifier]()
+    let activitySet = Factory.sharedData.patient.activitySet
     
     @IBOutlet weak var eventsTableView: UITableView!
     
@@ -18,10 +19,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        Factory.sharedData.patient.activitySet.addDelegate(delegate: self)
-        
-        activityAdded(at: 0)
-        
+        activitySet.addDelegate(delegate: self)
+        if let activity = activitySet.nextActivity() {
+            scheduleActivity(activity)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,10 +35,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         eventsTableView.reloadData()
     }
     
-    func cellClicked(cell : EventCell){
-        notifiers.remove(at: eventsTableView.indexPath(for: cell)!.row)
-        eventsTableView.reloadData()
+    
+    /// creates scheduled event for each activity
+    /// - Warning : this must be called only one time, after loading the app
+    func scheduleActivity(_ activity : Activity){
+        let notifier = Notifier(title: activity.name, shortTopic: "Cliquer pour plus d'informations", fullBody: activity.description, activity)
+        notifier.displayOn(date: activity.dateNextPractice(), controller: self)
     }
+
+    // MARK: - Table View
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -54,6 +60,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     }
     
+    // MARK: - Events buttons
+    
     @IBAction func validated(_ sender: UIButton) {
         let point = eventsTableView.convert(CGPoint.zero, from: sender)
         guard let indexPath = eventsTableView.indexPathForRow(at: point) else {
@@ -61,10 +69,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         if notifiers[indexPath.row].userData is Activity {
             let activity = notifiers[indexPath.row].userData as! Activity
-            
+            activity.practiceValidated()
+            if let nextActivity = activitySet.nextActivity(){
+                scheduleActivity(nextActivity)
+            }
         } else if notifiers[indexPath.row].userData is [Treatment] {
-            
-        } else if notifiers[indexPath.row].userData is Appointment {
             
         }
         
@@ -78,6 +87,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             fatalError("can't find point in tableView") }
         notifiers.remove(at: indexPath.row)
         eventsTableView.reloadData()
+        
+        if notifiers[indexPath.row].userData is Activity {
+            let activity = notifiers[indexPath.row].userData as! Activity
+            activity.practiceDelayed()
+            if let nextActivity = activitySet.nextActivity(){
+                scheduleActivity(nextActivity)
+            }
+        } else if notifiers[indexPath.row].userData is [Treatment] {
+            
+        }
     }
     
     @IBAction func cancelled(_ sender: UIButton) {
@@ -86,7 +105,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             fatalError("can't find point in tableView") }
         notifiers.remove(at: indexPath.row)
         eventsTableView.reloadData()
+        
+        if notifiers[indexPath.row].userData is Activity {
+            let activity = notifiers[indexPath.row].userData as! Activity
+            activity.practiceCancelled()
+            if let nextActivity = activitySet.nextActivity(){
+                scheduleActivity(nextActivity)
+            }
+        } else if notifiers[indexPath.row].userData is [Treatment] {
+            
+        }
     }
+    
+    // MARK: - ActivitySetDelegate
     
     func activityAdded(at: Int) {
         let activity = Factory.sharedData.patient.activitySet[at]

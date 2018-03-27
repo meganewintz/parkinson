@@ -16,14 +16,14 @@ class Patient {
     var treatmentSet: TreatmentSet
     var appointmentSet : AppointmentSet
     
-    init(daoActivity: DAOactivityProtocol, daoTreatment: DAOtreatmentProtocol, daoAppointment : DAOappointmentProtocol) {
+    init(daoActivity: DAOactivityProtocol, daoTreatment: DAOtreatmentProtocol, daoAppointment : DAOappointmentProtocol, daoPractice : DAOpracticeProtocol) {
         
         // activitySet
 //        if daoActivity.getActivities() != nil {
 //            self.activitySet = daoActivity.getActivities()!
 //        }
 //        else {
-            self.activitySet = ActivitySet(dao: daoActivity)
+        self.activitySet = ActivitySet(dao: daoActivity)
 //        if let set = daoActivity.getActivities(patient: Factory.sharedData.patient)  {
 //            self.pset = set
 //        }
