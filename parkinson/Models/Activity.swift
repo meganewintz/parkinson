@@ -131,5 +131,22 @@ class Activity {
         }
         return nextDate!
     }
+    
+    
+    /// validates the next practice
+    @discardableResult
+    func practiceValidated() -> Activity {
+        return self
+    }
+    
+    @discardableResult
+    func practiceDelayed() -> Activity {
+        return self
+    }
+    
+    @discardableResult
+    func practiceCancelled() -> Activity {
+        return self
+    }
 
 }

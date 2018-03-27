@@ -136,4 +136,21 @@ class PracticesSet {
         return self
     }
 
+    
+    @discardableResult
+    func validatePractice(dateNextPractice date : Date) -> PracticesSet {
+        return self
+    }
+    
+    
+    @discardableResult
+    func delayPractice() -> PracticesSet {
+        return self
+    }
+    
+    
+    @discardableResult
+    func cancelPractice(dateNextPractice date : Date) -> PracticesSet {
+        return self
+    }
 }

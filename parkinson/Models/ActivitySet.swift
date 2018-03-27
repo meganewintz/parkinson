@@ -79,9 +79,6 @@ class ActivitySet: Sequence {
                 print("Erreur lors de l'ajout de l'activité")
             }
         }
-        
-        let notif = Notifier(title : "Nouvelle activité", shortTopic : activity.name + " a été ajoutée avec succès", fullBody : "")
-        
         return self
     }
     
