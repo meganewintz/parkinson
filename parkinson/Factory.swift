@@ -10,12 +10,16 @@ import Foundation
 
 class Factory {
     
-    static public let sharedData = Factory(daoActivity: DAOcoreDataActivity(), daoTreatment: DAOcoreDataTreatment(), daoAppointment : DAOcoreDataAppointment())
+    static public let sharedData = Factory()
     
     let patient: Patient
+    let daoPractice = DAOcoreDataPractice()
+    let daoActivity = DAOcoreDataActivity()
+    let daoTreatment = DAOcoreDataTreatment()
+    let daoAppointment = DAOcoreDataAppointment()
     
-    private init(daoActivity: DAOactivityProtocol, daoTreatment: DAOtreatmentProtocol, daoAppointment : DAOappointmentProtocol) {
-        self.patient = Patient(daoActivity: daoActivity, daoTreatment: daoTreatment, daoAppointment : daoAppointment)
+    private init() {
+        self.patient = Patient(daoActivity: daoActivity, daoTreatment: daoTreatment, daoAppointment : daoAppointment, daoPractice : daoPractice)
         //Factory.initiateActivities()
         
     }

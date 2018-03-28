@@ -79,9 +79,6 @@ class ActivitySet: Sequence {
                 print("Erreur lors de l'ajout de l'activité")
             }
         }
-        
-        let notif = Notifier(title : "Nouvelle activité", content : activity.name + " a été ajoutée avec succès")
-        
         return self
     }
     
@@ -230,11 +227,11 @@ class ActivitySet: Sequence {
         var futureActivities = [Activity]()
         let currentDate = Date()
         for activity in pset {
-            if activity.dateNextPractice() > currentDate {
+            if activity.dateNextPractice() != nil && activity.dateNextPractice()! > currentDate {
                 futureActivities.append(activity)
             }
         }
-        return futureActivities.min(by : { $0.dateNextPractice() < $1.dateNextPractice() })
+        return futureActivities.min(by : { $0.dateNextPractice()! < $1.dateNextPractice()! })
     }
 
     

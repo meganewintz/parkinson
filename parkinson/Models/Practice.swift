@@ -11,6 +11,7 @@ import Foundation
 class Practice {
 
     public var isDone : Bool
+    public var isCancelled : Bool
     public var reminderNb : Int
     public var dateFirstReminder : Date?
 
@@ -21,6 +22,7 @@ class Practice {
     ///
     internal init() {
         isDone = false
+        isCancelled = false
         reminderNb = 0
     }
     

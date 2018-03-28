@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		2804646F2062583400EDB0A7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D63CDD72055D33A00ACC8C2 /* Info.plist */; };
+		280CE024206AA72A0080D99A /* DAOpracticeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280CE023206AA72A0080D99A /* DAOpracticeProtocol.swift */; };
+		280CE025206AA72A0080D99A /* DAOpracticeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280CE023206AA72A0080D99A /* DAOpracticeProtocol.swift */; };
+		280CE027206AA8E80080D99A /* DAOcoreDataPractice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280CE026206AA8E80080D99A /* DAOcoreDataPractice.swift */; };
+		280CE028206AA8E80080D99A /* DAOcoreDataPractice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280CE026206AA8E80080D99A /* DAOcoreDataPractice.swift */; };
 		2819DEC02069AEDF001C069F /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2819DEBF2069AEDF001C069F /* EventCell.swift */; };
 		283FF7B4205C2C980038029C /* EvaluationSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283FF7B3205C2C980038029C /* EvaluationSet.swift */; };
 		2846233220683C6A005E3EBC /* Notifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2846233120683C6A005E3EBC /* Notifier.swift */; };
@@ -132,6 +136,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		280CE023206AA72A0080D99A /* DAOpracticeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAOpracticeProtocol.swift; sourceTree = "<group>"; };
+		280CE026206AA8E80080D99A /* DAOcoreDataPractice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAOcoreDataPractice.swift; sourceTree = "<group>"; };
 		2819DEBF2069AEDF001C069F /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		283FF7B3205C2C980038029C /* EvaluationSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationSet.swift; sourceTree = "<group>"; };
 		2846233120683C6A005E3EBC /* Notifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifier.swift; sourceTree = "<group>"; };
@@ -400,6 +406,7 @@
 				28D79D73205ACEF9001C2BD7 /* DAOtreatmentProtocol.swift */,
 				28D79D75205AD081001C2BD7 /* DAOappointmentProtocol.swift */,
 				2895A856206177D700EE28BA /* DAOactivityTypeProtocol.swift */,
+				280CE023206AA72A0080D99A /* DAOpracticeProtocol.swift */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -430,6 +437,7 @@
 				3D2625BF2067F5E300A69604 /* DTOcoreDataDrug.swift */,
 				3D2625C12067F85900A69604 /* DTOcoreDataDrugQuantity.swift */,
 				28D79D78205AD59E001C2BD7 /* DAOcoreDataAppointment.swift */,
+				280CE026206AA8E80080D99A /* DAOcoreDataPractice.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -594,6 +602,7 @@
 				283FF7B4205C2C980038029C /* EvaluationSet.swift in Sources */,
 				3D6334F62067B9B4008B8B33 /* DateHelper.swift in Sources */,
 				3D63CE082055DB0200ACC8C2 /* Dose.swift in Sources */,
+				280CE027206AA8E80080D99A /* DAOcoreDataPractice.swift in Sources */,
 				3D2625C42068417300A69604 /* ManageDrugs.swift in Sources */,
 				3D63CE112055DB0200ACC8C2 /* TreatmentSet.swift in Sources */,
 				52DB6997205ABABC00D4D5F0 /* DAOcoreDataTreatment.swift in Sources */,
@@ -615,6 +624,7 @@
 				3D194CCA2060043000E7A0AC /* CoreDataManager.swift in Sources */,
 				3D2597C520573B1400D00716 /* ActivitiesViewController.swift in Sources */,
 				3D63CE1F2055DB8C00ACC8C2 /* EvaluationSetDelegate.swift in Sources */,
+				280CE024206AA72A0080D99A /* DAOpracticeProtocol.swift in Sources */,
 				3D63CE092055DB0200ACC8C2 /* Treatment.swift in Sources */,
 				3D2625BE2067DBD800A69604 /* DialogBoxHelper.swift in Sources */,
 				3DB707D02069C666003ECFAF /* TreatmentTableViewController.swift in Sources */,
@@ -659,12 +669,14 @@
 				3D0915662062591700EB7C2F /* State.swift in Sources */,
 				3D0915542062590E00EB7C2F /* AppointmentSetDelegate.swift in Sources */,
 				2855F65E20669D0100CDF510 /* EventTests.swift in Sources */,
+				280CE028206AA8E80080D99A /* DAOcoreDataPractice.swift in Sources */,
 				3D09155B2062590E00EB7C2F /* DAOappointmentProtocol.swift in Sources */,
 				3D09155C2062590E00EB7C2F /* DAOactivityTypeProtocol.swift in Sources */,
 				284B934F20623E3A00C02E13 /* AppDelegate.swift in Sources */,
 				2855F66520670B8300CDF510 /* DailyDoseTests.swift in Sources */,
 				3D0915532062590E00EB7C2F /* ActivitySetDelegate.swift in Sources */,
 				2855F6632066C75000CDF510 /* ActivitySetTests.swift in Sources */,
+				280CE025206AA72A0080D99A /* DAOpracticeProtocol.swift in Sources */,
 				3D0915582062590E00EB7C2F /* TreatmentSetDelegate.swift in Sources */,
 				2855F6612066A07000CDF510 /* ActivityTests.swift in Sources */,
 				3D0915572062590E00EB7C2F /* PracticeSetDelegate.swift in Sources */,
