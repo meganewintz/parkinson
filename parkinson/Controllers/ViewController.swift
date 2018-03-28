@@ -58,11 +58,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if treatments.count > 0 {
             treatmentNotifier?.cancelNotification()
             var topic = treatments[0].name
-            var body = "Vous devez prendre : " + String(describing: treatments[0].nextDoseQuantity()) + " comprimés de " + treatments[0].name + " " + String(treatments[0].quantity)
+            var body = "Vous devez prendre : " + String(describing: treatments[0].nextDoseQuantity()!) + " comprimés de " + treatments[0].name + " " + String(treatments[0].quantity)
             if treatments.count >= 2 {
                 for i in 1..<treatments.count {
                     topic += ", " + treatments[i].name
-                    body += ", " + String(describing: treatments[i].nextDoseQuantity()) + " comprimés de " + treatments[i].name + " " + String(treatments[i].quantity)
+                    body += ", " + String(describing: treatments[i].nextDoseQuantity()!) + " comprimés de " + treatments[i].name + " " + String(treatments[i].quantity)
                 }
             }
             treatmentNotifier = Notifier(title : "C'est l'heure de vos médicaments !", shortTopic: topic, fullBody: body, treatments as AnyObject)
