@@ -102,14 +102,8 @@ class AppointmentSet {
     ///
     /// - Returns : Appointment?
     func nextAppointment() -> Appointment? {
-        var futureAppointments = [Appointment]()
         let currentDate = Date()
-        for appointment in appointmentSet {
-            if appointment.date > currentDate {
-                futureAppointments.append(appointment)
-            }
-        }
-        return appointmentSet.min(by : { $0.date < $1.date })
+        return appointmentSet.filter({ $0.date > currentDate }).min(by: { $0.date < $1.date })
     }
     
     

@@ -10,7 +10,7 @@ import Foundation
 
 class State {
     
-    public var state : TypeOfState
+    public var state : TypeOfState?
     public var date : Date
     
     
@@ -20,8 +20,7 @@ class State {
     ///
     /// - Parameters:
     ///   - date : Date
-    internal init(state : TypeOfState, date : Date) {
-        self.state = state
+    internal init(date : Date) {
         self.date = date
     }
 }
