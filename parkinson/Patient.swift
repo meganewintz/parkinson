@@ -18,35 +18,17 @@ class Patient {
     
     init(daoActivity: DAOactivityProtocol, daoTreatment: DAOtreatmentProtocol, daoAppointment : DAOappointmentProtocol, daoPractice : DAOpracticeProtocol) {
         
-        // activitySet
-//        if daoActivity.getActivities() != nil {
-//            self.activitySet = daoActivity.getActivities()!
-//        }
-//        else {
         self.activitySet = ActivitySet(dao: daoActivity)
-//        if let set = daoActivity.getActivities(patient: Factory.sharedData.patient)  {
-//            self.pset = set
-//        }
-//        }
-        
-        // treatmentSet
-//        if daoTreatment.getTreatments() != nil {
-//            self.treatmentSet = daoTreatment.getTreatments()!
-//        }
-//        else {
-            self.treatmentSet = TreatmentSet(dao: daoTreatment)
-//        }
-        
-        // appointmentSet
-//        if daoAppointment.getAppointments() != nil {
-//            self.appointmentSet = daoAppointment.getAppointments()!
-//        }
-//        else {
-            self.appointmentSet = AppointmentSet(dao: daoAppointment)
-//        }
+        self.treatmentSet = TreatmentSet(dao: daoTreatment)
+        self.appointmentSet = AppointmentSet(dao: daoAppointment)
+
     }
     
     func addActivity(activity: Activity) {
         self.activitySet.addActivity(activity: activity)
+    }
+    
+    func addTreatment(treatment: Treatment) {
+        self.treatmentSet.addTreatment(treatment: treatment)
     }
 }
