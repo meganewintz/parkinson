@@ -27,23 +27,27 @@ class DAOcoreDataTreatment: DAOtreatmentProtocol {
     
     func getTreatments(patient : Patient) -> [Treatment]? {
         
-        let treatments: [TreatmentData] = []
+        var treatments: [TreatmentData] = []
         var treatmentSet: [Treatment] = []
         
-        // Execute Request
-        //        do {
-        //            try treatments = context.fetch(self.request)
-        //            var dailyDoses: [DailyDose]
-        //            for t in treatments{
-        //                dailyDoses = getDailyDoses(patient: patient, treatment: t)
-        //
-        //                treatmentSet.append(Treatment(name: (t.drug?.name!)!, quantity: (t.quantity?.quantity)!, dailyDoses: dailyDoses, endDate: t.endDate!))
-        //            }
-        //        }
-        //        catch let error as NSError {
-        //            print (error, error.userInfo)
-        //            return nil
-        //        }
+         //Execute Request
+                do {
+                    try treatments = context.fetch(self.request)
+                    var dailyDoses: [DailyDose]
+                    for t in treatments{
+                        dailyDoses = getDailyDoses(patient: patient, treatment: t)
+                        let name = (t.drug?.name!)!
+                        let quant = t.quantity
+                        let dai = dailyDoses
+                        let endDate = t.endDate!
+                        let treatment = Treatment(name: (t.drug?.name!)!, quantity: (t.quantity?.quantity)!, dailyDoses: dailyDoses, endDate: t.endDate!)
+                        treatmentSet.append(treatment)
+                    }
+                }
+                catch let error as NSError {
+                    print (error, error.userInfo)
+                    return nil
+                }
         return treatmentSet
     }
     
@@ -65,27 +69,27 @@ class DAOcoreDataTreatment: DAOtreatmentProtocol {
             treatmentData.drug = drug
             
             // add drugQuantity
-//            guard let drugQuantity = dtoDrugQuantityData.getDrugQuantity(quantity: treatment.quantity) else {
-//                return false
-//            }
-//            treatmentData.quantity = drugQuantity
+            guard let drugQuantity = dtoDrugQuantityData.getDrugQuantity(quantity: treatment.quantity) else {
+                return false
+            }
+            treatmentData.quantity = drugQuantity
             
             //add dailyDoses
             for freq in treatment.dailyDoses {
                 var quantityHourData: QuantityHourData?
                 // if the frequency already exist in coreData
-                quantityHourData = dtoQuantityHourData.search(quantity: freq.quantity, hour: freq.dailyPeriod)
-                if quantityHourData != nil {
-                    treatmentData.addToQuantityhours(quantityHourData!)
-                }
-                    
+//                quantityHourData = dtoQuantityHourData.search(quantity: freq.quantity, hour: freq.dailyPeriod)
+//                if quantityHourData != nil {
+//                    treatmentData.addToQuantityhours(quantityHourData!)
+//                }
+                
                     // if the frequency doesn't exist, we need to create it.
-                else {
+                //else {
                     quantityHourData = QuantityHourData(context: context)
                     quantityHourData!.quantity = Int16(freq.quantity)
                     quantityHourData!.hour = freq.dailyPeriod
                     treatmentData.addToQuantityhours(quantityHourData!)
-                }
+                //}
             }
             self.save()
             return true

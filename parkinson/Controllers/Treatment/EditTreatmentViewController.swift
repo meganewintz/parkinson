@@ -12,26 +12,45 @@ class EditTreatmentViewController: UIViewController {
 
     var treatment: Treatment!
     @IBOutlet weak var editTreatmentButton: UIButton!
+
+    var treatmentController : TreatmentTableViewController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        DateHelper.setDateFormatter()
+        guard let controller = self.childViewControllers.first as? TreatmentTableViewController else{
+            return
+        }
+        self.treatmentController = controller
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    // Action when we click on the update button
+    @IBAction func updateButton(_ sender: Any) {
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        _ = navigationController?.popViewController(animated: true)
+        
     }
-    */
+    
+    //-------------------------------------------------------------------------------------------------
+    // MARK: - Navigation
+    
+    let segueShowTreatmentID = "showTreatmentSegue"
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == segueShowTreatmentID {
+            DateHelper.setDateFormatter()
+            let showActivityViewController = segue.destination as! TreatmentTableViewController
+            showActivityViewController.itemSection0[0] = treatment.name
+            showActivityViewController.itemSection0[1] = String(treatment.quantity)
+            showActivityViewController.dailyDoses = treatment.dailyDoses
+            showActivityViewController.endDate = treatment.endDate
+        }
+    }
+
 
 }

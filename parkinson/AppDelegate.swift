@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var dateFormatter = DateFormatter()
     var drugsManager = DrugsManager()
+    var dt = DTOcoreDataQuantityHour()
     //var dtoTreatment = DAOcoreDataTreatment()
     
  
