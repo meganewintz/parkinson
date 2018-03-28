@@ -29,7 +29,7 @@ class AddTreatmentViewController: UIViewController {
     
     @IBAction func addTreatmentButton(_ sender: Any) {
         if self.treatmentController.checkDrugInfos() {
-            self.treatmentController.saveTreatment(withName: treatmentController.itemSection0[0], withQuantity: treatmentController.itemSection0[1], withDoses: treatmentController.dailyDoses, withEndDate: treatmentController.endDate!)
+            self.treatmentController.saveTreatment(withName: treatmentController.itemSection0[0], withQuantity: treatmentController.itemSection0[1], withDoses: treatmentController.dailyDoses, withEndDate: treatmentController.endDate)
             _ = navigationController?.popViewController(animated: true)
         }
     }

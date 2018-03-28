@@ -17,7 +17,7 @@ class TreatmentsTableViewController : NSObject, UITableViewDataSource, Treatment
     
     func setDateFormatter() {
         dateFormatter.dateStyle = .medium
-        dateFormatter.timeStyle = .none
+        dateFormatter.timeStyle = .short
         dateFormatter.locale    = Locale(identifier: "FR-fr")    }
     
     init(tableView: UITableView, treatments: TreatmentSet) {
@@ -115,8 +115,8 @@ class TreatmentsTableViewController : NSObject, UITableViewDataSource, Treatment
     @discardableResult
     private func displayCell(cell: UITableViewCell, atIndexPath indexPath: IndexPath) -> UITableViewCell{
         cell.textLabel?.text = treatments[indexPath.row].name + " " + String(treatments[indexPath.row].quantity)
-        cell.detailTextLabel?.text = String(treatments[indexPath.row].quantity)
-   //     let dateNextTreat = treatments[indexPath.row].dateNextTreatment()
+        //cell.detailTextLabel?.text = String(treatments[indexPath.row].quantity)
+        let dateNextTreat = treatments[indexPath.row].dateNextTreatment()
 //        if dateNextTreat != nil {
 //            cell.detailTextLabel?.text = dateFormatter.string(from: dateNextTreat!)
 //        }

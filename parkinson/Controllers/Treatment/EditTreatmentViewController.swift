@@ -11,7 +11,7 @@ import UIKit
 class EditTreatmentViewController: UIViewController {
 
     var treatment: Treatment!
-    @IBOutlet weak var editTreatmentButton: UIButton!
+
 
     var treatmentController : TreatmentTableViewController!
     
@@ -30,8 +30,8 @@ class EditTreatmentViewController: UIViewController {
     }
     
     // Action when we click on the update button
-    @IBAction func updateButton(_ sender: Any) {
-
+    @IBAction func updateButton(_ sender: UIButton) {
+        treatmentController.updateTreatment()
         _ = navigationController?.popViewController(animated: true)
         
     }

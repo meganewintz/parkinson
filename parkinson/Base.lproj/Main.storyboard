@@ -517,7 +517,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="490"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="treatmentCell" textLabel="51O-hB-J2y" detailTextLabel="Ps0-Z0-fkY" style="IBUITableViewCellStyleSubtitle" id="tNK-5S-xKn">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="treatmentCell" textLabel="51O-hB-J2y" style="IBUITableViewCellStyleDefault" id="tNK-5S-xKn">
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tNK-5S-xKn" id="l6r-oc-53z">
@@ -525,16 +525,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="51O-hB-J2y">
-                                                    <rect key="frame" x="15" y="12.5" width="55.5" height="36"/>
+                                                    <rect key="frame" x="15" y="0.0" width="325" height="99.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ps0-Z0-fkY">
-                                                    <rect key="frame" x="15" y="53" width="83" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -600,6 +593,9 @@
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                         <state key="normal" title="Mettre à jour"/>
+                                        <connections>
+                                            <action selector="updateButton:" destination="7fY-EP-93e" eventType="touchUpInside" id="05k-aq-DXH"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -618,9 +614,6 @@
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="editTreatmentButton" destination="YVw-7V-KKV" id="0Bv-BO-mYA"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NO3-is-Kue" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -97,7 +97,28 @@ class DAOcoreDataTreatment: DAOtreatmentProtocol {
     }
     
     func updateTreatment(patient : Patient, old: Treatment, new: Treatment) -> Bool {
-        return false
+        
+        guard let old = getTreatmentData(withDrugName: old.name) else {
+            return false
+        }
+        let quantity = dtoDrugQuantityData.getDrugQuantity(quantity: new.quantity)
+        old.quantity = quantity
+        let daily = dtoQuantityHourData.getQuantityHourDatas(dailyDoses: new.dailyDoses)
+        let oldQuantityHours = getQuantityHour(patient: patient, treatment: old)
+        old.removeFromQuantityhours(oldQuantityHours)
+        //add dailyDoses
+        for freq in new.dailyDoses {
+            var quantityHourData: QuantityHourData?
+            quantityHourData = QuantityHourData(context: context)
+            quantityHourData!.quantity = Int16(freq.quantity)
+            quantityHourData!.hour = freq.dailyPeriod
+            old.addToQuantityhours(quantityHourData!)
+
+        }
+        old.endDate = new.endDate
+        self.save()
+        return true
+        
     }
     
     func removeTreatment(patient : Patient, treatment: Treatment) -> Bool {
@@ -198,5 +219,19 @@ class DAOcoreDataTreatment: DAOtreatmentProtocol {
         }
         return dailydoses
     }
+
+    func getQuantityHour(patient: Patient, treatment: TreatmentData) -> NSSet{
+        var dailydoses  : [DailyDose] = []
+        var dosesData   = treatment.quantityhours!.allObjects // array [Any]
+        var doseData   : QuantityHourData
+        
+        if dosesData.count > 0 {
+            for i in 0...dosesData.count-1{
+                doseData = dosesData[i] as! QuantityHourData //cast any to QuantityHourData
+                dailydoses.append(DailyDose(dailyPeriod: doseData.hour!, quantity: Int(doseData.quantity)))
+            }
+        }
+        return NSSet(array: dosesData)
+        }
 }
 

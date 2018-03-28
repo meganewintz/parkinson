@@ -28,7 +28,7 @@ class TreatmentTableViewController: UITableViewController {
     let sections = ["Médicament", "Fréquence", "Date de fin"]
     var itemSection0 = ["Nom", "Quantité"]
     var dailyDoses : [DailyDose] = []
-    var endDate : Date?
+    var endDate : Date = Date()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -129,19 +129,15 @@ class TreatmentTableViewController: UITableViewController {
         } else {
             if self.datePickerIndexPath != nil && self.datePickerIndexPath!.row == indexPath.row {
                 datePickerCell = tableView.dequeueReusableCell(withIdentifier: "datePickerCell") as! DatePickerTreatmentTableViewCell
-                if self.endDate != nil {
-                datePickerCell.datePicker.setDate(endDate!, animated: true)
-                }
+                    datePickerCell.datePicker.setDate(endDate, animated: true)
+                
                 return datePickerCell
             }
             else {
                 let dateCell = tableView.dequeueReusableCell(withIdentifier: "dateCell")!
-                if self.endDate != nil {
-                    dateCell.textLabel?.text = dateFormatter.string(from: endDate!)
-                }
-                else {
-                    dateCell.textLabel?.text = ""
-                }
+                
+                    dateCell.textLabel?.text = dateFormatter.string(from: endDate)
+
                 return dateCell
             }
         }
@@ -243,6 +239,7 @@ class TreatmentTableViewController: UITableViewController {
             doseCell.quantityLabel.text = String(Int(sender.value))
             doseCell.comprLabel.text = "comprimés"
         }
+        dailyDoses[indexPathStepper.row].quantity = Int(sender.value)
     }
     @IBAction func addDoseButton(_ sender: UIButton) {
         let point = tableView.convert(CGPoint.zero, from: sender)
@@ -273,42 +270,6 @@ class TreatmentTableViewController: UITableViewController {
         let dateCell = tableView.cellForRow(at: parentIndexPath)
         dateCell?.textLabel?.text = dateFormatter.string(from: sender.date)
     }
-    
-    
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     
     // MARK: - Navigation
@@ -373,6 +334,15 @@ class TreatmentTableViewController: UITableViewController {
     func saveTreatment(withName name: String, withQuantity quantity: String, withDoses doses: [DailyDose], withEndDate endDate: Date) {
         let treatment = Treatment(name: name, quantity: Float(quantity)!, dailyDoses: doses, endDate: endDate)
         self.treatments.addTreatment(treatment: treatment)
+    }
+    
+    func updateTreatment() {
+        let newTreatment = Treatment(name: self.itemSection0[0], quantity: Float(self.itemSection0[1])!, dailyDoses: self.dailyDoses, endDate: self.endDate)
+        guard let oldTreatment = treatments.getTreatment(drugName: self.itemSection0[0]) else {
+            return
+        }
+        self.treatments.updateTreatment(old: oldTreatment, new: newTreatment)
+        
     }
     
     func deleteDoses(withIndex indexPath: IndexPath) {

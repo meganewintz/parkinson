@@ -203,6 +203,18 @@ class TreatmentSet: Sequence {
     }
     
     
+    /// <#Description#>
+    ///
+    /// - Parameter name: <#name description#>
+    /// - Returns: <#return value description#>
+    func getTreatment(drugName name: String) -> Treatment?{
+        guard let treatment = self.pset.first(where: {$0.name==name}) else {
+            return nil
+        }
+        return treatment
+    }
+    
+    
     /// addDelegate
     ///
     /// add a delegate to this model
