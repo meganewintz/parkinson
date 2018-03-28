@@ -104,7 +104,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 scheduleActivity(nextActivity)
             }
         } else if notifiers[indexPath.row].userData is [Treatment] {
-            
+            scheduleTreatment(treatmentSet.nextTreatments())
         }
         
         notifiers.remove(at: indexPath.row)
@@ -127,7 +127,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 scheduleActivity(nextActivity)
             }
         } else if notifiers[indexPath.row].userData is [Treatment] {
-            
+            scheduleTreatment(treatmentSet.nextTreatments())
         }
     }
     
@@ -147,7 +147,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 scheduleActivity(nextActivity)
             }
         } else if notifiers[indexPath.row].userData is [Treatment] {
-            
+            scheduleTreatment(treatmentSet.nextTreatments())
         }
     }
     
