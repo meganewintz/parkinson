@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "parkinson/CoreData/DTOcoreDataQuantityHour.swift"
-            timestampString = "543894705.093599"
+            filePath = "parkinson/CoreData/DAOcoreDataTreatment.swift"
+            timestampString = "543897150.634824"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
-            landmarkName = "search(quantity:hour:)"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "getTreatments(patient:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

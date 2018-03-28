@@ -589,7 +589,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
-                                    <segue destination="SGj-q1-vPD" kind="embed" id="0IN-Yd-phg"/>
+                                    <segue destination="SGj-q1-vPD" kind="embed" identifier="showTreatmentSegue" id="0IN-Yd-phg"/>
                                 </connections>
                             </containerView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ays-py-rEa">
