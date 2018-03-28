@@ -55,7 +55,7 @@ class DTOcoreDataDrugQuantity {
     /// - Parameter quantity
     /// - Returns: DrugQuantity with the quantity enter in paramter
     func getDrugQuantity(quantity: Float) -> DrugQuantityData? {
-        self.request.predicate = NSPredicate(format: "quantity == %@", quantity)
+        //self.request.predicate = NSPredicate(format: "quantity == %@", quantity)
         do{
             let result = try CoreDataManager.context.fetch(request) as [DrugQuantityData]
             if result.count != 0 { return result[0] }
