@@ -20,11 +20,18 @@ class Factory {
         
     }
     
-    static func initiateActivities() {
+    static func initiateSets() {
         let patient = Factory.sharedData.patient
-        let dao = DAOcoreDataActivity()
-        if let activities = dao.getActivities(patient: patient) {
+        // initialize Activities
+        let daoActivity = DAOcoreDataActivity()
+        if let activities = daoActivity.getActivities(patient: patient) {
             patient.activitySet.initialize(activities: activities)
+        }
+        
+        //initialize Treatments
+        let daoTreatment = DAOcoreDataTreatment()
+        if let treatments = daoTreatment.getTreatments(patient: patient) {
+            patient.treatmentSet.initialize(treatments: treatments)
         }
     }
 }

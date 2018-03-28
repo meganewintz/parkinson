@@ -60,6 +60,29 @@ class DrugsManager {
         return drugs
     }
     
+    func getDrugsName() -> [String]? {
+        guard let drugs = self.dto.getAllDrugsName() else {
+            return nil
+        }
+        return drugs
+    }
+    
+    /// Get the quantities correspondinf to a drug, in String
+    ///
+    /// - Parameter name: the name of the drug
+    /// - Returns: [String] containing the quantities in String for the drug, nil if there isn't quantity
+    func getQuantitiesDrugInString(ofDrug name: String) -> [String]? {
+        
+        guard let quantitiesFoat = self.dto.getQuantities(drug: name) else {
+            return nil
+        }
+        var quantitiesString: [String] = []
+        for quantity in quantitiesFoat {
+            quantitiesString.append(String(quantity))
+        }
+        return quantitiesString
+    }
+    
     func addDrugs() {
         let drug1 = Drug(name: "MODOPAR", quantities: [62.5,125,250])
         let drug2 = Drug(name: "MODOPAR LP", quantity: 125)

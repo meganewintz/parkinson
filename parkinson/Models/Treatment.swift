@@ -10,12 +10,11 @@ import Foundation
 
 class Treatment	 {
     
-    public var name : String
-    public var quantity : Float
-    public var doses : DoseSet
-    public var endDate : Date
-
-    private var dailyDoses : [DailyDose]
+    public var name       : String
+    public var quantity   : Float
+    public var doses      : DoseSet
+    public var endDate    : Date
+    public var dailyDoses : [DailyDose]
     
     /// init
     ///
@@ -26,12 +25,12 @@ class Treatment	 {
     ///   - description:  `String`
     ///   - type : String
     ///   - frequency : String
-    internal init(name: String, quantity: Float, hours: [Date], endDate: Date){
-        self.name = name
-        self.quantity = quantity
-        self.doses = DoseSet()
+    internal init(name: String, quantity: Float, dailyDoses: [DailyDose], endDate: Date){
+        self.name       = name
+        self.quantity   = quantity
+        self.doses      = DoseSet()
         self.dailyDoses = [DailyDose]()
-        self.endDate = endDate
+        self.endDate    = endDate
     }
     
 
@@ -51,8 +50,10 @@ class Treatment	 {
     ///
     /// - Returns : 'Date?' the date of the next dose programed
     public func dateNextTreatment() -> Date? {
+        
         let dose = nextDailyDose()
         let nextDate = Calendar.current.nextDate(after: Date(), matching: DateComponents(hour : dose.hour, minute : dose.minute), matchingPolicy: .nextTime)
+        
         if nextDate! > endDate {
             return nil
         } else {
@@ -138,8 +139,8 @@ class Treatment	 {
     private func nextDailyDose() -> DailyDose {
         guard dailyDoses.count > 0 else { fatalError("No daily dose for the treatment") }
         let currentDate = Date()
-        let hour = Calendar.current.component(.hour, from: currentDate)
-        let minute = Calendar.current.component(.minute, from: currentDate)
+        let hour        = Calendar.current.component(.hour, from: currentDate)
+        let minute      = Calendar.current.component(.minute, from: currentDate)
         
         var nextDose = dailyDoses.filter({ $0.hour > hour || ($0.hour == hour && $0.minute > minute) }).min(by : { $0.hour < $1.hour || ($0.hour == $1.hour && $0.minute < $1.minute) })
         if nextDose == nil {

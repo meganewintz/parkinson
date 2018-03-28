@@ -10,9 +10,9 @@ import UIKit
 
 class ActivityViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate{
 
-    var tableViewController: FrequenceActivityTableViewController!
-    let activities      = Factory.sharedData.patient.activitySet
-    var activity: Activity?
+    var tableViewController  : FrequenceActivityTableViewController!
+    let activities           = Factory.sharedData.patient.activitySet
+    var activity             : Activity?
 
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var descrTextView: UITextView!
@@ -139,7 +139,6 @@ class ActivityViewController: UIViewController, UITextFieldDelegate, UITextViewD
     }
 
     func checkPeriodicity() -> Bool {
-        //delegate?.updateActivityFrenquencies(frequencies: frequencies)
         var frequencies = tableViewController.frequencies
         var i = 0
         while i < frequencies.count && !frequencies[i].enable {

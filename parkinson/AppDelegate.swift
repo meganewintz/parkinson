@@ -16,65 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var dateFormatter = DateFormatter()
     var drugsManager = DrugsManager()
+    var dtoTreatment = DAOcoreDataTreatment()
     
-    func displayFreq() {
-        self.dateFormatter.dateFormat = "HH:mm"
-        let dto = DTOcoreDataFrequency()
-        guard let activities = dto.fetchAll() else {print("rien")
-            return
-        }
-        for a in activities {
-            let h = a.hour!
-            let hour = dateFormatter.string(from: h)
-            print (a.day!, "-", hour, "-")
-        }
-    }
-    
-    func displayActivities() {
-        let dao = DAOcoreDataActivity()
-        guard let activities = dao.getActivities(patient : Factory.sharedData.patient) else {
-            return
-        }
-        for a in activities {
-            print (a.name, a.description)
-        }
-    }
-    func removeActivity() {
-        let context = CoreDataManager.context
-        // Creates a request
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
-        // Creates new batch delete request with a specific request
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: request)
-        
-        // Asks to return the objectIDs deleted
-        deleteRequest.resultType = .resultTypeObjectIDs
-        
-        do {
-            // Executes batch
-            _ = try context.execute(deleteRequest) as? NSBatchDeleteResult
-            
-        } catch {
-            fatalError("Failed to execute request: \(error)")
-        }
-    }
-    func removeFreq() {
-        let context = CoreDataManager.context
-        // Creates a request for entity `Dog`
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "FrequencyData")
-        // Creates new batch delete request with a specific request
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: request)
-        
-        // Asks to return the objectIDs deleted
-        deleteRequest.resultType = .resultTypeObjectIDs
-        
-        do {
-            // Executes batch
-            _ = try context.execute(deleteRequest) as? NSBatchDeleteResult
-            
-        } catch {
-            fatalError("Failed to execute request: \(error)")
-        }
-    }
+ 
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -83,9 +27,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //displayActivities()
         //displayFreq()
         //drugsManager.dto.removeAllDrugs()
-        //drugsManager.addDrugs()
-        drugsManager.displayDrugs()
-        Factory.initiateActivities()
+        drugsManager.addDrugs()
+        //drugsManager.displayDrugs()
+        //dtoTreatment.removeAllTreatments()
+        Factory.initiateSets()
         return true
     }
     
