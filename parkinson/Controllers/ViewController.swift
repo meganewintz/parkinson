@@ -8,10 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ActivitySetDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ActivitySetDelegate, TreatmentSetDelegate {
 
     var notifiers = [Notifier]()
     let activitySet = Factory.sharedData.patient.activitySet
+    let treatmentSet = Factory.sharedData.patient.treatmentSet
     var activityNotifier : Notifier?
     var treatmentNotifier : Notifier?
     
@@ -25,6 +26,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if let activity = activitySet.nextActivity() {
             scheduleActivity(activity)
         }
+        
+        treatmentSet.addDelegate(delegate: self)
+        let treatments = treatmentSet.nextTreatments()
+        scheduleTreatment(treatments)
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,13 +43,32 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     
-    /// creates scheduled event for each activity
-    /// - Warning : this must be called only one time, after loading the app
+    /// creates scheduled event for next activity
+    /// call it again to reschedule
     func scheduleActivity(_ activity : Activity){
         activityNotifier?.cancelNotification()
         activityNotifier = Notifier(title: activity.name, shortTopic: "Cliquez pour plus d'informations", fullBody: activity.description, activity)
         activityNotifier!.displayOn(date: activity.dateNextPractice()!, controller: self)
         print("Next activity scheduled : " + activity.name + " at " + String(Calendar.current.component(.hour, from: activity.dateNextPractice()!)) + "h" + String(Calendar.current.component(.minute, from: activity.dateNextPractice()!)))
+    }
+    
+    /// same for treatments
+    /// many treatments may occur at the same time
+    func scheduleTreatment(_ treatments : [Treatment]){
+        if treatments.count > 0 {
+            treatmentNotifier?.cancelNotification()
+            var topic = treatments[0].name
+            var body = "Vous devez prendre : " + String(treatments[0].quantity) + " comprimés de " + treatments[0].name
+            if treatments.count >= 2 {
+                for i in 1..<treatments.count {
+                    topic += ", " + treatments[i].name
+                    body += ", " + String(treatments[i].quantity) + " comprimés de " + treatments[i].name
+                }
+            }
+            treatmentNotifier = Notifier(title : "C'est l'heure de vos médicaments !", shortTopic: topic, fullBody: body, treatments as AnyObject)
+            treatmentNotifier!.displayOn(date: treatments[0].dateNextTreatment()!, controller: self)
+            print("Next treatments scheduled : " + topic + " at " + String(Calendar.current.component(.hour, from: treatments[0].dateNextTreatment()!)) + "h" + String(Calendar.current.component(.minute, from: treatments[0].dateNextTreatment()!)))
+        }
     }
 
     // MARK: - Table View
@@ -157,6 +181,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func errorDataBaseWrite() {
         
+    }
+    
+    func treatmentAdded(at: Int) {
+        scheduleTreatment(treatmentSet.nextTreatments())
+    }
+    
+    func treatmentUpdated(at: Int) {
+        scheduleTreatment(treatmentSet.nextTreatments())
+    }
+    
+    func treatmentRemoved(at: Int) {
+        scheduleTreatment(treatmentSet.nextTreatments())
     }
     
 }
