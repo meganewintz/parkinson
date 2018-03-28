@@ -16,8 +16,8 @@ class Notifier {
     var shortTopic : String
     var fullBody : String
     var userData : AnyObject?
-    var timer : Timer?
-    var notifReq : UNNotificationRequest?
+    private var timer : Timer?
+    private var notifReq : UNNotificationRequest?
     
     
     /// initialize a notification with a text and a content
@@ -34,16 +34,16 @@ class Notifier {
     }
     
     
+    deinit {
+        cancelNotification()
+    }
+    
+    
     /// display the notification at the indicated date
     /// - Parameter date : the date of the notification and the event cell popup
     /// - Parameter controller : the controller responsible of displaying the event cell
     func displayOn(date : Date, controller : ViewController){
-        
-        // Remove pending requests
-        if notifReq != nil {
-            UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [notifReq!.identifier])
-        }        
-        
+        cancelNotification()
         let notification = UNMutableNotificationContent()
         notification.title = title
         notification.body = shortTopic
@@ -51,7 +51,16 @@ class Notifier {
         notifReq = UNNotificationRequest(identifier: UUID().uuidString, content: notification, trigger: trigger)
         UNUserNotificationCenter.current().add(notifReq!, withCompletionHandler: nil)
         
-        timer = Timer(fireAt: Calendar.current.date(byAdding: DateComponents(minute : 1), to: Date())!, interval: 0, target: controller, selector: (#selector(controller.addEvent)), userInfo: self, repeats: false)
+        timer = Timer(fireAt: date, interval: 0, target: controller, selector: (#selector(controller.addEvent)), userInfo: self, repeats: false)
         RunLoop.main.add(timer!, forMode: RunLoopMode.commonModes)
+    }
+    
+    
+    /// cancel the notification
+    func cancelNotification(){
+        // Remove pending requests
+        if notifReq != nil {
+            UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [notifReq!.identifier])
+        }
     }
 }

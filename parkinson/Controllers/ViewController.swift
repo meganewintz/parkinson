@@ -8,10 +8,13 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ActivitySetDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ActivitySetDelegate, TreatmentSetDelegate {
 
     var notifiers = [Notifier]()
     let activitySet = Factory.sharedData.patient.activitySet
+    let treatmentSet = Factory.sharedData.patient.treatmentSet
+    var activityNotifier : Notifier?
+    var treatmentNotifier : Notifier?
     
     @IBOutlet weak var eventsTableView: UITableView!
     
@@ -23,6 +26,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if let activity = activitySet.nextActivity() {
             scheduleActivity(activity)
         }
+        
+        treatmentSet.addDelegate(delegate: self)
+        let treatments = treatmentSet.nextTreatments()
+        scheduleTreatment(treatments)
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,11 +43,32 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     
-    /// creates scheduled event for each activity
-    /// - Warning : this must be called only one time, after loading the app
+    /// creates scheduled event for next activity
+    /// call it again to reschedule
     func scheduleActivity(_ activity : Activity){
-        let notifier = Notifier(title: activity.name, shortTopic: "Cliquer pour plus d'informations", fullBody: activity.description, activity)
-        notifier.displayOn(date: activity.dateNextPractice()!, controller: self)
+        activityNotifier?.cancelNotification()
+        activityNotifier = Notifier(title: activity.name, shortTopic: "Cliquez pour plus d'informations", fullBody: activity.description, activity)
+        activityNotifier!.displayOn(date: activity.dateNextPractice()!, controller: self)
+        print("Next activity scheduled : " + activity.name + " at " + String(Calendar.current.component(.hour, from: activity.dateNextPractice()!)) + "h" + String(Calendar.current.component(.minute, from: activity.dateNextPractice()!)))
+    }
+    
+    /// same for treatments
+    /// many treatments may occur at the same time
+    func scheduleTreatment(_ treatments : [Treatment]){
+        if treatments.count > 0 {
+            treatmentNotifier?.cancelNotification()
+            var topic = treatments[0].name
+            var body = "Vous devez prendre : " + String(treatments[0].quantity) + " comprimés de " + treatments[0].name
+            if treatments.count >= 2 {
+                for i in 1..<treatments.count {
+                    topic += ", " + treatments[i].name
+                    body += ", " + String(treatments[i].quantity) + " comprimés de " + treatments[i].name
+                }
+            }
+            treatmentNotifier = Notifier(title : "C'est l'heure de vos médicaments !", shortTopic: topic, fullBody: body, treatments as AnyObject)
+            treatmentNotifier!.displayOn(date: treatments[0].dateNextTreatment()!, controller: self)
+            print("Next treatments scheduled : " + topic + " at " + String(Calendar.current.component(.hour, from: treatments[0].dateNextTreatment()!)) + "h" + String(Calendar.current.component(.minute, from: treatments[0].dateNextTreatment()!)))
+        }
     }
 
     // MARK: - Table View
@@ -67,6 +95,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         guard let indexPath = eventsTableView.indexPathForRow(at: point) else {
             fatalError("can't find point in tableView") }
         
+        guard indexPath.row < notifiers.count else { return }
+        
         if notifiers[indexPath.row].userData is Activity {
             let activity = notifiers[indexPath.row].userData as! Activity
             activity.practiceValidated()
@@ -88,6 +118,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         notifiers.remove(at: indexPath.row)
         eventsTableView.reloadData()
         
+        guard indexPath.row < notifiers.count else { return }
+        
         if notifiers[indexPath.row].userData is Activity {
             let activity = notifiers[indexPath.row].userData as! Activity
             activity.practiceDelayed()
@@ -106,6 +138,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         notifiers.remove(at: indexPath.row)
         eventsTableView.reloadData()
         
+        guard indexPath.row < notifiers.count else { return }
+        
         if notifiers[indexPath.row].userData is Activity {
             let activity = notifiers[indexPath.row].userData as! Activity
             activity.practiceCancelled()
@@ -119,18 +153,22 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // MARK: - ActivitySetDelegate
     
-    func activityAdded(at: Int) {
-        let activity = Factory.sharedData.patient.activitySet[at]
-        let notifier = Notifier(title : "Nouvelle activité : " + activity.name, shortTopic : "Consultez l'app pour plus d'informations", fullBody : activity.description, activity)
-        notifier.displayOn(date: Calendar.current.date(byAdding: DateComponents(minute : 1), to: Date())!, controller : self)
+    func activityAdded(at index: Int) {
+        if let activity = activitySet.nextActivity() {
+            scheduleActivity(activity)
+        }
     }
     
-    func activityUpdated(at: Int) {
-        
+    func activityUpdated(at index: Int) {
+        if let activity = activitySet.nextActivity() {
+            scheduleActivity(activity)
+        }
     }
     
-    func activityRemoved(at: Int) {
-        
+    func activityRemoved(at index: Int) {
+        if let activity = activitySet.nextActivity() {
+            scheduleActivity(activity)
+        }
     }
     
     func activityAlreadyExist() {
@@ -143,6 +181,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func errorDataBaseWrite() {
         
+    }
+    
+    func treatmentAdded(at: Int) {
+        scheduleTreatment(treatmentSet.nextTreatments())
+    }
+    
+    func treatmentUpdated(at: Int) {
+        scheduleTreatment(treatmentSet.nextTreatments())
+    }
+    
+    func treatmentRemoved(at: Int) {
+        scheduleTreatment(treatmentSet.nextTreatments())
     }
     
 }

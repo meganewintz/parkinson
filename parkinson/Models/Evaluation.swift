@@ -28,11 +28,13 @@ class Evaluation {
 ///   - appointment: `Appointment` first name of `Person`
 ///   - morningHour:  `Date` reveille of the 'Patient'
 ///   - eveningHour: `Date` bedtime of the 'Patient'
-    internal init(appointment : Appointment, morningHour : Date, eveningHour : Date) {
+///   - frequency : the time interval in hour between each query
+    private init(appointment : Appointment, morningHour : Date, eveningHour : Date, frequency : Int) {
         self.appointment = appointment
         self.morningHour = morningHour
         self.eveningHour = eveningHour
         states = [State]()
+        createStates(frequency: frequency)
     }
 
 
@@ -42,7 +44,19 @@ class Evaluation {
 ///
 /// - Parameters:
 ///   - frequency: `Int` the frequency that the state need to be evaluate
-/// - Returns : 'Evaluation' with all his 'State' initializate
+    private func createStates(frequency : Int) {
+        let morning = Calendar.current.component(.hour, from: morningHour)
+        let evening = Calendar.current.component(.hour, from: eveningHour)
+        let count = (evening - morning + 1) * 5
+        var date = beginDate
+        for _ : Int in 0..<count {
+            states.append(State(date : date))
+            date = Calendar.current.date(byAdding: DateComponents(hour : 1), to: date)!
+            if Calendar.current.component(.hour, from: date) > evening {
+                date = Calendar.current.nextDate(after: date, matching: DateComponents(hour : morning), matchingPolicy: .nextTime)!
+            }
+        }
+    }
 
 
 /// count
@@ -60,6 +74,10 @@ class Evaluation {
 /// give the beggining date of the evaluation
 ///
 /// - Returns : 'Date' the beggining date of the evaluation
+    var beginDate : Date {
+        let morning = Calendar.current.component(.hour, from: morningHour)
+        return Calendar.current.date(bySettingHour: morning, minute: 0, second: 0, of: Calendar.current.date(byAdding: DateComponents(day : -5), to: appointment.date)!)!
+    }
 
 
 /// getStatesEvaluated
@@ -68,6 +86,9 @@ class Evaluation {
 ///
 ///
 /// - Returns : 'Set?' set of 'State' evaluated
+    func getEvaluatedStates() -> [State] {
+        return states.filter({ $0.state != nil })
+    }
 
 
 /// makeIterator
@@ -84,6 +105,30 @@ class Evaluation {
 /// - Parameters:
 ///   - index: `Int`
 /// - Returns : 'State' the state correspondind to the index
-
+    func getState(at index : Int) -> State {
+        guard index>0 && index<states.count else { fatalError("Index out of range in states") }
+        return states[index]
+    }
+    
+    
+    /// indicates if the evaluation is active or not
+    var isActive : Bool {
+        return Date() > beginDate && Date() < appointment.date
+    }
+    
+    
+    /// set the state to the current State element (the last where state is not indicated)
+    func setState(state : TypeOfState) -> Evaluation {
+        if let element = states.filter({ $0.state == nil }).min(by: { $0.date < $1.date }){
+            element.state = state
+        }
+        return self
+    }
+    
+    
+    /// - Returns : the date of the next state query if it exists
+    var dateNextQuery : Date? {
+        return states.filter({ $0.state != nil }).min(by: { $0.date < $1.date })?.date
+    }
 }
 
