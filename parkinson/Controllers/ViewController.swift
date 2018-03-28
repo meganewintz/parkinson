@@ -12,6 +12,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     var notifiers = [Notifier]()
     let activitySet = Factory.sharedData.patient.activitySet
+    var activityNotifier : Notifier?
+    var treatmentNotifier : Notifier?
     
     @IBOutlet weak var eventsTableView: UITableView!
     
@@ -39,8 +41,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     /// creates scheduled event for each activity
     /// - Warning : this must be called only one time, after loading the app
     func scheduleActivity(_ activity : Activity){
-        let notifier = Notifier(title: activity.name, shortTopic: "Cliquer pour plus d'informations", fullBody: activity.description, activity)
-        notifier.displayOn(date: activity.dateNextPractice()!, controller: self)
+        activityNotifier?.cancelNotification()
+        activityNotifier = Notifier(title: activity.name, shortTopic: "Cliquez pour plus d'informations", fullBody: activity.description, activity)
+        activityNotifier!.displayOn(date: activity.dateNextPractice()!, controller: self)
+        print("Next activity scheduled : " + activity.name + " at " + String(Calendar.current.component(.hour, from: activity.dateNextPractice()!)) + "h" + String(Calendar.current.component(.minute, from: activity.dateNextPractice()!)))
     }
 
     // MARK: - Table View
@@ -67,6 +71,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         guard let indexPath = eventsTableView.indexPathForRow(at: point) else {
             fatalError("can't find point in tableView") }
         
+        guard indexPath.row < notifiers.count else { return }
+        
         if notifiers[indexPath.row].userData is Activity {
             let activity = notifiers[indexPath.row].userData as! Activity
             activity.practiceValidated()
@@ -88,6 +94,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         notifiers.remove(at: indexPath.row)
         eventsTableView.reloadData()
         
+        guard indexPath.row < notifiers.count else { return }
+        
         if notifiers[indexPath.row].userData is Activity {
             let activity = notifiers[indexPath.row].userData as! Activity
             activity.practiceDelayed()
@@ -106,6 +114,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         notifiers.remove(at: indexPath.row)
         eventsTableView.reloadData()
         
+        guard indexPath.row < notifiers.count else { return }
+        
         if notifiers[indexPath.row].userData is Activity {
             let activity = notifiers[indexPath.row].userData as! Activity
             activity.practiceCancelled()
@@ -119,18 +129,22 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // MARK: - ActivitySetDelegate
     
-    func activityAdded(at: Int) {
-        let activity = Factory.sharedData.patient.activitySet[at]
-        let notifier = Notifier(title : "Nouvelle activité : " + activity.name, shortTopic : "Consultez l'app pour plus d'informations", fullBody : activity.description, activity)
-        notifier.displayOn(date: Calendar.current.date(byAdding: DateComponents(minute : 1), to: Date())!, controller : self)
+    func activityAdded(at index: Int) {
+        if let activity = activitySet.nextActivity() {
+            scheduleActivity(activity)
+        }
     }
     
-    func activityUpdated(at: Int) {
-        
+    func activityUpdated(at index: Int) {
+        if let activity = activitySet.nextActivity() {
+            scheduleActivity(activity)
+        }
     }
     
-    func activityRemoved(at: Int) {
-        
+    func activityRemoved(at index: Int) {
+        if let activity = activitySet.nextActivity() {
+            scheduleActivity(activity)
+        }
     }
     
     func activityAlreadyExist() {
