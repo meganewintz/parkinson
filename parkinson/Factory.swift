@@ -34,6 +34,7 @@ class Factory {
         
         //initialize Treatments
         let daoTreatment = DAOcoreDataTreatment()
+        //daoTreatment.removeAllTreatments()
         if let treatments = daoTreatment.getTreatments(patient: patient) {
             patient.treatmentSet.initialize(treatments: treatments)
         }

@@ -9,29 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "parkinson/CoreData/DAOcoreDataTreatment.swift"
-            timestampString = "543890305.0777349"
+            filePath = "parkinson/CoreData/DTOcoreDataQuantityHour.swift"
+            timestampString = "543894705.093599"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "addTreatment(patient:treatment:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "parkinson/Controllers/Treatment/TreatmentTableViewController.swift"
-            timestampString = "543890020.934338"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "375"
-            endingLineNumber = "375"
-            landmarkName = "saveTreatment(withName:withQuantity:withDoses:withEndDate:)"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "search(quantity:hour:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

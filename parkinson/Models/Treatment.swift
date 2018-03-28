@@ -29,7 +29,7 @@ class Treatment	 {
         self.name       = name
         self.quantity   = quantity
         self.doses      = DoseSet()
-        self.dailyDoses = [DailyDose]()
+        self.dailyDoses = dailyDoses
         self.endDate    = endDate
     }
     

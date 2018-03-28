@@ -13,14 +13,15 @@ import UIKit
 
 class DAOcoreDataActivity : DAOactivityProtocol{
     
-    let context = CoreDataManager.context
-    let request : NSFetchRequest<ActivityData> = ActivityData.fetchRequest()
+    let context          = CoreDataManager.context
+    let request          : NSFetchRequest<ActivityData> = ActivityData.fetchRequest()
     let dtoFrequencyData = DTOcoreDataFrequency()
     
     func save(){
         CoreDataManager.save()
     }
-    // MARK: - Methods from DAOactivityProtocol
+    
+    // MARK: - Methods from DAOactivityProtocol -
     
     /// get the activities from the CoreData
     ///
@@ -32,7 +33,6 @@ class DAOcoreDataActivity : DAOactivityProtocol{
         
         // Add predicate, to get activities relative to the patient
         //self.request.predicate = NSPredicate(format: "patient.firstname == %@", patient.firstname)
-        
         let activities: [ActivityData]
         var activitySet = [Activity]()
         
@@ -84,13 +84,6 @@ class DAOcoreDataActivity : DAOactivityProtocol{
     /// - Returns: ActivityData or nil if no activity correspond to the name
     func getActivityData(name: String) -> ActivityData? {
         
-        // Get context
-        let context = CoreDataManager.context
-        
-        // Create Fetch Request
-        let request: NSFetchRequest<ActivityData> = ActivityData.fetchRequest()
-        //let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
-        
         // Add Predicate
         let predicate = NSPredicate(format: "name == %@", name)
         request.predicate = predicate
@@ -112,6 +105,7 @@ class DAOcoreDataActivity : DAOactivityProtocol{
     /// Add an activity in the CoreData
     ///
     /// - Parameter patient
+    
     /// - Parameter activity
     /// - Returns: true, if the activity was successfully add in the CoreData - false, if here is already an activity with the same name for this patient
     func addActivity(patient : Patient, activity: Activity) -> Bool {
@@ -146,8 +140,6 @@ class DAOcoreDataActivity : DAOactivityProtocol{
             return true
         }
     }
-    
-    
     /// Remove the activity from ActivityData and return true if the remove success
     ///
     /// - Parameter activity: activity to remove
@@ -168,7 +160,7 @@ class DAOcoreDataActivity : DAOactivityProtocol{
         return true
     }
     
-    // Voir si on ne fait pas un update par attribut ?
+    // A completer
     func updateActivity(patient : Patient, oldActivity: Activity, newActivity: Activity) -> Bool {
         
         let oldActivityData = getActivityData(name: oldActivity.name)
@@ -191,9 +183,10 @@ class DAOcoreDataActivity : DAOactivityProtocol{
     /// - Returns: [Event] corresponding to the frequencies relative to the patient's activity
     func getFrequencies(patient: Patient, activity: ActivityData) -> [Event] {
         
-        var frequencies = [Event]()
-        var freqData = activity.frequencies!.allObjects // array [Any]
-        var freq: FrequencyData
+        var frequencies :  [Event] = []
+        var freqData    = activity.frequencies!.allObjects // array [Any]
+        var freq        : FrequencyData
+        
         if freqData.count > 0 {
             for i in 0...freqData.count-1{
                 freq = freqData[i] as! FrequencyData //cast any to FrequencyData
@@ -204,4 +197,3 @@ class DAOcoreDataActivity : DAOactivityProtocol{
     }
     
 }
-

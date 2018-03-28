@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var dateFormatter = DateFormatter()
     var drugsManager = DrugsManager()
-    var dtoTreatment = DAOcoreDataTreatment()
+    //var dtoTreatment = DAOcoreDataTreatment()
     
  
     
@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //displayActivities()
         //displayFreq()
         //drugsManager.dto.removeAllDrugs()
-        drugsManager.addDrugs()
+        //drugsManager.addDrugs()
         //drugsManager.displayDrugs()
         //dtoTreatment.removeAllTreatments()
         Factory.initiateSets()
