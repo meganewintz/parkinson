@@ -38,6 +38,19 @@ class DTOcoreDataQuantityHour {
             return nil
         }
     }
+    
+    func getQuantityHourDatas(dailyDoses: [DailyDose]) -> NSSet {
+        let quantityHoursNSSet: NSSet = []
+        var quantityHourData: QuantityHourData
+        for d in dailyDoses {
+            quantityHourData = QuantityHourData(context: CoreDataManager.context)
+            quantityHourData.quantity = Int16(d.quantity)
+            quantityHourData.hour = d.dailyPeriod
+            save()
+            quantityHoursNSSet.adding(quantityHourData)
+        }
+        return quantityHoursNSSet
+    }
 }
 
 
